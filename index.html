@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <style>
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+                background-color: aquamarine;
+            }
+
+            h1 {
+                font-size: 10em;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>🚧</h1>
+
+        <script>
+            const urlParams = new URLSearchParams(window.location.search);
+            const colorParam = urlParams.get('color');
+            
+            let backgroundColor;
+            
+            if (colorParam) {
+                backgroundColor = colorParam;
+            } else {
+                const r = Math.floor(Math.random() * 256);
+                const g = Math.floor(Math.random() * 256);
+                const b = Math.floor(Math.random() * 256);
+                backgroundColor = `rgb(${r}, ${g}, ${b})`;
+            }
+            
+            document.body.style.backgroundColor = backgroundColor;
+
+            const titleParam = urlParams.get('title');
+            if (titleParam) {
+                document.querySelector('h1').textContent = titleParam;
+            }
+        </script>
+    </body>
+</html>
