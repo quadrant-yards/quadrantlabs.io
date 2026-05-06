@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Open in Overcast</title>
+        <link rel="icon" type="image/svg+xml" href="/public/mark.svg">
+        <style>
+            * { box-sizing: border-box; }
+
+            body {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                min-height: 100vh;
+                margin: 0;
+                padding: 3rem 1.5rem;
+                background-color: aquamarine;
+                font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            }
+
+            img.logo {
+                width: 60px;
+                margin-bottom: 2.5rem;
+            }
+
+            h2 {
+                margin: 0 0 0.75rem;
+                font-size: 1.5rem;
+                font-weight: 700;
+                text-align: center;
+            }
+
+            .bookmarklet-section {
+                text-align: center;
+                max-width: 500px;
+                width: 100%;
+            }
+
+            .bookmarklet-section p {
+                font-size: 0.875rem;
+                margin: 0.3rem 0;
+                color: rgba(0,0,0,0.6);
+                line-height: 1.5;
+            }
+
+            a.bookmarklet-btn {
+                display: inline-block;
+                margin: 0.75rem 0 0.5rem;
+                padding: 0.6rem 1.5rem;
+                background: rgba(255,255,255,0.75);
+                border: 2px solid rgba(0,0,0,0.2);
+                border-radius: 8px;
+                text-decoration: none;
+                color: #222;
+                font-weight: 600;
+                font-size: 0.95rem;
+                cursor: grab;
+            }
+
+            a.bookmarklet-btn:hover {
+                background: rgba(255,255,255,0.95);
+                border-color: rgba(0,0,0,0.35);
+            }
+        </style>
+    </head>
+    <body>
+        <img src="/public/mark.svg" class="logo" alt="Quadrant Labs">
+
+        <div class="bookmarklet-section">
+            <h2>Open in Overcast</h2>
+            <p>Drag this to your bookmarks bar. When you're on any Apple Podcasts page, click it — Overcast opens directly to that show.</p>
+            <a class="bookmarklet-btn" href="javascript:(function(){var u=location.href,e=/[?&]i=\d+/.test(u);if(/podcasts\.apple\.com.*\/id\d+/.test(u)){var m=document.documentElement.innerHTML.match(/&quot;feedUrl&quot;:&quot;([^&]+)&quot;/)||document.documentElement.innerHTML.match(/"feedUrl":"([^"]+)"/);if(m){if(e)alert('Opening the show — navigate to the episode once in Overcast.');location.href='https://overcast.fm/?action=add&url='+encodeURIComponent(m[1])}else alert('Could not find feed URL on this page.')}else alert('Open this on an Apple Podcasts page.')})();">→ Open in Overcast</a>
+            <p><em>On iPhone:</em> tap the link above, then Share → Add Bookmark. Use it by opening your bookmarks while on a podcast page in Safari.</p>
+        </div>
+
+    </body>
+</html>
