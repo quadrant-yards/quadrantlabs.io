@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open in Overcast</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:            #0C0C0C;
+      --surface:       #141414;
+      --surface-2:     #1A1A1A;
+      --border:        #252525;
+      --text:          #E2DDD8;
+      --muted:         #585858;
+      --accent:        #FC7E0F;
+      --accent-dim:    rgba(252, 126, 15, 0.10);
+      --accent-border: rgba(252, 126, 15, 0.28);
+      --error:         #FF5252;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+      padding: 52px 24px 96px;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* ── Header ── */
+    header { margin-bottom: 52px; }
+
+    .wordmark {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: clamp(2.25rem, 9vw, 3.5rem);
+      line-height: 0.92;
+      letter-spacing: -0.025em;
+    }
+
+    .wordmark .dim { color: var(--muted); }
+    .wordmark .bright { color: var(--accent); }
+
+    .tagline {
+      margin-top: 14px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ── Section ── */
+    section { margin-bottom: 44px; }
+
+    .section-label {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── Card ── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px;
+    }
+
+    /* ── Shortcut section ── */
+    .shortcut-intro {
+      font-size: 0.9375rem;
+      margin-bottom: 20px;
+      color: var(--text);
+    }
+
+    .flow-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      padding: 3px 9px;
+      border-radius: 20px;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    .flow-pill .arr { color: var(--accent); }
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: #000;
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      padding: 10px 18px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: opacity 0.15s, transform 0.1s;
+      margin-bottom: 20px;
+    }
+
+    .download-btn:hover { opacity: 0.88; }
+    .download-btn:active { transform: scale(0.98); }
+
+    details { border-top: 1px solid var(--border); padding-top: 16px; }
+
+    summary {
+      cursor: pointer;
+      font-size: 0.875rem;
+      color: var(--muted);
+      user-select: none;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      transition: color 0.15s;
+    }
+
+    summary:hover { color: var(--text); }
+    summary::marker, summary::-webkit-details-marker { display: none; }
+
+    .chevron {
+      display: inline-block;
+      font-size: 0.65rem;
+      transition: transform 0.2s;
+      opacity: 0.5;
+    }
+
+    details[open] .chevron { transform: rotate(90deg); }
+
+    .steps {
+      margin-top: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      list-style: none;
+    }
+
+    .step {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      font-size: 0.875rem;
+    }
+
+    .step-num {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      font-size: 0.65rem;
+      font-family: 'JetBrains Mono', monospace;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+    }
+
+    .step code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      padding: 1px 5px;
+      border-radius: 3px;
+      color: var(--accent);
+    }
+
+    /* ── Converter ── */
+    .url-input {
+      width: 100%;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      padding: 11px 14px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.15s;
+      margin-bottom: 10px;
+    }
+
+    .url-input::placeholder { color: var(--muted); }
+    .url-input:focus { border-color: var(--accent-border); }
+
+    .btn-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .platform-btn {
+      padding: 11px 10px;
+      border-radius: 7px;
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      color: var(--text);
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.875rem;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s, color 0.15s, transform 0.1s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .platform-btn:hover {
+      border-color: var(--accent-border);
+      background: var(--accent-dim);
+      color: var(--accent);
+    }
+
+    .platform-btn:active { transform: scale(0.98); }
+
+    /* ── Result ── */
+    .result {
+      margin-top: 14px;
+      display: none;
+    }
+
+    .result.visible {
+      display: block;
+      animation: fadeSlide 0.18s ease;
+    }
+
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(-5px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .result-url-wrap {
+      position: relative;
+      background: var(--surface-2);
+      border: 1px solid var(--accent-border);
+      border-radius: 7px;
+      padding: 11px 14px;
+      padding-right: 72px;
+      margin-bottom: 10px;
+    }
+
+    .result-url {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--accent);
+      text-decoration: none;
+      word-break: break-all;
+      display: block;
+    }
+
+    .result-url:hover { text-decoration: underline; }
+
+    .copied-badge {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      font-size: 0.62rem;
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      background: var(--accent-dim);
+      border: 1px solid var(--accent-border);
+      padding: 2px 7px;
+      border-radius: 3px;
+      opacity: 0;
+      transition: opacity 0.25s;
+      pointer-events: none;
+    }
+
+    .copied-badge.show { opacity: 1; }
+
+    .countdown-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .countdown-text {
+      font-size: 0.8rem;
+      color: var(--muted);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .countdown-text em {
+      font-style: normal;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--text);
+    }
+
+    .progress-track {
+      flex: 1;
+      height: 2px;
+      background: var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--accent);
+      width: 100%;
+      transform-origin: left;
+    }
+
+    @keyframes drain {
+      from { transform: scaleX(1); }
+      to   { transform: scaleX(0); }
+    }
+
+    .cancel-btn {
+      flex-shrink: 0;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      padding: 4px 11px;
+      font-size: 0.78rem;
+      color: var(--muted);
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .cancel-btn:hover { border-color: var(--text); color: var(--text); }
+
+    /* ── Error ── */
+    .error-msg {
+      margin-top: 10px;
+      font-size: 0.8rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--error);
+      display: none;
+    }
+
+    .error-msg.visible { display: block; }
+
+    /* ── Footer ── */
+    footer {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    footer a { color: var(--accent); text-underline-offset: 3px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <div class="wordmark">
+        <span class="dim">OPEN IN</span><br>
+        <span class="bright">OVERCAST</span>
+      </div>
+      <p class="tagline">Apple Podcasts → Overcast</p>
+    </header>
+
+    <!-- ── iOS Shortcut ── -->
+    <section>
+      <div class="section-label">iOS Shortcut</div>
+      <div class="card">
+        <p class="shortcut-intro">
+          Add to your share sheet — then tap
+          <span class="flow-pill">Share <span class="arr">→</span> Open in Overcast</span>
+          from any Apple Podcasts link to jump straight into Overcast.
+        </p>
+
+        <a href="open-in-overcast.shortcut" download class="download-btn">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7 1.5v8M4.5 7l2.5 2.5L9.5 7M2 12h10"/>
+          </svg>
+          Download Shortcut
+        </a>
+
+        <details>
+          <summary>
+            <span class="chevron">▶</span>
+            Manual setup
+          </summary>
+          <ol class="steps">
+            <li class="step"><span class="step-num">1</span><span>Open <strong>Shortcuts</strong> and tap <code>+</code> to create a new shortcut</span></li>
+            <li class="step"><span class="step-num">2</span><span>Add <code>Split Text</code> — input: Shortcut Input, separator: <code>/id</code></span></li>
+            <li class="step"><span class="step-num">3</span><span>Add <code>Get Item from List</code> — Last Item</span></li>
+            <li class="step"><span class="step-num">4</span><span>Add <code>Split Text</code> — input: Item from List, separator: <code>?</code></span></li>
+            <li class="step"><span class="step-num">5</span><span>Add <code>Get Item from List</code> — First Item</span></li>
+            <li class="step"><span class="step-num">6</span><span>Add <code>URL</code> — value: <code>https://overcast.fm/+itunes</code>[Item from List]</span></li>
+            <li class="step"><span class="step-num">7</span><span>Add <code>Open URLs</code></span></li>
+            <li class="step"><span class="step-num">8</span><span>Tap the shortcut name → enable <strong>Show in Share Sheet</strong> → set input type to <strong>URLs</strong></span></li>
+          </ol>
+        </details>
+      </div>
+    </section>
+
+    <!-- ── Link Converter ── -->
+    <section>
+      <div class="section-label">Link Converter</div>
+      <div class="card">
+        <input
+          type="url"
+          id="url-input"
+          class="url-input"
+          placeholder="https://podcasts.apple.com/us/podcast/…"
+          spellcheck="false"
+          autocomplete="off"
+        />
+        <div class="btn-row">
+          <button class="platform-btn" id="btn-ios">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="currentColor">
+              <path d="M6.5 0a6.5 6.5 0 100 13A6.5 6.5 0 006.5 0zm0 1.2a5.3 5.3 0 110 10.6A5.3 5.3 0 016.5 1.2zM5 4v5l4.5-2.5L5 4z"/>
+            </svg>
+            iOS
+          </button>
+          <button class="platform-btn" id="btn-web">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round">
+              <circle cx="6.5" cy="6.5" r="5.5"/>
+              <path d="M6.5 1C5.1 3 4.7 4.8 4.7 6.5s.4 3.5 1.8 5.5M6.5 1C7.9 3 8.3 4.8 8.3 6.5S7.9 10 6.5 12M1 6.5h11"/>
+            </svg>
+            Web
+          </button>
+        </div>
+
+        <div class="result" id="result">
+          <div class="result-url-wrap">
+            <a id="result-url" class="result-url" href="#" target="_blank" rel="noopener"></a>
+            <span class="copied-badge" id="copied-badge">COPIED</span>
+          </div>
+          <div class="countdown-row">
+            <span class="countdown-text">Redirecting in <em id="countdown-num">3</em>s</span>
+            <div class="progress-track">
+              <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <button class="cancel-btn" id="cancel-btn">Cancel</button>
+          </div>
+        </div>
+
+        <div class="error-msg" id="error-msg"></div>
+      </div>
+    </section>
+
+    <footer>
+      Converts Apple Podcasts links using the <a href="https://overcast.fm/podcasterinfo" target="_blank" rel="noopener">Overcast URL scheme</a>. Nothing is sent anywhere.
+    </footer>
+
+  </div>
+
+  <script src="index.js"></script>
+  <script>
+    const urlInput    = document.getElementById('url-input');
+    const resultEl    = document.getElementById('result');
+    const resultUrl   = document.getElementById('result-url');
+    const copiedBadge = document.getElementById('copied-badge');
+    const countdownEl = document.getElementById('countdown-num');
+    const progressEl  = document.getElementById('progress-fill');
+    const cancelBtn   = document.getElementById('cancel-btn');
+    const errorEl     = document.getElementById('error-msg');
+
+    let redirectTimer    = null;
+    let countdownInterval = null;
+
+    function clearCountdown() {
+      clearTimeout(redirectTimer);
+      clearInterval(countdownInterval);
+      progressEl.style.animation = 'none';
+      void progressEl.offsetWidth; // flush
+    }
+
+    function startRedirect(rawURL, platform) {
+      clearCountdown();
+      errorEl.classList.remove('visible');
+
+      let overcastURL;
+      try {
+        overcastURL = toOvercastURL(rawURL, platform);
+      } catch (e) {
+        errorEl.textContent = e.message;
+        errorEl.classList.add('visible');
+        resultEl.classList.remove('visible');
+        return;
+      }
+
+      resultUrl.href        = overcastURL;
+      resultUrl.textContent = overcastURL;
+
+      navigator.clipboard.writeText(overcastURL).then(() => {
+        copiedBadge.classList.add('show');
+        setTimeout(() => copiedBadge.classList.remove('show'), 2000);
+      }).catch(() => {});
+
+      // Replay drain animation
+      progressEl.style.animation = 'none';
+      void progressEl.offsetWidth;
+      progressEl.style.animation = 'drain 3s linear forwards';
+
+      resultEl.classList.add('visible');
+
+      // Countdown text
+      let secs = 3;
+      countdownEl.textContent = secs;
+      countdownInterval = setInterval(() => {
+        secs--;
+        countdownEl.textContent = Math.max(secs, 0);
+      }, 1000);
+
+      redirectTimer = setTimeout(() => {
+        clearInterval(countdownInterval);
+        window.location.href = overcastURL;
+      }, 3000);
+    }
+
+    cancelBtn.addEventListener('click', () => {
+      clearCountdown();
+      resultEl.classList.remove('visible');
+    });
+
+    document.getElementById('btn-ios').addEventListener('click', () => {
+      startRedirect(urlInput.value.trim(), 'ios');
+    });
+
+    document.getElementById('btn-web').addEventListener('click', () => {
+      startRedirect(urlInput.value.trim(), 'web');
+    });
+
+    // Auto-run if ?url= is present
+    const prefilled = new URLSearchParams(window.location.search).get('url');
+    if (prefilled) {
+      urlInput.value = prefilled;
+      const platform = /iPhone|iPad|iPod/.test(navigator.userAgent) ? 'ios' : 'web';
+      startRedirect(prefilled, platform);
+    }
+  </script>
+</body>
+</html>
