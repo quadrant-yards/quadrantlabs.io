@@ -46,6 +46,8 @@
       font-size: clamp(2.25rem, 9vw, 3.5rem);
       line-height: 0.92;
       letter-spacing: -0.025em;
+      cursor: pointer;
+      user-select: none;
     }
 
     .wordmark .dim { color: var(--muted); }
@@ -304,60 +306,6 @@
 
     .copied-badge.show { opacity: 1; }
 
-    .countdown-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .countdown-text {
-      font-size: 0.8rem;
-      color: var(--muted);
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-
-    .countdown-text em {
-      font-style: normal;
-      font-family: 'JetBrains Mono', monospace;
-      color: var(--text);
-    }
-
-    .progress-track {
-      flex: 1;
-      height: 2px;
-      background: var(--border);
-      border-radius: 2px;
-      overflow: hidden;
-    }
-
-    .progress-fill {
-      height: 100%;
-      background: var(--accent);
-      width: 100%;
-      transform-origin: left;
-    }
-
-    @keyframes drain {
-      from { transform: scaleX(1); }
-      to   { transform: scaleX(0); }
-    }
-
-    .cancel-btn {
-      flex-shrink: 0;
-      background: none;
-      border: 1px solid var(--border);
-      border-radius: 5px;
-      padding: 4px 11px;
-      font-size: 0.78rem;
-      color: var(--muted);
-      cursor: pointer;
-      font-family: 'DM Sans', sans-serif;
-      transition: border-color 0.15s, color 0.15s;
-    }
-
-    .cancel-btn:hover { border-color: var(--text); color: var(--text); }
-
     /* ── Error ── */
     .error-msg {
       margin-top: 10px;
@@ -425,13 +373,6 @@
             <a id="result-url" class="result-url" href="#" target="_blank" rel="noopener"></a>
             <span class="copied-badge" id="copied-badge">COPIED</span>
           </div>
-          <div class="countdown-row">
-            <span class="countdown-text">Redirecting in <em id="countdown-num">3</em>s</span>
-            <div class="progress-track">
-              <div class="progress-fill" id="progress-fill"></div>
-            </div>
-            <button class="cancel-btn" id="cancel-btn">Cancel</button>
-          </div>
         </div>
 
         <div class="error-msg" id="error-msg"></div>
@@ -486,23 +427,9 @@
     const resultEl    = document.getElementById('result');
     const resultUrl   = document.getElementById('result-url');
     const copiedBadge = document.getElementById('copied-badge');
-    const countdownEl = document.getElementById('countdown-num');
-    const progressEl  = document.getElementById('progress-fill');
-    const cancelBtn   = document.getElementById('cancel-btn');
     const errorEl     = document.getElementById('error-msg');
 
-    let redirectTimer    = null;
-    let countdownInterval = null;
-
-    function clearCountdown() {
-      clearTimeout(redirectTimer);
-      clearInterval(countdownInterval);
-      progressEl.style.animation = 'none';
-      void progressEl.offsetWidth; // flush
-    }
-
-    function startRedirect(rawURL, platform) {
-      clearCountdown();
+    function convert(rawURL, platform) {
       errorEl.classList.remove('visible');
 
       let overcastURL;
@@ -518,43 +445,31 @@
       resultUrl.href        = overcastURL;
       resultUrl.textContent = overcastURL;
 
+      const shareURL = new URL(window.location.href);
+      shareURL.searchParams.set('url', rawURL);
+      history.replaceState(null, '', shareURL.toString());
+
       navigator.clipboard.writeText(overcastURL).then(() => {
         copiedBadge.classList.add('show');
         setTimeout(() => copiedBadge.classList.remove('show'), 2000);
       }).catch(() => {});
 
-      // Replay drain animation
-      progressEl.style.animation = 'none';
-      void progressEl.offsetWidth;
-      progressEl.style.animation = 'drain 3s linear forwards';
-
       resultEl.classList.add('visible');
-
-      // Countdown text
-      let secs = 3;
-      countdownEl.textContent = secs;
-      countdownInterval = setInterval(() => {
-        secs--;
-        countdownEl.textContent = Math.max(secs, 0);
-      }, 1000);
-
-      redirectTimer = setTimeout(() => {
-        clearInterval(countdownInterval);
-        window.location.href = overcastURL;
-      }, 3000);
     }
 
-    cancelBtn.addEventListener('click', () => {
-      clearCountdown();
+    document.querySelector('.wordmark').addEventListener('click', () => {
+      history.replaceState(null, '', window.location.pathname);
+      urlInput.value = '';
       resultEl.classList.remove('visible');
+      errorEl.classList.remove('visible');
     });
 
     document.getElementById('btn-ios').addEventListener('click', () => {
-      startRedirect(urlInput.value.trim(), 'ios');
+      convert(urlInput.value.trim(), 'ios');
     });
 
     document.getElementById('btn-web').addEventListener('click', () => {
-      startRedirect(urlInput.value.trim(), 'web');
+      convert(urlInput.value.trim(), 'web');
     });
 
     // Auto-run if ?url= is present
@@ -562,7 +477,7 @@
     if (prefilled) {
       urlInput.value = prefilled;
       const platform = /iPhone|iPad|iPod/.test(navigator.userAgent) ? 'ios' : 'web';
-      startRedirect(prefilled, platform);
+      convert(prefilled, platform);
     }
   </script>
 </body>
