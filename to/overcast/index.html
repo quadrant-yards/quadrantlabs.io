@@ -392,42 +392,6 @@
       <p class="tagline">Apple Podcasts → Overcast</p>
     </header>
 
-    <!-- ── iOS Shortcut ── -->
-    <section>
-      <div class="section-label">iOS Shortcut</div>
-      <div class="card">
-        <p class="shortcut-intro">
-          Add to your share sheet — then tap
-          <span class="flow-pill">Share <span class="arr">→</span> Open in Overcast</span>
-          from any Apple Podcasts link to jump straight into Overcast.
-        </p>
-
-        <a href="open-in-overcast.shortcut" download class="download-btn">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M7 1.5v8M4.5 7l2.5 2.5L9.5 7M2 12h10"/>
-          </svg>
-          Download Shortcut
-        </a>
-
-        <details>
-          <summary>
-            <span class="chevron">▶</span>
-            Manual setup
-          </summary>
-          <ol class="steps">
-            <li class="step"><span class="step-num">1</span><span>Open <strong>Shortcuts</strong> and tap <code>+</code> to create a new shortcut</span></li>
-            <li class="step"><span class="step-num">2</span><span>Add <code>Split Text</code> — input: Shortcut Input, separator: <code>/id</code></span></li>
-            <li class="step"><span class="step-num">3</span><span>Add <code>Get Item from List</code> — Last Item</span></li>
-            <li class="step"><span class="step-num">4</span><span>Add <code>Split Text</code> — input: Item from List, separator: <code>?</code></span></li>
-            <li class="step"><span class="step-num">5</span><span>Add <code>Get Item from List</code> — First Item</span></li>
-            <li class="step"><span class="step-num">6</span><span>Add <code>URL</code> — value: <code>https://overcast.fm/+itunes</code>[Item from List]</span></li>
-            <li class="step"><span class="step-num">7</span><span>Add <code>Open URLs</code></span></li>
-            <li class="step"><span class="step-num">8</span><span>Tap the shortcut name → enable <strong>Show in Share Sheet</strong> → set input type to <strong>URLs</strong></span></li>
-          </ol>
-        </details>
-      </div>
-    </section>
-
     <!-- ── Link Converter ── -->
     <section>
       <div class="section-label">Link Converter</div>
@@ -471,6 +435,42 @@
         </div>
 
         <div class="error-msg" id="error-msg"></div>
+      </div>
+    </section>
+
+    <!-- ── iOS Shortcut ── -->
+    <section>
+      <div class="section-label">iOS Shortcut</div>
+      <div class="card">
+        <p class="shortcut-intro">
+          Add to your share sheet — then tap
+          <span class="flow-pill">Share <span class="arr">→</span> Open in Overcast</span>
+          from any Apple Podcasts link to jump straight into Overcast.
+        </p>
+
+        <a href="open-in-overcast.shortcut" download class="download-btn">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7 1.5v8M4.5 7l2.5 2.5L9.5 7M2 12h10"/>
+          </svg>
+          Download Shortcut
+        </a>
+
+        <details>
+          <summary>
+            <span class="chevron">▶</span>
+            Manual setup
+          </summary>
+          <ol class="steps">
+            <li class="step"><span class="step-num">1</span><span>Open <strong>Shortcuts</strong> and tap <code>+</code> to create a new shortcut</span></li>
+            <li class="step"><span class="step-num">2</span><span>Add <code>Split Text</code> — input: Shortcut Input, separator: <code>/id</code></span></li>
+            <li class="step"><span class="step-num">3</span><span>Add <code>Get Item from List</code> — Last Item</span></li>
+            <li class="step"><span class="step-num">4</span><span>Add <code>Split Text</code> — input: Item from List, separator: <code>?</code></span></li>
+            <li class="step"><span class="step-num">5</span><span>Add <code>Get Item from List</code> — First Item</span></li>
+            <li class="step"><span class="step-num">6</span><span>Add <code>URL</code> — value: <code>https://overcast.fm/+itunes</code>[Item from List]</span></li>
+            <li class="step"><span class="step-num">7</span><span>Add <code>Open URLs</code></span></li>
+            <li class="step"><span class="step-num">8</span><span>Tap the shortcut name → enable <strong>Show in Share Sheet</strong> → set input type to <strong>URLs</strong></span></li>
+          </ol>
+        </details>
       </div>
     </section>
 
