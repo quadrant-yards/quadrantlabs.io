@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  Quadrant — Social Card / Open Graph Image
+  ──────────────────────────────────────────
+  To export:
+    1. Open this file in Chrome
+    2. Set browser window to exactly 1200 × 630 px
+       (DevTools → device toolbar → custom 1200 × 630)
+    3. Screenshot the page (⌘+Shift+4 or use DevTools capture)
+  Output: 1200×630px PNG — use as og:image, LinkedIn share image, etc.
+
+  Replace [YOUR TAGLINE] and [WEBSITE] before export.
+-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1200">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      width: 1200px;
+      height: 630px;
+      overflow: hidden;
+      background: #0E1F40;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Jost', 'Helvetica Neue', Helvetica, sans-serif;
+    }
+
+    .card {
+      width: 1200px;
+      height: 630px;
+      background: #0E1F40;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      position: relative;
+    }
+
+    /* Subtle rule lines in background for texture */
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .content {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+
+    .mark {
+      margin-bottom: 40px;
+    }
+
+    .wordmark {
+      font-size: 64px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      line-height: 1;
+      margin-bottom: 20px;
+      /* Nudge left to optically compensate for trailing letter-spacing */
+      margin-left: 0.2em;
+    }
+
+    .tagline {
+      font-size: 20px;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      line-height: 1;
+    }
+
+    .website {
+      position: absolute;
+      bottom: 48px;
+      right: 64px;
+      font-size: 16px;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.3);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="content">
+
+      <!-- Mark -->
+      <svg class="mark" width="120" height="104" viewBox="5 5 90 78" fill="none">
+        <path d="M 50,10 L 11,65.7 A 68,68 0 0,0 89,65.7 Z"
+              stroke="#FFFFFF" stroke-width="5" stroke-linejoin="miter" fill="none"/>
+        <line x1="50" y1="10" x2="50" y2="78"
+              stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/>
+      </svg>
+
+      <!-- Wordmark -->
+      <div class="wordmark">Quadrant</div>
+
+      <!-- Tagline — replace with your own -->
+      <div class="tagline">Fractional CTO</div>
+
+    </div>
+
+    <!-- Website -->
+    <div class="website">[WEBSITE]</div>
+  </div>
+</body>
+</html>

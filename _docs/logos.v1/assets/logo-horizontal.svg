@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 88" fill="none">
+  <!--
+    Quadrant — horizontal lockup, navy on transparent.
+    Wordmark font: Jost 400 (https://fonts.google.com/specimen/Jost)
+    Install Jost locally or embed for reliable rendering in design tools.
+  -->
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Jost:wght@400&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Mark: nested SVG, aspect ratio 90:78, displayed at 70px tall -->
+  <svg x="0" y="9" width="81" height="70" viewBox="5 5 90 78" fill="none">
+    <path d="M 50,10 L 11,65.7 A 68,68 0 0,0 89,65.7 Z"
+          stroke="#0E1F40" stroke-width="5" stroke-linejoin="miter" fill="none"/>
+    <line x1="50" y1="10" x2="50" y2="78"
+          stroke="#0E1F40" stroke-width="5" stroke-linecap="round"/>
+  </svg>
+
+  <!-- Wordmark -->
+  <text x="103" y="44"
+        dominant-baseline="central"
+        font-family="'Jost', 'Helvetica Neue', Helvetica, Arial, sans-serif"
+        font-weight="400"
+        font-size="32"
+        style="letter-spacing: 0.16em;"
+        fill="#0E1F40">QUADRANT</text>
+</svg>

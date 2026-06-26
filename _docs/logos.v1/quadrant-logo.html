@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quadrant — Logo System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:      #0E1F40;
+      --navy-mid:  #1B3260;
+      --cream:     #F4F1EB;
+      --brass:     #B8924A;
+      --text-dim:  #888;
+      --rule:      #E0DDD7;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--navy);
+      padding: 80px 60px;
+      max-width: 1100px;
+    }
+
+    /* ── Header ── */
+    .doc-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 80px;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 20px;
+    }
+    .doc-title {
+      font-family: 'Jost', sans-serif;
+      font-weight: 400;
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--navy);
+    }
+    .doc-date {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--text-dim);
+    }
+
+    /* ── Section ── */
+    .section { margin-bottom: 72px; }
+    .section-label {
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 24px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    /* ── Cells ── */
+    .cell-row {
+      display: flex;
+      gap: 2px;
+    }
+    .cell {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 64px 48px;
+      min-height: 220px;
+    }
+    .cell.on-white  { background: #fff; }
+    .cell.on-cream  { background: var(--cream); }
+    .cell.on-navy   { background: var(--navy); }
+
+    /* ── Logo lockup ── */
+    .lockup {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+    .wordmark {
+      font-family: 'Jost', sans-serif;
+      font-weight: 400;
+      font-size: 30px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      line-height: 1;
+      color: var(--navy);
+    }
+    .wordmark.light { color: #fff; }
+
+    /* ── Type exploration ── */
+    .type-row {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      padding: 48px;
+      background: #fff;
+    }
+    .type-option-label {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 10px;
+    }
+
+    /* ── Scale row ── */
+    .scale-row {
+      display: flex;
+      align-items: flex-end;
+      gap: 48px;
+      padding: 48px;
+      background: #fff;
+    }
+    .scale-item { text-align: center; }
+    .scale-label {
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      color: var(--text-dim);
+      margin-top: 10px;
+    }
+
+    /* ── Swatches ── */
+    .swatch-row {
+      display: flex;
+      gap: 16px;
+      padding: 48px;
+      background: #fff;
+    }
+    .swatch {
+      width: 80px;
+    }
+    .swatch-block {
+      width: 80px;
+      height: 80px;
+      border-radius: 3px;
+      margin-bottom: 10px;
+    }
+    .swatch-name {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 2px;
+    }
+    .swatch-hex {
+      font-size: 10px;
+      letter-spacing: 0.05em;
+      color: var(--text-dim);
+    }
+
+    /* ── Notes ── */
+    .notes {
+      padding: 40px 48px;
+      background: #fff;
+      max-width: 640px;
+    }
+    .notes p {
+      font-size: 13px;
+      line-height: 1.8;
+      color: #555;
+      margin-bottom: 14px;
+    }
+    .notes p:last-child { margin-bottom: 0; }
+    .notes strong { color: var(--navy); }
+  </style>
+</head>
+<body>
+
+  <div class="doc-header">
+    <div class="doc-title">Quadrant — Logo System</div>
+    <div class="doc-date">March 2026 · Draft 1</div>
+  </div>
+
+  <!-- ────────────────────────────────────────────
+       01 PRIMARY MARK
+  ──────────────────────────────────────────── -->
+  <div class="section">
+    <div class="section-label">01 — Primary Mark</div>
+    <div class="cell-row">
+      <div class="cell on-white">
+        <!-- MARK: fan sector, tip up, arc opens down, one center bisector line -->
+        <!-- Geometry: center/tip at (50,10), R=68, ±35° spread               -->
+        <!--   Outer L: (11, 65.7)  Outer R: (89, 65.7)  Bottom: (50, 78)    -->
+        <svg width="96" height="96" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 50,10 L 11,65.7 A 68,68 0 0,0 89,65.7 Z"
+                stroke="#0E1F40" stroke-width="5" stroke-linejoin="miter" fill="none"/>
+          <line x1="50" y1="10" x2="50" y2="78" stroke="#0E1F40" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="cell on-navy">
+        <svg width="96" height="96" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 50,10 L 11,65.7 A 68,68 0 0,0 89,65.7 Z"
+                stroke="#ffffff" stroke-width="5" stroke-linejoin="miter" fill="none"/>
+          <line x1="50" y1="10" x2="50" y2="78" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- ────────────────────────────────────────────
+       02 LOGO LOCKUP — HORIZONTAL
+  ──────────────────────────────────────────── -->
+  <div class="section">
+    <div class="section-label">02 — Horizontal Lockup</div>
+    <div class="cell-row">
+      <div class="cell on-white">
+        <div class="lockup">
+          <svg width="52" height="52" viewBox="0 0 100 100" fill="none">
+            <path d="M 50,10 L 11,65.7 A 68,68 0 0,0 89,65.7 Z"
+                  stroke="#0E1F40" stroke-width="5" stroke-linejoin="miter" fill="none"/>
+            <line x1="50" y1="10" x2="50" y2="78" stroke="#0E1F40" stroke-width="5" stroke-linecap="round"/>
+          </svg>
+          <div class="wordmark">Quadrant</div>
+        </div>
+      </div>
+      <div class="cell on-navy">
+        <div class="lockup">
+          <svg width="52" height="52" viewBox="0 0 100 100" fill="none">
+            <path d="M 50,10 L 11,65.7 A 68,68 0 0,0 89,65.7 Z"
+                  stroke="#ffffff" stroke-width="5" stroke-linejoin="miter" fill="none"/>
+            <line x1="50" y1="10" x2="50" y2="78" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+          </svg>
+          <div class="wordmark light">Quadrant</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ────────────────────────────────────────────
+       03 MARK VARIANTS — OUTLINE VS. FILLED
+  ──────────────────────────────────────────── -->
+  <div class="section">
+    <div class="section-label">03 — Mark Variants</div>
+    <div class="cell-row">
+      <!-- Outline -->
+      <div class="cell on-white" style="flex-direction: column; gap: 16px;">
+        <svg width="80" height="80" viewBox="0 0 100 100" fill="none">
+          <path d="M 50,10 L 11,65.7 A 68,68 0 0,0 89,65.7 Z"
+                stroke="#0E1F40" stroke-width="5" stroke-linejoin="miter" fill="none"/>
+          <line x1="50" y1="10" x2="50" y2="78" stroke="#0E1F40" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+        <div style="font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);">Outline — faithful to boat mark</div>
+      </div>
+      <!-- Filled + white divisions -->
+      <div class="cell on-white" style="flex-direction: column; gap: 16px;">
+        <svg width="80" height="80" viewBox="0 0 100 100" fill="none">
+          <path d="M 50,10 L 11,65.7 A 68,68 0 0,0 89,65.7 Z"
+                fill="#0E1F40" stroke="#0E1F40" stroke-width="2" stroke-linejoin="miter"/>
+          <line x1="50" y1="10" x2="50" y2="78" stroke="#fff" stroke-width="4.5" stroke-linecap="round"/>
+        </svg>
+        <div style="font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);">Filled — strong at small sizes</div>
+      </div>
+      <!-- Filled reversed -->
+      <div class="cell on-navy" style="flex-direction: column; gap: 16px;">
+        <svg width="80" height="80" viewBox="0 0 100 100" fill="none">
+          <path d="M 50,10 L 11,65.7 A 68,68 0 0,0 89,65.7 Z"
+                fill="#fff" stroke="#fff" stroke-width="2" stroke-linejoin="miter"/>
+          <line x1="50" y1="10" x2="50" y2="78" stroke="#0E1F40" stroke-width="4.5" stroke-linecap="round"/>
+        </svg>
+        <div style="font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.4);">Filled reversed</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ────────────────────────────────────────────
+       04 MARK AT SCALE
+  ──────────────────────────────────────────── -->
+  <div class="section">
+    <div class="section-label">04 — Mark at Scale</div>
+    <div class="scale-row">
+      <div class="scale-item">
+        <svg width="128" height="128" viewBox="0 0 100 100" fill="none">
+          <path d="M 50,10 L 11,65.7 A 68,68 0 0,0 89,65.7 Z"
+                stroke="#0E1F40" stroke-width="5" stroke-linejoin="miter" fill="none"/>
+          <line x1="50" y1="10" x2="50" y2="78" stroke="#0E1F40" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+        <div class="scale-label">128 · App icon</div>
+      </div>
+      <div class="scale-item">
+        <svg width="64" height="64" viewBox="0 0 100 100" fill="none">
+          <path d="M 50,10 L 11,65.7 A 68,68 0 0,0 89,65.7 Z"
+                stroke="#0E1F40" stroke-width="5" stroke-linejoin="miter" fill="none"/>
+          <line x1="50" y1="10" x2="50" y2="78" stroke="#0E1F40" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+        <div class="scale-label">64 · Email sig</div>
+      </div>
+      <div class="scale-item">
+        <svg width="32" height="32" viewBox="0 0 100 100" fill="none">
+          <path d="M 50,10 L 11,65.7 A 68,68 0 0,0 89,65.7 Z"
+                stroke="#0E1F40" stroke-width="5" stroke-linejoin="miter" fill="none"/>
+          <line x1="50" y1="10" x2="50" y2="78" stroke="#0E1F40" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+        <div class="scale-label">32 · Nav / tab</div>
+      </div>
+      <!-- Favicon: use filled for legibility -->
+      <div class="scale-item">
+        <svg width="16" height="16" viewBox="0 0 100 100" fill="none">
+          <path d="M 50,10 L 11,65.7 A 68,68 0 0,0 89,65.7 Z"
+                fill="#0E1F40" stroke="#0E1F40" stroke-width="3" stroke-linejoin="miter"/>
+          <line x1="50" y1="10" x2="50" y2="78" stroke="#fff" stroke-width="9" stroke-linecap="round"/>
+        </svg>
+        <div class="scale-label">16 · Favicon (filled)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ────────────────────────────────────────────
+       05 WORDMARK EXPLORATION
+  ──────────────────────────────────────────── -->
+  <div class="section">
+    <div class="section-label">05 — Wordmark Exploration</div>
+    <div class="type-row">
+      <div>
+        <div class="type-option-label">A — Jost 400, tracked caps · recommended</div>
+        <div style="font-family:'Jost',sans-serif;font-weight:400;font-size:40px;letter-spacing:0.16em;text-transform:uppercase;color:var(--navy);">Quadrant</div>
+      </div>
+      <div>
+        <div class="type-option-label">B — Jost 300 Light, tracked caps</div>
+        <div style="font-family:'Jost',sans-serif;font-weight:300;font-size:40px;letter-spacing:0.18em;text-transform:uppercase;color:var(--navy);">Quadrant</div>
+      </div>
+      <div>
+        <div class="type-option-label">C — Jost 400, title case, tighter</div>
+        <div style="font-family:'Jost',sans-serif;font-weight:400;font-size:40px;letter-spacing:0.06em;color:var(--navy);">Quadrant</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ────────────────────────────────────────────
+       06 COLOR
+  ──────────────────────────────────────────── -->
+  <div class="section">
+    <div class="section-label">06 — Color</div>
+    <div class="swatch-row">
+      <div class="swatch">
+        <div class="swatch-block" style="background:#0E1F40;"></div>
+        <div class="swatch-name">Deep Navy</div>
+        <div class="swatch-hex">#0E1F40</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-block" style="background:#F4F1EB;border:1px solid #E0DDD7;"></div>
+        <div class="swatch-name">Warm White</div>
+        <div class="swatch-hex">#F4F1EB</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-block" style="background:#ffffff;border:1px solid #E0DDD7;"></div>
+        <div class="swatch-name">White</div>
+        <div class="swatch-hex">#FFFFFF</div>
+      </div>
+      <div class="swatch" style="opacity:0.7;">
+        <div class="swatch-block" style="background:#B8924A;"></div>
+        <div class="swatch-name">Brass</div>
+        <div class="swatch-hex">#B8924A · optional</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ────────────────────────────────────────────
+       07 OPEN DECISIONS
+  ──────────────────────────────────────────── -->
+  <div class="section">
+    <div class="section-label">07 — Open Decisions</div>
+    <div class="notes">
+      <p><strong>Mark orientation.</strong> Shown pointing up — stable, compass-like. Alternative: 90° clockwise (pointing right) for directional energy. The boat version points toward the bow, which argues for "pointing right" in a Western reading layout.</p>
+      <p><strong>Outline vs. filled.</strong> Outline is faithful to the original and reads as more refined. Filled is more legible at small sizes and on screen. Recommendation: outline as primary, filled as the favicon/avatar variant only.</p>
+      <p><strong>Wordmark case.</strong> Tracked caps (Option A) reads more institutional and precise — right for the brief. Title case reads warmer. Given the sole-practitioner context, title case may ultimately feel less cold. Worth testing both in email signature context.</p>
+      <p><strong>Brass accent.</strong> Adds heritage and warmth, echoes naval/marine tradition. Optional — the two-color navy/white system is complete on its own. Brass could come in on the website as a hover state or rule color.</p>
+      <p><strong>Stroke weight of inner line.</strong> Currently equal to outer lines. Reducing the bisector to 60–70% weight would create subtle hierarchy (outer = structure, inner = detail). Small change, worth testing.</p>
+    </div>
+  </div>
+
+</body>
+</html>
