@@ -1,0 +1,273 @@
+<title>Quadrant in Chesapeake Watercolor</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+  :root {
+    --paper: #F5EFE2;
+    --surface: #FFFFFF;
+    --surface-alt: #FBF7EC;
+    --ink: #1C2420;
+    --muted: #706A57;
+    --accent: #2F5D62;
+    --accent-soft: #DCEAE7;
+    --border: #E3D9C2;
+    --shadow: 0 1px 2px rgba(28,36,32,0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #14181A;
+      --surface: #1C2222;
+      --surface-alt: #20201C;
+      --ink: #EAE4D4;
+      --muted: #9D9682;
+      --accent: #86C4C2;
+      --accent-soft: #223432;
+      --border: #33362F;
+      --shadow: 0 1px 2px rgba(0,0,0,0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #14181A;
+    --surface: #1C2222;
+    --surface-alt: #20201C;
+    --ink: #EAE4D4;
+    --muted: #9D9682;
+    --accent: #86C4C2;
+    --accent-soft: #223432;
+    --border: #33362F;
+    --shadow: 0 1px 2px rgba(0,0,0,0.4);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Work Sans', system-ui, sans-serif;
+    margin: 0;
+    padding: 56px 32px 72px;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; }
+
+  .eyebrow {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 14px;
+  }
+  h1 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-size: clamp(32px, 4.4vw, 50px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+    text-wrap: balance;
+    max-width: 16ch;
+  }
+  .intro {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--ink);
+    max-width: 62ch;
+    margin: 0 0 8px;
+  }
+  .meta {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 12.5px;
+    color: var(--muted);
+    margin: 18px 0 0;
+    line-height: 1.7;
+  }
+  .meta a { color: var(--muted); }
+
+  header {
+    padding-bottom: 40px;
+    margin-bottom: 44px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 36px 32px;
+  }
+  .hero {
+    max-width: 620px;
+    margin: 0 0 56px;
+  }
+  .hero .style-name { font-size: 26px; }
+  .hero .concept { font-size: 15.5px; max-width: 56ch; }
+
+  figure {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .plate {
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    padding: 14px;
+    box-shadow: var(--shadow);
+  }
+  .plate img {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: #fff; /* each illustration was drawn against its own literal ground color, kept white so its true palette shows in both themes */
+    border: 1px solid var(--border);
+  }
+
+  figcaption { padding: 16px 2px 0; }
+  .style-name {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    font-size: 21px;
+    margin: 0 0 6px;
+  }
+  .concept {
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: var(--ink);
+    opacity: 0.85;
+    margin: 0 0 12px;
+    max-width: 48ch;
+  }
+  .swatches {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+  .swatches span {
+    width: 18px;
+    height: 18px;
+    border: 1px solid var(--border);
+    display: inline-block;
+  }
+
+  footer {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 70ch;
+  }
+  footer a { color: var(--muted); }
+</style>
+
+<div class="wrap">
+  <header>
+    <p class="eyebrow">Illustration development — one direction, in progress</p>
+    <h1>Quadrant in Chesapeake Watercolor</h1>
+    <p class="intro">
+      <strong>Chesapeake Watercolor</strong> is the direction going forward. This pass rebuilds the
+      hull: the previous version had been flattened into a thin sliver with a self-intersecting
+      kink at the stern. It's redrawn now with proper freeboard and a smooth bow-to-stern taper,
+      a boot stripe sized to sit on the topsides rather than swallow the whole belly, and the keel
+      dipping into the water at a modest overlap &mdash; not floating clear of it, not vanishing into it.
+    </p>
+    <p class="meta">source photo &mdash; offcenterharbor.com, 26' Hartge Quadrant Pilothouse Sloop (1956)<br>drafted 2026&#8209;09&#8209;04, hull redrawn 2026&#8209;09&#8209;04</p>
+  </header>
+
+  <div class="hero">
+
+    <figure>
+      <div class="plate">
+        <img src="svg/style_watercolor.svg" width="900" height="620" alt="Illustration of the Hartge Quadrant sloop under sail at sunset on the Chesapeake Bay, in a watercolor style">
+      </div>
+      <figcaption>
+        <p class="style-name">Chesapeake Watercolor</p>
+        <p class="concept">Hull rebuilt with proper freeboard and a smooth taper at bow and stern. The pilothouse now overlaps down into the hull instead of perching exactly on the deck line, so it reads as built into the boat rather than floating on top of it.</p>
+        <div class="swatches">
+          <span style="background:#F2C875"></span>
+          <span style="background:#E38B7C"></span>
+          <span style="background:#3C5A72"></span>
+          <span style="background:#7A9BAE"></span>
+          <span style="background:#6B3B4D"></span>
+        </div>
+      </figcaption>
+    </figure>
+
+  </div>
+
+  <p class="eyebrow" style="margin-top:56px; padding-top:40px; border-top:1px solid var(--border);">Other directions explored</p>
+
+  <div class="grid">
+
+    <figure>
+      <div class="plate">
+        <img src="svg/style_playful_cartoon.svg" width="900" height="620" alt="Illustration of the Hartge Quadrant sloop in a playful flat cartoon style">
+      </div>
+      <figcaption>
+        <p class="style-name">Playful Flat Cartoon</p>
+        <p class="concept">Storybook-friendly, rounded and cheerful &mdash; puffed sails, a crab-pot buoy, sunny saturated color. Now sitting properly in the water, boot stripe mostly submerged.</p>
+        <div class="swatches">
+          <span style="background:#8FD3E8"></span>
+          <span style="background:#F4C64F"></span>
+          <span style="background:#F17A5D"></span>
+          <span style="background:#5B3350"></span>
+          <span style="background:#5C8A5A"></span>
+        </div>
+      </figcaption>
+    </figure>
+
+
+    <figure>
+      <div class="plate">
+        <img src="svg/style_retro_poster.svg" width="900" height="620" alt="Illustration of the Hartge Quadrant sloop in a retro travel poster style">
+      </div>
+      <figcaption>
+        <p class="style-name">Retro Travel Poster</p>
+        <p class="concept">Mid-century flat color with a dramatic banded sunset sky &mdash; bold, confident silhouette, minimal internal detail.</p>
+        <div class="swatches">
+          <span style="background:#1B4B4F"></span>
+          <span style="background:#D9713C"></span>
+          <span style="background:#F2E8D5"></span>
+          <span style="background:#C46A5E"></span>
+          <span style="background:#1A1A17"></span>
+        </div>
+      </figcaption>
+    </figure>
+
+    <figure>
+      <div class="plate">
+        <img src="svg/style_woodblock.svg" width="900" height="620" alt="Illustration of the Hartge Quadrant sloop in a nautical woodblock print style">
+      </div>
+      <figcaption>
+        <p class="style-name">Nautical Woodblock</p>
+        <p class="concept">Ink-carved linocut texture in the spirit of an antique whaling print &mdash; hatched sails, a Hokusai-claw wave, one rust-red accent.</p>
+        <div class="swatches">
+          <span style="background:#EDE3CE"></span>
+          <span style="background:#1D2B3A"></span>
+          <span style="background:#A13D2B"></span>
+        </div>
+      </figcaption>
+    </figure>
+
+    <figure>
+      <div class="plate">
+        <img src="svg/style_line_art.svg" width="900" height="620" alt="Illustration of the Hartge Quadrant sloop in a minimalist line art style">
+      </div>
+      <figcaption>
+        <p class="style-name">Minimalist Line Art</p>
+        <p class="concept">Single-weight continuous outline, huge negative space, one accent color reserved for the boot stripe. Reads as a mark as much as a scene.</p>
+        <div class="swatches">
+          <span style="background:#FAF8F4"></span>
+          <span style="background:#22201C"></span>
+          <span style="background:#1F3A5F"></span>
+        </div>
+      </figcaption>
+    </figure>
+
+
+  </div>
+
+  <footer>
+    Drafted as exploratory directions, not final artwork &mdash; all five were produced independently from the same brief, which is why Chesapeake Watercolor and the four alternates below stay directly comparable.
+    Boat reference: &#8220;Oyster,&#8221; Hartge Quadrant sloop hull&nbsp;#9 (built 1956, Hartge Yacht Yard, Galesville, MD); photographed for a 2024 listing at
+    offcenterharbor.com. Illustrations set on the Chesapeake rather than the photo's actual Pacific Northwest backdrop.
+  </footer>
+</div>

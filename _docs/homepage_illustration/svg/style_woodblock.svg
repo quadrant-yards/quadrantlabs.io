@@ -1,0 +1,236 @@
+<svg viewBox="0 0 900 620" xmlns="http://www.w3.org/2000/svg">
+  <!-- paper ground -->
+  <rect x="0" y="0" width="900" height="620" fill="#EDE3CE"/>
+
+  <!-- ================= SKY ================= -->
+  <g id="sun">
+    <circle cx="740" cy="95" r="46" fill="#A13D2B" stroke="#1D2B3A" stroke-width="4"/>
+    <line x1="740" y1="43" x2="740" y2="23" stroke="#1D2B3A" stroke-width="4"/>
+    <line x1="776.8" y1="58.2" x2="790.9" y2="44.1" stroke="#1D2B3A" stroke-width="4"/>
+    <line x1="792" y1="95" x2="812" y2="95" stroke="#1D2B3A" stroke-width="4"/>
+    <line x1="776.8" y1="131.8" x2="790.9" y2="145.9" stroke="#1D2B3A" stroke-width="4"/>
+    <line x1="740" y1="147" x2="740" y2="167" stroke="#1D2B3A" stroke-width="4"/>
+    <line x1="703.2" y1="131.8" x2="689.1" y2="145.9" stroke="#1D2B3A" stroke-width="4"/>
+    <line x1="688" y1="95" x2="668" y2="95" stroke="#1D2B3A" stroke-width="4"/>
+    <line x1="703.2" y1="58.2" x2="689.1" y2="44.1" stroke="#1D2B3A" stroke-width="4"/>
+  </g>
+
+  <!-- distant loblolly pine treeline -->
+  <g id="treeline" fill="#1D2B3A">
+    <polygon points="15,345 7,345 15,315 23,345"/>
+    <polygon points="55,345 47,345 55,303 63,345"/>
+    <polygon points="95,345 88,345 95,321 102,345"/>
+    <polygon points="135,345 127,345 135,299 143,345"/>
+    <polygon points="175,345 168,345 175,325 182,345"/>
+    <polygon points="215,345 207,345 215,309 223,345"/>
+    <polygon points="255,345 246,345 255,295 264,345"/>
+    <polygon points="295,345 288,345 295,317 302,345"/>
+    <polygon points="335,345 327,345 335,305 343,345"/>
+    <polygon points="375,345 369,345 375,327 381,345"/>
+    <polygon points="655,345 647,345 655,299 663,345"/>
+    <polygon points="700,345 692,345 700,313 708,345"/>
+    <polygon points="745,345 736,345 745,291 754,345"/>
+    <polygon points="790,345 783,345 790,317 797,345"/>
+    <polygon points="820,345 813,345 820,321 827,345"/>
+  </g>
+
+  <!-- lighthouse, far right shore -->
+  <g id="lighthouse">
+    <polygon points="846,345 856,345 852,296 850,296" fill="#EDE3CE" stroke="#1D2B3A" stroke-width="2.5"/>
+    <rect x="847" y="317" width="8" height="6" fill="#A13D2B"/>
+    <rect x="845" y="288" width="9" height="9" fill="#EDE3CE" stroke="#1D2B3A" stroke-width="2"/>
+    <polygon points="844,288 849.5,278 855,288" fill="#1D2B3A"/>
+  </g>
+
+  <!-- duck blind, far left shore -->
+  <g id="duckblind" stroke="#1D2B3A" fill="#1D2B3A">
+    <line x1="55" y1="345" x2="57" y2="335" stroke-width="1.5"/>
+    <line x1="66" y1="345" x2="64" y2="335" stroke-width="1.5"/>
+    <polygon points="52,335 69,335 65,320 56,320"/>
+    <polygon points="53,320 61,311 68,320"/>
+  </g>
+
+  <!-- marsh grass tufts along shoreline -->
+  <g id="marsh-left" stroke="#1D2B3A" stroke-width="1.5" fill="none">
+    <path d="M10,362 Q14,345 8,330"/>
+    <path d="M20,364 Q26,348 22,328"/>
+    <path d="M30,363 Q34,350 38,332"/>
+    <path d="M400,352 Q404,340 400,326"/>
+    <path d="M412,353 Q417,342 421,328"/>
+    <path d="M424,352 Q427,343 424,332"/>
+  </g>
+  <g id="marsh-right" stroke="#1D2B3A" stroke-width="1.5" fill="none">
+    <path d="M870,363 Q874,347 869,330"/>
+    <path d="M882,364 Q888,349 884,330"/>
+    <path d="M892,362 Q896,350 900,335"/>
+  </g>
+
+  <!-- horizon -->
+  <line x1="0" y1="350" x2="900" y2="350" stroke="#1D2B3A" stroke-width="3"/>
+
+  <!-- ================= WATER ================= -->
+  <g id="water-lines" fill="none" stroke="#1D2B3A">
+    <path stroke-width="1.5" d="M0,375 q22,-6 45,0 q23,6 45,0 q22,-6 45,0 q23,6 45,0 q22,-6 45,0 q23,6 45,0 q22,-6 45,0 q23,6 45,0 q22,-6 45,0 q23,6 45,0"/>
+    <path stroke-width="1.5" d="M0,400 q22,7 45,0 q23,-7 45,0 q22,7 45,0 q23,-7 45,0 q22,7 45,0 q23,-7 45,0 q22,7 45,0 q23,-7 45,0 q22,7 45,0 q23,-7 45,0"/>
+    <path stroke-width="1.8" d="M0,505 q24,-9 48,0 q24,9 48,0 q24,-9 48,0 q24,9 48,0 q24,-9 48,0 q24,9 48,0 q24,-9 48,0 q24,9 48,0 q24,-9 48,0"/>
+    <path stroke-width="2" d="M0,535 q26,10 52,0 q26,-10 52,0 q26,10 52,0 q26,-10 52,0 q26,10 52,0 q26,-10 52,0 q26,10 52,0 q26,-10 52,0"/>
+    <path stroke-width="2.2" d="M0,565 q28,-12 56,0 q28,12 56,0 q28,-12 56,0 q28,12 56,0 q28,-12 56,0 q28,12 56,0 q28,-12 56,0"/>
+    <path stroke-width="2.4" d="M0,595 q30,13 60,0 q30,-13 60,0 q30,13 60,0 q30,-13 60,0 q30,13 60,0 q30,-13 60,0"/>
+  </g>
+  <g id="water-hatch" stroke="#1D2B3A" stroke-width="1.4">
+    <line x1="120" y1="388" x2="132" y2="382"/>
+    <line x1="260" y1="392" x2="272" y2="386"/>
+    <line x1="650" y1="390" x2="662" y2="384"/>
+    <line x1="770" y1="386" x2="782" y2="380"/>
+    <line x1="60" y1="415" x2="72" y2="409"/>
+    <line x1="780" y1="412" x2="792" y2="406"/>
+    <line x1="150" y1="520" x2="166" y2="512"/>
+    <line x1="740" y1="522" x2="756" y2="514"/>
+    <line x1="200" y1="548" x2="218" y2="539"/>
+    <line x1="700" y1="550" x2="718" y2="541"/>
+    <line x1="80" y1="580" x2="100" y2="570"/>
+    <line x1="800" y1="578" x2="820" y2="568"/>
+  </g>
+
+  <!-- hull reflection ripple beneath boat -->
+  <g fill="none" stroke="#1D2B3A">
+    <path stroke-width="2" d="M320,432 Q470,425 620,432"/>
+    <path stroke-width="1.6" d="M340,448 Q470,442 600,448"/>
+    <path stroke-width="1.3" d="M360,463 Q470,458 580,463"/>
+  </g>
+
+  <!-- bow spray -->
+  <g fill="none" stroke="#1D2B3A" stroke-width="2">
+    <path d="M661,356 Q642,340 654,320"/>
+    <path d="M672,349 Q683,326 703,314"/>
+    <path d="M648,366 Q628,375 608,369"/>
+  </g>
+  <g fill="#1D2B3A">
+    <circle cx="638" cy="328" r="2.6"/>
+    <circle cx="678" cy="308" r="2.4"/>
+    <circle cx="616" cy="342" r="2.2"/>
+  </g>
+
+  <!-- stern wake -->
+  <g fill="none" stroke="#1D2B3A">
+    <path stroke-width="2.4" d="M296,421 Q220,445 128,470"/>
+    <path stroke-width="2" d="M296,421 Q236,470 172,512"/>
+    <line stroke-width="1.4" x1="230" y1="448" x2="238" y2="440"/>
+    <line stroke-width="1.4" x1="190" y1="462" x2="198" y2="454"/>
+    <line stroke-width="1.4" x1="245" y1="482" x2="253" y2="474"/>
+  </g>
+
+  <!-- ================= FOREGROUND WAVE CRESTS (Hokusai claws) ================= -->
+  <g id="wave-left">
+    <path fill="#1D2B3A" d="M0,620 L0,558 C18,540 34,556 52,538 C64,526 70,544 84,528 C94,518 98,534 110,524 C122,514 126,528 138,522 C152,514 164,530 176,548 C192,570 198,596 210,620 Z"/>
+    <path fill="none" stroke="#EDE3CE" stroke-width="3" d="M20,545 Q35,552 50,540"/>
+    <path fill="none" stroke="#EDE3CE" stroke-width="3" d="M64,530 Q78,538 92,527"/>
+    <path fill="none" stroke="#EDE3CE" stroke-width="3" d="M108,522 Q122,528 136,520"/>
+    <circle cx="58" cy="522" r="3" fill="#EDE3CE"/>
+    <circle cx="100" cy="510" r="2.5" fill="#EDE3CE"/>
+    <circle cx="142" cy="508" r="2.5" fill="#EDE3CE"/>
+  </g>
+  <g id="wave-right">
+    <path fill="#1D2B3A" d="M900,620 L900,558 C882,540 866,556 848,538 C836,526 830,544 816,528 C806,518 802,534 790,524 C778,514 774,528 762,522 C748,514 736,530 724,548 C708,570 702,596 690,620 Z"/>
+    <path fill="none" stroke="#EDE3CE" stroke-width="3" d="M880,545 Q865,552 850,540"/>
+    <path fill="none" stroke="#EDE3CE" stroke-width="3" d="M836,530 Q822,538 808,527"/>
+    <path fill="none" stroke="#EDE3CE" stroke-width="3" d="M792,522 Q778,528 764,520"/>
+    <circle cx="842" cy="522" r="3" fill="#EDE3CE"/>
+    <circle cx="800" cy="510" r="2.5" fill="#EDE3CE"/>
+    <circle cx="758" cy="508" r="2.5" fill="#EDE3CE"/>
+  </g>
+
+  <!-- ================= BOAT ================= -->
+  <g id="boat" transform="translate(470,440) rotate(-7)">
+
+    <!-- hull -->
+    <polygon points="-170,-40 -150,-52 -60,-58 40,-62 120,-72 190,-85 200,-60 195,-20 180,10 120,35 20,42 -80,30 -150,5 -170,-10"
+      fill="#EDE3CE" stroke="#1D2B3A" stroke-width="5" stroke-linejoin="round"/>
+
+    <!-- boot stripe -->
+    <polygon points="-165,-15 -60,-18 40,-20 120,-26 185,-32 185,-14 120,-8 20,0 -80,4 -160,0"
+      fill="#A13D2B" stroke="#1D2B3A" stroke-width="1"/>
+
+    <!-- hull topside shading hatch -->
+    <g stroke="#1D2B3A" stroke-width="2">
+      <line x1="-140" y1="-50" x2="-130" y2="-38"/>
+      <line x1="-115" y1="-52" x2="-105" y2="-40"/>
+      <line x1="-90" y1="-54" x2="-80" y2="-42"/>
+      <line x1="-60" y1="-56" x2="-50" y2="-44"/>
+      <line x1="-30" y1="-58" x2="-20" y2="-46"/>
+      <line x1="0" y1="-59" x2="10" y2="-47"/>
+      <line x1="30" y1="-60" x2="40" y2="-48"/>
+      <line x1="60" y1="-63" x2="70" y2="-51"/>
+      <line x1="90" y1="-66" x2="100" y2="-54"/>
+      <line x1="120" y1="-70" x2="130" y2="-58"/>
+      <line x1="150" y1="-75" x2="160" y2="-63"/>
+    </g>
+    <!-- hull below-waterline shading hatch -->
+    <g stroke="#1D2B3A" stroke-width="2">
+      <line x1="-150" y1="5" x2="-140" y2="15"/>
+      <line x1="-110" y1="8" x2="-100" y2="18"/>
+      <line x1="-70" y1="10" x2="-60" y2="20"/>
+      <line x1="-30" y1="12" x2="-20" y2="22"/>
+      <line x1="10" y1="14" x2="20" y2="24"/>
+      <line x1="50" y1="10" x2="60" y2="20"/>
+      <line x1="90" y1="5" x2="100" y2="15"/>
+      <line x1="130" y1="0" x2="140" y2="10"/>
+    </g>
+
+    <!-- rubrail -->
+    <path fill="none" stroke="#A13D2B" stroke-width="3"
+      d="M-170,-40 L-150,-52 L-60,-58 L40,-62 L120,-72 L190,-85"/>
+
+    <!-- pilothouse cabin -->
+    <polygon points="-20,-62 -20,-102 55,-102 60,-62" fill="#EDE3CE" stroke="#1D2B3A" stroke-width="3"/>
+    <rect x="-11" y="-96" width="14" height="16" fill="#1D2B3A"/>
+    <rect x="8" y="-96" width="14" height="16" fill="#1D2B3A"/>
+    <rect x="27" y="-96" width="14" height="16" fill="#1D2B3A"/>
+
+    <!-- portholes -->
+    <circle cx="-55" cy="-32" r="7" fill="#EDE3CE" stroke="#1D2B3A" stroke-width="2.5"/>
+    <circle cx="-85" cy="-32" r="7" fill="#EDE3CE" stroke="#1D2B3A" stroke-width="2.5"/>
+    <circle cx="-115" cy="-32" r="7" fill="#EDE3CE" stroke="#1D2B3A" stroke-width="2.5"/>
+
+    <!-- backstay -->
+    <line x1="20" y1="-330" x2="-165" y2="-45" stroke="#1D2B3A" stroke-width="1.5"/>
+
+    <!-- sails -->
+    <path d="M20,-330 Q -55,-205 -140,-58 L20,-64 Z" fill="#EDE3CE" stroke="#1D2B3A" stroke-width="3"/>
+    <path d="M20,-320 Q 110,-175 240,-78 L70,-95 Z" fill="#EDE3CE" stroke="#1D2B3A" stroke-width="3"/>
+    <path d="M20,-230 Q 75,-165 100,-72 L45,-90 Z" fill="#EDE3CE" stroke="#1D2B3A" stroke-width="3"/>
+
+    <!-- sail seam hatching -->
+    <g stroke="#1D2B3A" stroke-width="1.3" fill="none">
+      <path d="M20,-270 L-40,-230"/>
+      <path d="M20,-210 L-70,-160"/>
+      <path d="M20,-150 L-100,-110"/>
+      <path d="M20,-90 L-120,-70"/>
+
+      <path d="M60,-300 L110,-230"/>
+      <path d="M100,-270 L150,-190"/>
+      <path d="M150,-230 L190,-140"/>
+
+      <path d="M35,-200 L60,-150"/>
+      <path d="M50,-160 L75,-120"/>
+    </g>
+
+    <!-- sail shadow crosshatch near foot -->
+    <g stroke="#1D2B3A" stroke-width="1.3">
+      <line x1="-125" y1="-58" x2="-105" y2="-72"/>
+      <line x1="-115" y1="-52" x2="-95" y2="-66"/>
+      <line x1="-105" y1="-46" x2="-85" y2="-60"/>
+      <line x1="55" y1="-98" x2="80" y2="-84"/>
+      <line x1="62" y1="-108" x2="87" y2="-94"/>
+      <line x1="30" y1="-92" x2="50" y2="-80"/>
+    </g>
+
+    <!-- mast, boom, bowsprit -->
+    <line x1="20" y1="-64" x2="20" y2="-330" stroke="#1D2B3A" stroke-width="6"/>
+    <line x1="20" y1="-64" x2="-140" y2="-58" stroke="#1D2B3A" stroke-width="5"/>
+    <line x1="195" y1="-72" x2="245" y2="-80" stroke="#1D2B3A" stroke-width="4"/>
+
+    <!-- masthead flag -->
+    <polygon points="20,-330 46,-322 20,-315" fill="#A13D2B" stroke="#1D2B3A" stroke-width="1"/>
+  </g>
+</svg>
