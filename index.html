@@ -2,53 +2,29 @@
     <head>
         <meta charset="utf-8">
         <link rel="icon" type="image/svg+xml" href="public/mark.svg">
+        <title>Quadrant Labs</title>
         <style>
+            html, body {
+                height: 100%;
+                margin: 0;
+            }
+
             body {
                 display: flex;
-                flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                height: 100vh;
-                margin: 0;
-                background-color: aquamarine;
+                background: linear-gradient(160deg, #6B4557 0%, #C9784F 55%, #E8C98A 100%);
             }
 
-            img.logo {
-                width: 120px;
-                margin-bottom: 0.5em;
-            }
-
-            h1 {
-                font-size: 10em;
-                margin: 0;
+            img.hero {
+                width: min(90vw, 900px);
+                height: auto;
+                display: block;
+                filter: drop-shadow(0 18px 40px rgba(30, 15, 20, 0.35));
             }
         </style>
     </head>
     <body>
-        <img src="public/mark.svg" class="logo" alt="Quadrant Labs">
-        <h1>🚧</h1>
-
-        <script>
-            const urlParams = new URLSearchParams(window.location.search);
-            const colorParam = urlParams.get('color');
-            
-            let backgroundColor;
-            
-            if (colorParam) {
-                backgroundColor = colorParam;
-            } else {
-                const r = Math.floor(Math.random() * 256);
-                const g = Math.floor(Math.random() * 256);
-                const b = Math.floor(Math.random() * 256);
-                backgroundColor = `rgb(${r}, ${g}, ${b})`;
-            }
-            
-            document.body.style.backgroundColor = backgroundColor;
-
-            const titleParam = urlParams.get('title');
-            if (titleParam) {
-                document.querySelector('h1').textContent = titleParam;
-            }
-        </script>
+        <img src="public/quadrant-sloop.svg" class="hero" alt="Illustration of the Hartge Quadrant sloop under sail at sunset on the Chesapeake Bay">
     </body>
 </html>

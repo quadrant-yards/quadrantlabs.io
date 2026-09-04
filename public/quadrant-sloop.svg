@@ -1,0 +1,145 @@
+<svg viewBox="0 0 900 620" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#C4768A"/>
+      <stop offset="38%" stop-color="#E38B7C"/>
+      <stop offset="72%" stop-color="#F2C875"/>
+      <stop offset="100%" stop-color="#F8E3AE"/>
+    </linearGradient>
+    <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FCEBBE" stop-opacity="0.95"/>
+      <stop offset="45%" stop-color="#F7D68F" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#F2C875" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="waterGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E9BE87"/>
+      <stop offset="18%" stop-color="#B79379"/>
+      <stop offset="45%" stop-color="#7A9BAE"/>
+      <stop offset="100%" stop-color="#3C5A72"/>
+    </linearGradient>
+    <linearGradient id="sailShade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#D9C9C2" stop-opacity="0.7"/>
+    </linearGradient>
+    <linearGradient id="hullGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FBF5E7"/>
+      <stop offset="100%" stop-color="#E9DFC6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- SKY -->
+  <rect x="0" y="0" width="900" height="400" fill="url(#skyGrad)"/>
+  <circle cx="655" cy="325" r="150" fill="url(#sunGlow)"/>
+  <circle cx="655" cy="325" r="40" fill="#FBEBC0" fill-opacity="0.9"/>
+
+  <!-- soft clouds -->
+  <path d="M90,95 C70,80 100,58 135,65 C150,45 195,48 205,72 C235,68 250,95 225,108 C210,120 160,120 130,112 C105,118 78,112 90,95 Z" fill="#F7E3C4" fill-opacity="0.55"/>
+  <path d="M470,55 C455,40 490,22 520,32 C535,15 575,20 580,42 C610,40 618,65 592,74 C575,84 530,82 505,76 C485,82 462,72 470,55 Z" fill="#F4D4C6" fill-opacity="0.5"/>
+  <path d="M760,120 C748,105 778,90 802,98 C815,84 848,90 850,108 C875,108 880,128 858,135 C842,143 805,140 785,134 C768,140 750,133 760,120 Z" fill="#FDEAC9" fill-opacity="0.5"/>
+  <path d="M40,180 C28,168 52,155 72,162 C84,150 110,155 112,170 C132,170 136,186 118,192 C105,198 76,196 60,191 C46,196 32,190 40,180 Z" fill="#EFC3B4" fill-opacity="0.4"/>
+
+  <!-- distant shoreline -->
+  <path d="M0,378 C120,368 220,382 340,374 C460,366 520,380 620,373 C720,367 820,378 900,370 L900,398 L0,398 Z" fill="#8A7A46" fill-opacity="0.55"/>
+  <path d="M0,388 C150,380 300,392 450,384 C600,377 750,390 900,382 L900,400 L0,400 Z" fill="#6E6238" fill-opacity="0.6"/>
+
+  <!-- loblolly pine clusters on shoreline -->
+  <g fill="#4B4A2E" fill-opacity="0.7">
+    <path d="M60,378 L64,352 L68,378 Z"/>
+    <ellipse cx="64" cy="352" rx="10" ry="14"/>
+    <path d="M95,382 L98,360 L101,382 Z"/>
+    <ellipse cx="98" cy="360" rx="8" ry="11"/>
+    <path d="M780,372 L784,348 L788,372 Z"/>
+    <ellipse cx="784" cy="348" rx="11" ry="15"/>
+    <path d="M815,378 L818,358 L821,378 Z"/>
+    <ellipse cx="818" cy="358" rx="8" ry="10"/>
+    <path d="M840,382 L843,364 L846,382 Z"/>
+    <ellipse cx="843" cy="364" rx="7" ry="9"/>
+  </g>
+
+  <!-- WATER -->
+  <rect x="0" y="388" width="900" height="232" fill="url(#waterGrad)"/>
+
+  <!-- water reflection washes -->
+  <path d="M650,440 C700,455 730,470 760,438 C790,480 810,500 780,518 C740,540 690,510 670,495 C650,480 635,455 650,440 Z" fill="#F6D69A" fill-opacity="0.15"/>
+  <path d="M0,430 C120,422 240,438 360,428 C300,442 180,452 60,448 C30,447 10,440 0,430 Z" fill="#9DB6C4" fill-opacity="0.4"/>
+  <path d="M500,470 C600,460 700,478 820,466 C740,486 610,492 520,486 C505,483 495,477 500,470 Z" fill="#9DB6C4" fill-opacity="0.35"/>
+  <path d="M0,520 C150,510 320,528 480,516 C620,506 760,524 900,512 L900,540 C760,552 620,534 480,544 C320,556 150,538 0,548 Z" fill="#4B6B7E" fill-opacity="0.45"/>
+  <path d="M0,560 C180,550 380,568 560,556 C700,548 820,562 900,554 L900,590 C820,598 700,584 560,592 C380,604 180,586 0,596 Z" fill="#2F4A5E" fill-opacity="0.5"/>
+
+  <!-- boat reflection, kept low so it sits under the (now shallower) hull rather than beside it -->
+  <path d="M300,458 C370,472 450,476 520,468 C500,478 450,483 405,481 C365,479 325,472 300,458 Z" fill="#B79379" fill-opacity="0.25"/>
+  <path d="M315,464 C375,475 440,478 495,472 C478,479 440,483 405,481 C375,480 340,474 315,464 Z" fill="#3C5A72" fill-opacity="0.3"/>
+
+  <!-- ================= BOAT ================= -->
+  <g transform="rotate(-3 440 460)">
+
+    <!-- boom, now meeting the foot of the enlarged mainsail -->
+    <line x1="468" y1="456" x2="270" y2="480" stroke="#7C5A3A" stroke-width="4" stroke-linecap="round"/>
+    <!-- mast, base moved to the vertical midpoint of the hull at this x (sheer ~420, keel ~493) -->
+    <line x1="468" y1="138" x2="468" y2="456" stroke="#6E5236" stroke-width="4" stroke-linecap="round"/>
+
+    <!-- staysail -->
+    <path d="M468,205 L603,456 Q505,320 468,205 Z" fill="#FBF6EC" fill-opacity="0.88"/>
+
+    <!-- jib -->
+    <path d="M468,160 L621,462 Q528,300 468,160 Z" fill="#FFFFFF" fill-opacity="0.9"/>
+    <path d="M468,190 L602,456 Q530,320 468,190 Z" fill="#E7DCCB" fill-opacity="0.3"/>
+
+    <!-- hull: restored to full freeboard height (no more flat sliver), smooth bow/stern taper, no self-intersecting kink -->
+    <path d="M628,466 C598,438 558,423 498,420 C438,418 350,422 270,443 C258,446 250,450 250,456 C250,466 255,476 268,481 C350,493 480,495 560,490 C590,487 613,480 628,466 Z" fill="url(#hullGrad)" stroke="#D8C9A8" stroke-width="1.5"/>
+
+    <!-- boot stripe: a band on the topsides, well above the very bottom of the keel -->
+    <path d="M270,458 C330,470 420,477 500,479 C550,478 590,472 615,463" fill="none" stroke="#6B3B4D" stroke-width="13" stroke-linecap="round" stroke-opacity="0.9"/>
+
+    <!-- rubrail -->
+    <path d="M270,443 C350,422 438,418 498,420 C558,423 598,438 628,466" fill="none" stroke="#8A5B39" stroke-width="3" stroke-opacity="0.8"/>
+
+    <!-- pilothouse: base extends down past the deck line so it overlaps the hull instead of perching on top of it -->
+    <path d="M424,394 C424,384 432,378 444,378 L494,378 C504,378 510,384 510,394 L510,434 L424,434 Z" fill="#F3E9D2" stroke="#CBB98E" stroke-width="1.5"/>
+    <rect x="436" y="392" width="16" height="14" rx="2" fill="#4E6472" fill-opacity="0.85"/>
+    <rect x="460" y="392" width="16" height="14" rx="2" fill="#4E6472" fill-opacity="0.85"/>
+    <rect x="484" y="392" width="16" height="14" rx="2" fill="#4E6472" fill-opacity="0.85"/>
+    <rect x="422" y="376" width="90" height="6" rx="2" fill="#CBB98E"/>
+
+    <!-- portholes, clear of the boot stripe below -->
+    <circle cx="392" cy="436" r="7" fill="#4A3140" fill-opacity="0.85"/>
+    <circle cx="392" cy="436" r="7" fill="none" stroke="#E9DFC6" stroke-width="1.2"/>
+    <circle cx="362" cy="440" r="7" fill="#4A3140" fill-opacity="0.85"/>
+    <circle cx="362" cy="440" r="7" fill="none" stroke="#E9DFC6" stroke-width="1.2"/>
+    <circle cx="332" cy="444" r="7" fill="#4A3140" fill-opacity="0.85"/>
+    <circle cx="332" cy="444" r="7" fill="none" stroke="#E9DFC6" stroke-width="1.2"/>
+
+    <!-- the keel, below the boot stripe, dips into the water -->
+    <path d="M262,466 C330,481 420,489 500,491 C552,490 592,483 618,470 C622,478 618,486 606,490 C540,500 430,503 340,498 C298,495 272,485 264,474 C262,472 261,469 262,466 Z" fill="#6E8EA0" fill-opacity="0.55"/>
+    <path d="M275,477 C340,489 430,494 505,493 C550,492 588,486 612,477" fill="none" stroke="#3C5A72" stroke-width="2" stroke-opacity="0.4"/>
+
+    <!-- mainsail, on the near side: drawn last so it drapes in front of the pilothouse, portholes and hull -->
+    <path d="M468,140 L468,456 L270,480 Q375,290 468,140 Z" fill="url(#sailShade)" fill-opacity="0.94"/>
+    <path d="M468,205 L468,453 L305,475 Q390,310 468,205 Z" fill="#FFFFFF" fill-opacity="0.35"/>
+
+  </g>
+  <!-- ================= END BOAT ================= -->
+
+  <!-- foreground marsh grass -->
+  <g fill="#B8A052">
+    <path d="M0,620 L0,520 C10,540 16,560 14,580 C22,555 28,575 26,600 C34,570 40,590 38,620 Z" fill-opacity="0.75"/>
+    <path d="M40,620 L40,540 C50,558 54,578 50,600 C60,572 66,592 62,620 Z" fill-opacity="0.7"/>
+    <path d="M0,620 L0,560 C6,578 10,598 6,620 Z" fill-opacity="0.85"/>
+  </g>
+  <g fill="#7C712F">
+    <path d="M0,620 L0,540 C14,562 20,585 16,610 C24,590 30,605 28,620 Z" fill-opacity="0.55"/>
+    <path d="M20,620 L20,560 C28,578 32,596 28,620 Z" fill-opacity="0.6"/>
+  </g>
+
+  <g fill="#B8A052">
+    <path d="M900,620 L900,545 C888,565 884,585 888,605 C878,585 872,600 876,620 Z" fill-opacity="0.7"/>
+    <path d="M860,620 L860,565 C852,582 848,600 852,620 Z" fill-opacity="0.65"/>
+  </g>
+  <g fill="#6E6238">
+    <path d="M900,620 L900,570 C892,588 890,604 894,620 Z" fill-opacity="0.55"/>
+  </g>
+
+  <!-- distant birds -->
+  <path d="M180,150 Q186,144 192,150 Q198,144 204,150" fill="none" stroke="#5A4438" stroke-width="1.5" stroke-linecap="round" stroke-opacity="0.6"/>
+  <path d="M210,168 Q215,163 220,168 Q225,163 230,168" fill="none" stroke="#5A4438" stroke-width="1.5" stroke-linecap="round" stroke-opacity="0.55"/>
+</svg>
