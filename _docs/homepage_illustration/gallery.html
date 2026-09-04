@@ -1,0 +1,750 @@
+<title>Quadrant in Chesapeake Watercolor</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+  :root {
+    --paper: #F5EFE2;
+    --surface: #FFFFFF;
+    --surface-alt: #FBF7EC;
+    --ink: #1C2420;
+    --muted: #706A57;
+    --accent: #2F5D62;
+    --accent-soft: #DCEAE7;
+    --border: #E3D9C2;
+    --shadow: 0 1px 2px rgba(28,36,32,0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #14181A;
+      --surface: #1C2222;
+      --surface-alt: #20201C;
+      --ink: #EAE4D4;
+      --muted: #9D9682;
+      --accent: #86C4C2;
+      --accent-soft: #223432;
+      --border: #33362F;
+      --shadow: 0 1px 2px rgba(0,0,0,0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #14181A;
+    --surface: #1C2222;
+    --surface-alt: #20201C;
+    --ink: #EAE4D4;
+    --muted: #9D9682;
+    --accent: #86C4C2;
+    --accent-soft: #223432;
+    --border: #33362F;
+    --shadow: 0 1px 2px rgba(0,0,0,0.4);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Work Sans', system-ui, sans-serif;
+    margin: 0;
+    padding: 56px 32px 72px;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; }
+
+  .eyebrow {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 14px;
+  }
+  h1 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-size: clamp(32px, 4.4vw, 50px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+    text-wrap: balance;
+    max-width: 16ch;
+  }
+  .intro {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--ink);
+    max-width: 62ch;
+    margin: 0 0 8px;
+  }
+  .meta {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 12.5px;
+    color: var(--muted);
+    margin: 18px 0 0;
+    line-height: 1.7;
+  }
+  .meta a { color: var(--muted); }
+
+  header {
+    padding-bottom: 40px;
+    margin-bottom: 44px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 36px 32px;
+  }
+  .hero {
+    max-width: 620px;
+    margin: 0 0 56px;
+  }
+  .hero .style-name { font-size: 26px; }
+  .hero .concept { font-size: 15.5px; max-width: 56ch; }
+
+  figure {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .plate {
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    padding: 14px;
+    box-shadow: var(--shadow);
+  }
+  .plate svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: #fff; /* each illustration was drawn against its own literal ground color, kept white so its true palette shows in both themes */
+    border: 1px solid var(--border);
+  }
+
+  figcaption { padding: 16px 2px 0; }
+  .style-name {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    font-size: 21px;
+    margin: 0 0 6px;
+  }
+  .concept {
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: var(--ink);
+    opacity: 0.85;
+    margin: 0 0 12px;
+    max-width: 48ch;
+  }
+  .swatches {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+  .swatches span {
+    width: 18px;
+    height: 18px;
+    border: 1px solid var(--border);
+    display: inline-block;
+  }
+
+  footer {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 70ch;
+  }
+  footer a { color: var(--muted); }
+</style>
+
+<div class="wrap">
+  <header>
+    <p class="eyebrow">Illustration development — one direction, in progress</p>
+    <h1>Quadrant in Chesapeake Watercolor</h1>
+    <p class="intro">
+      <strong>Chesapeake Watercolor</strong> is the direction going forward. This pass rebuilds the
+      hull: the previous version had been flattened into a thin sliver with a self-intersecting
+      kink at the stern. It's redrawn now with proper freeboard and a smooth bow-to-stern taper,
+      a boot stripe sized to sit on the topsides rather than swallow the whole belly, and the keel
+      dipping into the water at a modest overlap &mdash; not floating clear of it, not vanishing into it.
+    </p>
+    <p class="meta">source photo &mdash; offcenterharbor.com, 26' Hartge Quadrant Pilothouse Sloop (1956)<br>drafted 2026&#8209;09&#8209;04, hull redrawn 2026&#8209;09&#8209;04</p>
+  </header>
+
+  <div class="hero">
+
+    <figure>
+      <div class="plate">
+        <svg viewBox="0 0 900 620" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#C4768A"/>
+      <stop offset="38%" stop-color="#E38B7C"/>
+      <stop offset="72%" stop-color="#F2C875"/>
+      <stop offset="100%" stop-color="#F8E3AE"/>
+    </linearGradient>
+    <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FCEBBE" stop-opacity="0.95"/>
+      <stop offset="45%" stop-color="#F7D68F" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#F2C875" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="waterGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E9BE87"/>
+      <stop offset="18%" stop-color="#B79379"/>
+      <stop offset="45%" stop-color="#7A9BAE"/>
+      <stop offset="100%" stop-color="#3C5A72"/>
+    </linearGradient>
+    <linearGradient id="sailShade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#D9C9C2" stop-opacity="0.7"/>
+    </linearGradient>
+    <linearGradient id="hullGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FBF5E7"/>
+      <stop offset="100%" stop-color="#E9DFC6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- SKY -->
+  <rect x="0" y="0" width="900" height="400" fill="url(#skyGrad)"/>
+  <circle cx="655" cy="325" r="150" fill="url(#sunGlow)"/>
+  <circle cx="655" cy="325" r="40" fill="#FBEBC0" fill-opacity="0.9"/>
+
+  <!-- soft clouds -->
+  <path d="M90,95 C70,80 100,58 135,65 C150,45 195,48 205,72 C235,68 250,95 225,108 C210,120 160,120 130,112 C105,118 78,112 90,95 Z" fill="#F7E3C4" fill-opacity="0.55"/>
+  <path d="M470,55 C455,40 490,22 520,32 C535,15 575,20 580,42 C610,40 618,65 592,74 C575,84 530,82 505,76 C485,82 462,72 470,55 Z" fill="#F4D4C6" fill-opacity="0.5"/>
+  <path d="M760,120 C748,105 778,90 802,98 C815,84 848,90 850,108 C875,108 880,128 858,135 C842,143 805,140 785,134 C768,140 750,133 760,120 Z" fill="#FDEAC9" fill-opacity="0.5"/>
+  <path d="M40,180 C28,168 52,155 72,162 C84,150 110,155 112,170 C132,170 136,186 118,192 C105,198 76,196 60,191 C46,196 32,190 40,180 Z" fill="#EFC3B4" fill-opacity="0.4"/>
+
+  <!-- distant shoreline -->
+  <path d="M0,378 C120,368 220,382 340,374 C460,366 520,380 620,373 C720,367 820,378 900,370 L900,398 L0,398 Z" fill="#8A7A46" fill-opacity="0.55"/>
+  <path d="M0,388 C150,380 300,392 450,384 C600,377 750,390 900,382 L900,400 L0,400 Z" fill="#6E6238" fill-opacity="0.6"/>
+
+  <!-- loblolly pine clusters on shoreline -->
+  <g fill="#4B4A2E" fill-opacity="0.7">
+    <path d="M60,378 L64,352 L68,378 Z"/>
+    <ellipse cx="64" cy="352" rx="10" ry="14"/>
+    <path d="M95,382 L98,360 L101,382 Z"/>
+    <ellipse cx="98" cy="360" rx="8" ry="11"/>
+    <path d="M780,372 L784,348 L788,372 Z"/>
+    <ellipse cx="784" cy="348" rx="11" ry="15"/>
+    <path d="M815,378 L818,358 L821,378 Z"/>
+    <ellipse cx="818" cy="358" rx="8" ry="10"/>
+    <path d="M840,382 L843,364 L846,382 Z"/>
+    <ellipse cx="843" cy="364" rx="7" ry="9"/>
+  </g>
+
+  <!-- WATER -->
+  <rect x="0" y="388" width="900" height="232" fill="url(#waterGrad)"/>
+
+  <!-- water reflection washes -->
+  <path d="M650,440 C700,455 730,470 760,438 C790,480 810,500 780,518 C740,540 690,510 670,495 C650,480 635,455 650,440 Z" fill="#F6D69A" fill-opacity="0.15"/>
+  <path d="M0,430 C120,422 240,438 360,428 C300,442 180,452 60,448 C30,447 10,440 0,430 Z" fill="#9DB6C4" fill-opacity="0.4"/>
+  <path d="M500,470 C600,460 700,478 820,466 C740,486 610,492 520,486 C505,483 495,477 500,470 Z" fill="#9DB6C4" fill-opacity="0.35"/>
+  <path d="M0,520 C150,510 320,528 480,516 C620,506 760,524 900,512 L900,540 C760,552 620,534 480,544 C320,556 150,538 0,548 Z" fill="#4B6B7E" fill-opacity="0.45"/>
+  <path d="M0,560 C180,550 380,568 560,556 C700,548 820,562 900,554 L900,590 C820,598 700,584 560,592 C380,604 180,586 0,596 Z" fill="#2F4A5E" fill-opacity="0.5"/>
+
+  <!-- boat reflection, kept low so it sits under the (now shallower) hull rather than beside it -->
+  <path d="M300,458 C370,472 450,476 520,468 C500,478 450,483 405,481 C365,479 325,472 300,458 Z" fill="#B79379" fill-opacity="0.25"/>
+  <path d="M315,464 C375,475 440,478 495,472 C478,479 440,483 405,481 C375,480 340,474 315,464 Z" fill="#3C5A72" fill-opacity="0.3"/>
+
+  <!-- ================= BOAT ================= -->
+  <g transform="rotate(-3 440 460)">
+
+    <!-- boom -->
+    <line x1="468" y1="408" x2="322" y2="415" stroke="#7C5A3A" stroke-width="4" stroke-linecap="round"/>
+    <!-- mast -->
+    <line x1="468" y1="150" x2="468" y2="408" stroke="#6E5236" stroke-width="4" stroke-linecap="round"/>
+
+    <!-- mainsail -->
+    <path d="M468,152 L468,406 L328,414 Q392,300 468,152 Z" fill="url(#sailShade)" fill-opacity="0.92"/>
+    <path d="M468,200 L468,406 L360,412 Q410,320 468,200 Z" fill="#FFFFFF" fill-opacity="0.35"/>
+
+    <!-- staysail -->
+    <path d="M468,205 L603,456 Q505,320 468,205 Z" fill="#FBF6EC" fill-opacity="0.88"/>
+
+    <!-- jib -->
+    <path d="M468,160 L621,462 Q528,300 468,160 Z" fill="#FFFFFF" fill-opacity="0.9"/>
+    <path d="M468,190 L602,456 Q530,320 468,190 Z" fill="#E7DCCB" fill-opacity="0.3"/>
+
+    <!-- hull: restored to full freeboard height (no more flat sliver), smooth bow/stern taper, no self-intersecting kink -->
+    <path d="M628,466 C598,438 558,423 498,420 C438,418 350,422 270,443 C258,446 250,450 250,456 C250,466 255,476 268,481 C350,493 480,495 560,490 C590,487 613,480 628,466 Z" fill="url(#hullGrad)" stroke="#D8C9A8" stroke-width="1.5"/>
+
+    <!-- boot stripe: a band on the topsides, well above the very bottom of the keel -->
+    <path d="M270,458 C330,470 420,477 500,479 C550,478 590,472 615,463" fill="none" stroke="#6B3B4D" stroke-width="13" stroke-linecap="round" stroke-opacity="0.9"/>
+
+    <!-- rubrail -->
+    <path d="M270,443 C350,422 438,418 498,420 C558,423 598,438 628,466" fill="none" stroke="#8A5B39" stroke-width="3" stroke-opacity="0.8"/>
+
+    <!-- pilothouse: base extends down past the deck line so it overlaps the hull instead of perching on top of it -->
+    <path d="M424,394 C424,384 432,378 444,378 L494,378 C504,378 510,384 510,394 L510,434 L424,434 Z" fill="#F3E9D2" stroke="#CBB98E" stroke-width="1.5"/>
+    <rect x="436" y="392" width="16" height="14" rx="2" fill="#4E6472" fill-opacity="0.85"/>
+    <rect x="460" y="392" width="16" height="14" rx="2" fill="#4E6472" fill-opacity="0.85"/>
+    <rect x="484" y="392" width="16" height="14" rx="2" fill="#4E6472" fill-opacity="0.85"/>
+    <rect x="422" y="376" width="90" height="6" rx="2" fill="#CBB98E"/>
+
+    <!-- portholes, clear of the boot stripe below -->
+    <circle cx="392" cy="436" r="7" fill="#4A3140" fill-opacity="0.85"/>
+    <circle cx="392" cy="436" r="7" fill="none" stroke="#E9DFC6" stroke-width="1.2"/>
+    <circle cx="362" cy="440" r="7" fill="#4A3140" fill-opacity="0.85"/>
+    <circle cx="362" cy="440" r="7" fill="none" stroke="#E9DFC6" stroke-width="1.2"/>
+    <circle cx="332" cy="444" r="7" fill="#4A3140" fill-opacity="0.85"/>
+    <circle cx="332" cy="444" r="7" fill="none" stroke="#E9DFC6" stroke-width="1.2"/>
+
+    <!-- the keel, below the boot stripe, dips into the water -->
+    <path d="M262,466 C330,481 420,489 500,491 C552,490 592,483 618,470 C622,478 618,486 606,490 C540,500 430,503 340,498 C298,495 272,485 264,474 C262,472 261,469 262,466 Z" fill="#6E8EA0" fill-opacity="0.55"/>
+    <path d="M275,477 C340,489 430,494 505,493 C550,492 588,486 612,477" fill="none" stroke="#3C5A72" stroke-width="2" stroke-opacity="0.4"/>
+
+  </g>
+  <!-- ================= END BOAT ================= -->
+
+  <!-- foreground marsh grass -->
+  <g fill="#B8A052">
+    <path d="M0,620 L0,520 C10,540 16,560 14,580 C22,555 28,575 26,600 C34,570 40,590 38,620 Z" fill-opacity="0.75"/>
+    <path d="M40,620 L40,540 C50,558 54,578 50,600 C60,572 66,592 62,620 Z" fill-opacity="0.7"/>
+    <path d="M0,620 L0,560 C6,578 10,598 6,620 Z" fill-opacity="0.85"/>
+  </g>
+  <g fill="#7C712F">
+    <path d="M0,620 L0,540 C14,562 20,585 16,610 C24,590 30,605 28,620 Z" fill-opacity="0.55"/>
+    <path d="M20,620 L20,560 C28,578 32,596 28,620 Z" fill-opacity="0.6"/>
+  </g>
+
+  <g fill="#B8A052">
+    <path d="M900,620 L900,545 C888,565 884,585 888,605 C878,585 872,600 876,620 Z" fill-opacity="0.7"/>
+    <path d="M860,620 L860,565 C852,582 848,600 852,620 Z" fill-opacity="0.65"/>
+  </g>
+  <g fill="#6E6238">
+    <path d="M900,620 L900,570 C892,588 890,604 894,620 Z" fill-opacity="0.55"/>
+  </g>
+
+  <!-- distant birds -->
+  <path d="M180,150 Q186,144 192,150 Q198,144 204,150" fill="none" stroke="#5A4438" stroke-width="1.5" stroke-linecap="round" stroke-opacity="0.6"/>
+  <path d="M210,168 Q215,163 220,168 Q225,163 230,168" fill="none" stroke="#5A4438" stroke-width="1.5" stroke-linecap="round" stroke-opacity="0.55"/>
+</svg>
+      </div>
+      <figcaption>
+        <p class="style-name">Chesapeake Watercolor</p>
+        <p class="concept">Hull rebuilt with proper freeboard and a smooth taper at bow and stern. The pilothouse now overlaps down into the hull instead of perching exactly on the deck line, so it reads as built into the boat rather than floating on top of it.</p>
+        <div class="swatches">
+          <span style="background:#F2C875"></span>
+          <span style="background:#E38B7C"></span>
+          <span style="background:#3C5A72"></span>
+          <span style="background:#7A9BAE"></span>
+          <span style="background:#6B3B4D"></span>
+        </div>
+      </figcaption>
+    </figure>
+
+  </div>
+
+  <p class="eyebrow" style="margin-top:56px; padding-top:40px; border-top:1px solid var(--border);">Other directions explored</p>
+
+  <div class="grid">
+
+    <figure>
+      <div class="plate">
+        <svg viewBox="0 0 900 620" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="900" height="620" fill="#8FD3E8"/>
+  <g>
+    <rect x="765" y="15" width="10" height="26" rx="5" fill="#F4C64F" transform="rotate(0 770 95)"/>
+    <rect x="765" y="15" width="10" height="26" rx="5" fill="#F4C64F" transform="rotate(45 770 95)"/>
+    <rect x="765" y="15" width="10" height="26" rx="5" fill="#F4C64F" transform="rotate(90 770 95)"/>
+    <rect x="765" y="15" width="10" height="26" rx="5" fill="#F4C64F" transform="rotate(135 770 95)"/>
+    <rect x="765" y="15" width="10" height="26" rx="5" fill="#F4C64F" transform="rotate(180 770 95)"/>
+    <rect x="765" y="15" width="10" height="26" rx="5" fill="#F4C64F" transform="rotate(225 770 95)"/>
+    <rect x="765" y="15" width="10" height="26" rx="5" fill="#F4C64F" transform="rotate(270 770 95)"/>
+    <rect x="765" y="15" width="10" height="26" rx="5" fill="#F4C64F" transform="rotate(315 770 95)"/>
+    <circle cx="770" cy="95" r="50" fill="#F4C64F"/>
+  </g>
+  <path d="M -22,0 C -14,-13 -7,-13 0,0 C 7,-13 14,-13 22,0" stroke="#33475B" stroke-width="4" fill="none" stroke-linecap="round" transform="translate(150,165)"/>
+  <path d="M -22,0 C -14,-13 -7,-13 0,0 C 7,-13 14,-13 22,0" stroke="#33475B" stroke-width="4" fill="none" stroke-linecap="round" transform="translate(600,135) scale(0.75)"/>
+  <path d="M -22,0 C -14,-13 -7,-13 0,0 C 7,-13 14,-13 22,0" stroke="#33475B" stroke-width="4" fill="none" stroke-linecap="round" transform="translate(90,240) scale(0.6)"/>
+  <g>
+    <rect x="805" y="345" width="20" height="52" rx="3" fill="#FBF3E3" stroke="#33475B" stroke-width="2"/>
+    <rect x="805" y="362" width="20" height="10" fill="#F17A5D"/>
+    <polygon points="799,345 831,345 815,323" fill="#5B3350"/>
+    <circle cx="815" cy="322" r="5" fill="#F4C64F"/>
+  </g>
+  <g transform="translate(55,398)">
+    <rect x="-3" y="-4" width="6" height="26" fill="#8A6642"/>
+    <ellipse cx="0" cy="-10" rx="15" ry="11" fill="#3F6B4A"/>
+    <ellipse cx="0" cy="-20" rx="9" ry="8" fill="#4C7C52"/>
+  </g>
+  <g transform="translate(85,404) scale(0.8)">
+    <rect x="-3" y="-4" width="6" height="26" fill="#8A6642"/>
+    <ellipse cx="0" cy="-10" rx="15" ry="11" fill="#3F6B4A"/>
+    <ellipse cx="0" cy="-20" rx="9" ry="8" fill="#4C7C52"/>
+  </g>
+  <g transform="translate(115,400) scale(0.65)">
+    <rect x="-3" y="-4" width="6" height="26" fill="#8A6642"/>
+    <ellipse cx="0" cy="-10" rx="15" ry="11" fill="#3F6B4A"/>
+    <ellipse cx="0" cy="-20" rx="9" ry="8" fill="#4C7C52"/>
+  </g>
+  <g fill="#5C8A5A">
+    <path d="M170,412 C166,398 168,392 170,388 C172,392 174,398 170,412 Z"/>
+    <path d="M182,414 C178,400 180,392 182,388 C184,392 186,400 182,414 Z"/>
+    <path d="M194,412 C190,400 192,393 194,389 C196,393 198,400 194,412 Z"/>
+    <path d="M735,410 C731,396 733,390 735,386 C737,390 739,396 735,410 Z"/>
+    <path d="M747,412 C743,398 745,391 747,387 C749,391 751,398 747,412 Z"/>
+  </g>
+  <path d="M0,420 Q75,406 150,420 T300,420 T450,420 T600,420 T750,420 T900,420 L900,620 L0,620 Z" fill="#BFE8F0"/>
+  <path d="M0,458 Q75,441 150,458 T300,458 T450,458 T600,458 T750,458 T900,458 L900,620 L0,620 Z" fill="#6FBFDD"/>
+  <path d="M0,508 Q75,489 150,508 T300,508 T450,508 T600,508 T750,508 T900,508 L900,620 L0,620 Z" fill="#2E93B8"/>
+  <g transform="rotate(-6 470 400)">
+    <path d="M210,410 C210,428 245,448 320,452 C400,456 470,454 545,448 C600,443 655,435 695,398 C660,372 590,358 500,354 C400,350 300,358 245,378 C215,390 208,398 210,410 Z" fill="#FBF3E3" stroke="#3D2438" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M215,405 C218,422 250,437 320,440 C395,443 465,442 535,435 C580,431 620,418 668,400 C645,408 590,420 530,426 C460,433 390,435 320,431 C258,428 222,415 215,405 Z" fill="#5B3350"/>
+    <path d="M210,405 C215,390 245,378 300,368 C380,358 460,354 545,357 C610,360 660,375 695,398" fill="none" stroke="#C9975A" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="300" cy="412" r="14" fill="#FFFFFF" stroke="#3D2438" stroke-width="4"/>
+    <circle cx="300" cy="412" r="7" fill="#6FBFDD"/>
+    <circle cx="343" cy="406" r="14" fill="#FFFFFF" stroke="#3D2438" stroke-width="4"/>
+    <circle cx="343" cy="406" r="7" fill="#6FBFDD"/>
+    <circle cx="386" cy="400" r="14" fill="#FFFFFF" stroke="#3D2438" stroke-width="4"/>
+    <circle cx="386" cy="400" r="7" fill="#6FBFDD"/>
+    <rect x="415" y="300" width="100" height="58" rx="18" fill="#F6E9CE" stroke="#3D2438" stroke-width="4"/>
+    <rect x="428" y="316" width="20" height="18" rx="5" fill="#8FD3E8" stroke="#3D2438" stroke-width="2"/>
+    <rect x="458" y="316" width="20" height="18" rx="5" fill="#8FD3E8" stroke="#3D2438" stroke-width="2"/>
+    <rect x="488" y="316" width="20" height="18" rx="5" fill="#8FD3E8" stroke="#3D2438" stroke-width="2"/>
+    <line x1="470" y1="358" x2="300" y2="368" stroke="#C9975A" stroke-width="9" stroke-linecap="round"/>
+    <path d="M470,115 C415,175 350,255 300,368 L470,358 Z" fill="#FFFFFF" stroke="#2E4756" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M468,150 L690,395 C620,362 545,335 478,308 Z" fill="#F7F7F2" stroke="#2E4756" stroke-width="3" stroke-linejoin="round"/>
+    <line x1="470" y1="358" x2="470" y2="105" stroke="#C9975A" stroke-width="7" stroke-linecap="round"/>
+    <path d="M470,105 L470,122 L438,113 Z" fill="#F17A5D"/>
+  </g>
+  <ellipse cx="650" cy="540" rx="0" ry="0" fill="none"/>
+  <g transform="translate(650,540)">
+    <line x1="0" y1="-30" x2="0" y2="-14" stroke="#8A6642" stroke-width="3" stroke-linecap="round"/>
+    <ellipse cx="0" cy="0" rx="11" ry="15" fill="#FFFFFF" stroke="#3D2438" stroke-width="3"/>
+    <rect x="-11" y="-6" width="22" height="9" fill="#F17A5D"/>
+  </g>
+  <g stroke="#FFFFFF" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.55">
+    <path d="M60,560 Q90,550 120,560"/>
+    <path d="M260,585 Q290,575 320,585"/>
+    <path d="M470,555 Q500,545 530,555"/>
+    <path d="M740,575 Q770,565 800,575"/>
+    <path d="M150,605 Q180,595 210,605"/>
+  </g>
+</svg>
+      </div>
+      <figcaption>
+        <p class="style-name">Playful Flat Cartoon</p>
+        <p class="concept">Storybook-friendly, rounded and cheerful &mdash; puffed sails, a crab-pot buoy, sunny saturated color. Now sitting properly in the water, boot stripe mostly submerged.</p>
+        <div class="swatches">
+          <span style="background:#8FD3E8"></span>
+          <span style="background:#F4C64F"></span>
+          <span style="background:#F17A5D"></span>
+          <span style="background:#5B3350"></span>
+          <span style="background:#5C8A5A"></span>
+        </div>
+      </figcaption>
+    </figure>
+
+
+    <figure>
+      <div class="plate">
+        <svg viewBox="0 0 900 620" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="skyGrad1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1B4B4F"/>
+      <stop offset="100%" stop-color="#C46A5E"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="900" height="190" fill="#1B4B4F"/>
+  <rect x="0" y="190" width="900" height="90" fill="url(#skyGrad1)"/>
+  <rect x="0" y="280" width="900" height="100" fill="#D9713C"/>
+  <path d="M120,110 q10,-12 20,0 q10,-12 20,0" fill="none" stroke="#1A1A17" stroke-width="3" stroke-linecap="round"/>
+  <path d="M180,150 q8,-10 16,0 q8,-10 16,0" fill="none" stroke="#1A1A17" stroke-width="3" stroke-linecap="round"/>
+  <path d="M760,90 q9,-11 18,0 q9,-11 18,0" fill="none" stroke="#1A1A17" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="650" cy="345" r="95" fill="#F2E8D5"/>
+  <rect x="0" y="380" width="900" height="240" fill="#1B4B4F"/>
+  <polygon points="600,380 700,380 690,430 610,430" fill="#F2E8D5" opacity="0.55"/>
+  <polygon points="615,430 685,430 675,470 625,470" fill="#D9713C" opacity="0.45"/>
+  <polygon points="630,470 670,470 663,505 637,505" fill="#C46A5E" opacity="0.4"/>
+  <g>
+    <polygon points="20,382 60,340 100,382" fill="#1A1A17"/>
+    <polygon points="55,382 90,330 128,382" fill="#1A1A17"/>
+    <path d="M140,382 L146,352 L152,382 Z" fill="#1B4B4F"/>
+    <path d="M155,382 L161,348 L167,382 Z" fill="#1B4B4F"/>
+    <path d="M170,382 L176,355 L182,382 Z" fill="#1B4B4F"/>
+    <path d="M185,382 L191,350 L197,382 Z" fill="#1B4B4F"/>
+    <polygon points="222,382 228,335 236,335 242,382" fill="#F2E8D5"/>
+    <rect x="226" y="335" width="12" height="8" fill="#D9713C"/>
+    <polygon points="223,335 241,335 232,325" fill="#5C2A3A"/>
+    <rect x="255" y="368" width="26" height="14" fill="#5C2A3A"/>
+    <polygon points="253,368 268,354 283,368" fill="#5C2A3A"/>
+  </g>
+  <g transform="rotate(-5 545 415)">
+    <line x1="523" y1="352" x2="523" y2="98" stroke="#1A1A17" stroke-width="5"/>
+    <path d="M523,352 Q440,368 350,378" fill="none" stroke="#A9702E" stroke-width="9" stroke-linecap="round"/>
+    <path d="M523,180 Q640,290 745,400 L523,350 Z" fill="#FBF7EE" stroke="#1A1A17" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M523,130 Q400,260 350,375 L523,352 Z" fill="#FBF7EE" stroke="#1A1A17" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M300,415 Q520,368 758,402 Q600,468 460,466 Q360,462 300,435 Z" fill="#F2E8D5" stroke="#1A1A17" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M322,430 Q520,400 748,406 Q600,436 460,438 Q378,436 322,430 Z" fill="#5C2A3A"/>
+    <path d="M304,417 Q520,371 756,404" fill="none" stroke="#A9702E" stroke-width="4" stroke-linecap="round"/>
+    <path d="M478,347 L568,340 L572,383 L474,386 Z" fill="#EADFC6" stroke="#1A1A17" stroke-width="3" stroke-linejoin="round"/>
+    <rect x="486" y="352" width="14" height="14" fill="#1A1A17"/>
+    <rect x="510" y="350" width="14" height="14" fill="#1A1A17"/>
+    <rect x="534" y="349" width="14" height="14" fill="#1A1A17"/>
+    <circle cx="378" cy="418" r="7" fill="#1A1A17"/>
+    <circle cx="404" cy="422" r="7" fill="#1A1A17"/>
+    <circle cx="430" cy="425" r="7" fill="#1A1A17"/>
+  </g>
+  <path d="M260,470 q30,10 60,0 q30,10 60,0 q30,10 60,0" fill="none" stroke="#F2E8D5" stroke-width="3" opacity="0.35"/>
+  <path d="M300,505 q35,10 70,0 q35,10 70,0 q35,10 70,0" fill="none" stroke="#F2E8D5" stroke-width="3" opacity="0.25"/>
+  <path d="M120,545 q40,10 80,0 q40,10 80,0 q40,10 80,0 q40,10 80,0" fill="none" stroke="#F2E8D5" stroke-width="3" opacity="0.2"/>
+</svg>
+      </div>
+      <figcaption>
+        <p class="style-name">Retro Travel Poster</p>
+        <p class="concept">Mid-century flat color with a dramatic banded sunset sky &mdash; bold, confident silhouette, minimal internal detail.</p>
+        <div class="swatches">
+          <span style="background:#1B4B4F"></span>
+          <span style="background:#D9713C"></span>
+          <span style="background:#F2E8D5"></span>
+          <span style="background:#C46A5E"></span>
+          <span style="background:#1A1A17"></span>
+        </div>
+      </figcaption>
+    </figure>
+
+    <figure>
+      <div class="plate">
+        <svg viewBox="0 0 900 620" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="900" height="620" fill="#EDE3CE"/>
+  <g id="sun">
+    <circle cx="740" cy="95" r="46" fill="#A13D2B" stroke="#1D2B3A" stroke-width="4"/>
+    <line x1="740" y1="43" x2="740" y2="23" stroke="#1D2B3A" stroke-width="4"/>
+    <line x1="776.8" y1="58.2" x2="790.9" y2="44.1" stroke="#1D2B3A" stroke-width="4"/>
+    <line x1="792" y1="95" x2="812" y2="95" stroke="#1D2B3A" stroke-width="4"/>
+    <line x1="776.8" y1="131.8" x2="790.9" y2="145.9" stroke="#1D2B3A" stroke-width="4"/>
+    <line x1="740" y1="147" x2="740" y2="167" stroke="#1D2B3A" stroke-width="4"/>
+    <line x1="703.2" y1="131.8" x2="689.1" y2="145.9" stroke="#1D2B3A" stroke-width="4"/>
+    <line x1="688" y1="95" x2="668" y2="95" stroke="#1D2B3A" stroke-width="4"/>
+    <line x1="703.2" y1="58.2" x2="689.1" y2="44.1" stroke="#1D2B3A" stroke-width="4"/>
+  </g>
+  <g id="treeline" fill="#1D2B3A">
+    <polygon points="15,345 7,345 15,315 23,345"/>
+    <polygon points="55,345 47,345 55,303 63,345"/>
+    <polygon points="95,345 88,345 95,321 102,345"/>
+    <polygon points="135,345 127,345 135,299 143,345"/>
+    <polygon points="175,345 168,345 175,325 182,345"/>
+    <polygon points="215,345 207,345 215,309 223,345"/>
+    <polygon points="255,345 246,345 255,295 264,345"/>
+    <polygon points="295,345 288,345 295,317 302,345"/>
+    <polygon points="335,345 327,345 335,305 343,345"/>
+    <polygon points="375,345 369,345 375,327 381,345"/>
+    <polygon points="655,345 647,345 655,299 663,345"/>
+    <polygon points="700,345 692,345 700,313 708,345"/>
+    <polygon points="745,345 736,345 745,291 754,345"/>
+    <polygon points="790,345 783,345 790,317 797,345"/>
+    <polygon points="820,345 813,345 820,321 827,345"/>
+  </g>
+  <g id="lighthouse">
+    <polygon points="846,345 856,345 852,296 850,296" fill="#EDE3CE" stroke="#1D2B3A" stroke-width="2.5"/>
+    <rect x="847" y="317" width="8" height="6" fill="#A13D2B"/>
+    <rect x="845" y="288" width="9" height="9" fill="#EDE3CE" stroke="#1D2B3A" stroke-width="2"/>
+    <polygon points="844,288 849.5,278 855,288" fill="#1D2B3A"/>
+  </g>
+  <g id="duckblind" stroke="#1D2B3A" fill="#1D2B3A">
+    <line x1="55" y1="345" x2="57" y2="335" stroke-width="1.5"/>
+    <line x1="66" y1="345" x2="64" y2="335" stroke-width="1.5"/>
+    <polygon points="52,335 69,335 65,320 56,320"/>
+    <polygon points="53,320 61,311 68,320"/>
+  </g>
+  <g id="marsh-left" stroke="#1D2B3A" stroke-width="1.5" fill="none">
+    <path d="M10,362 Q14,345 8,330"/>
+    <path d="M20,364 Q26,348 22,328"/>
+    <path d="M30,363 Q34,350 38,332"/>
+    <path d="M400,352 Q404,340 400,326"/>
+    <path d="M412,353 Q417,342 421,328"/>
+    <path d="M424,352 Q427,343 424,332"/>
+  </g>
+  <g id="marsh-right" stroke="#1D2B3A" stroke-width="1.5" fill="none">
+    <path d="M870,363 Q874,347 869,330"/>
+    <path d="M882,364 Q888,349 884,330"/>
+    <path d="M892,362 Q896,350 900,335"/>
+  </g>
+  <line x1="0" y1="350" x2="900" y2="350" stroke="#1D2B3A" stroke-width="3"/>
+  <g id="water-lines" fill="none" stroke="#1D2B3A">
+    <path stroke-width="1.5" d="M0,375 q22,-6 45,0 q23,6 45,0 q22,-6 45,0 q23,6 45,0 q22,-6 45,0 q23,6 45,0 q22,-6 45,0 q23,6 45,0 q22,-6 45,0 q23,6 45,0"/>
+    <path stroke-width="1.5" d="M0,400 q22,7 45,0 q23,-7 45,0 q22,7 45,0 q23,-7 45,0 q22,7 45,0 q23,-7 45,0 q22,7 45,0 q23,-7 45,0 q22,7 45,0 q23,-7 45,0"/>
+    <path stroke-width="1.8" d="M0,505 q24,-9 48,0 q24,9 48,0 q24,-9 48,0 q24,9 48,0 q24,-9 48,0 q24,9 48,0 q24,-9 48,0 q24,9 48,0 q24,-9 48,0"/>
+    <path stroke-width="2" d="M0,535 q26,10 52,0 q26,-10 52,0 q26,10 52,0 q26,-10 52,0 q26,10 52,0 q26,-10 52,0 q26,10 52,0 q26,-10 52,0"/>
+    <path stroke-width="2.2" d="M0,565 q28,-12 56,0 q28,12 56,0 q28,-12 56,0 q28,12 56,0 q28,-12 56,0 q28,12 56,0 q28,-12 56,0"/>
+    <path stroke-width="2.4" d="M0,595 q30,13 60,0 q30,-13 60,0 q30,13 60,0 q30,-13 60,0 q30,13 60,0 q30,-13 60,0"/>
+  </g>
+  <g id="water-hatch" stroke="#1D2B3A" stroke-width="1.4">
+    <line x1="120" y1="388" x2="132" y2="382"/>
+    <line x1="260" y1="392" x2="272" y2="386"/>
+    <line x1="650" y1="390" x2="662" y2="384"/>
+    <line x1="770" y1="386" x2="782" y2="380"/>
+    <line x1="60" y1="415" x2="72" y2="409"/>
+    <line x1="780" y1="412" x2="792" y2="406"/>
+    <line x1="150" y1="520" x2="166" y2="512"/>
+    <line x1="740" y1="522" x2="756" y2="514"/>
+    <line x1="200" y1="548" x2="218" y2="539"/>
+    <line x1="700" y1="550" x2="718" y2="541"/>
+    <line x1="80" y1="580" x2="100" y2="570"/>
+    <line x1="800" y1="578" x2="820" y2="568"/>
+  </g>
+  <g fill="none" stroke="#1D2B3A">
+    <path stroke-width="2" d="M320,432 Q470,425 620,432"/>
+    <path stroke-width="1.6" d="M340,448 Q470,442 600,448"/>
+    <path stroke-width="1.3" d="M360,463 Q470,458 580,463"/>
+  </g>
+  <g fill="none" stroke="#1D2B3A" stroke-width="2">
+    <path d="M661,356 Q642,340 654,320"/>
+    <path d="M672,349 Q683,326 703,314"/>
+    <path d="M648,366 Q628,375 608,369"/>
+  </g>
+  <g fill="#1D2B3A">
+    <circle cx="638" cy="328" r="2.6"/>
+    <circle cx="678" cy="308" r="2.4"/>
+    <circle cx="616" cy="342" r="2.2"/>
+  </g>
+  <g fill="none" stroke="#1D2B3A">
+    <path stroke-width="2.4" d="M296,421 Q220,445 128,470"/>
+    <path stroke-width="2" d="M296,421 Q236,470 172,512"/>
+    <line stroke-width="1.4" x1="230" y1="448" x2="238" y2="440"/>
+    <line stroke-width="1.4" x1="190" y1="462" x2="198" y2="454"/>
+    <line stroke-width="1.4" x1="245" y1="482" x2="253" y2="474"/>
+  </g>
+  <g id="wave-left">
+    <path fill="#1D2B3A" d="M0,620 L0,558 C18,540 34,556 52,538 C64,526 70,544 84,528 C94,518 98,534 110,524 C122,514 126,528 138,522 C152,514 164,530 176,548 C192,570 198,596 210,620 Z"/>
+    <path fill="none" stroke="#EDE3CE" stroke-width="3" d="M20,545 Q35,552 50,540"/>
+    <path fill="none" stroke="#EDE3CE" stroke-width="3" d="M64,530 Q78,538 92,527"/>
+    <path fill="none" stroke="#EDE3CE" stroke-width="3" d="M108,522 Q122,528 136,520"/>
+    <circle cx="58" cy="522" r="3" fill="#EDE3CE"/>
+    <circle cx="100" cy="510" r="2.5" fill="#EDE3CE"/>
+    <circle cx="142" cy="508" r="2.5" fill="#EDE3CE"/>
+  </g>
+  <g id="wave-right">
+    <path fill="#1D2B3A" d="M900,620 L900,558 C882,540 866,556 848,538 C836,526 830,544 816,528 C806,518 802,534 790,524 C778,514 774,528 762,522 C748,514 736,530 724,548 C708,570 702,596 690,620 Z"/>
+    <path fill="none" stroke="#EDE3CE" stroke-width="3" d="M880,545 Q865,552 850,540"/>
+    <path fill="none" stroke="#EDE3CE" stroke-width="3" d="M836,530 Q822,538 808,527"/>
+    <path fill="none" stroke="#EDE3CE" stroke-width="3" d="M792,522 Q778,528 764,520"/>
+    <circle cx="842" cy="522" r="3" fill="#EDE3CE"/>
+    <circle cx="800" cy="510" r="2.5" fill="#EDE3CE"/>
+    <circle cx="758" cy="508" r="2.5" fill="#EDE3CE"/>
+  </g>
+  <g id="boat" transform="translate(470,440) rotate(-7)">
+    <polygon points="-170,-40 -150,-52 -60,-58 40,-62 120,-72 190,-85 200,-60 195,-20 180,10 120,35 20,42 -80,30 -150,5 -170,-10" fill="#EDE3CE" stroke="#1D2B3A" stroke-width="5" stroke-linejoin="round"/>
+    <polygon points="-165,-15 -60,-18 40,-20 120,-26 185,-32 185,-14 120,-8 20,0 -80,4 -160,0" fill="#A13D2B" stroke="#1D2B3A" stroke-width="1"/>
+    <g stroke="#1D2B3A" stroke-width="2">
+      <line x1="-140" y1="-50" x2="-130" y2="-38"/>
+      <line x1="-115" y1="-52" x2="-105" y2="-40"/>
+      <line x1="-90" y1="-54" x2="-80" y2="-42"/>
+      <line x1="-60" y1="-56" x2="-50" y2="-44"/>
+      <line x1="-30" y1="-58" x2="-20" y2="-46"/>
+      <line x1="0" y1="-59" x2="10" y2="-47"/>
+      <line x1="30" y1="-60" x2="40" y2="-48"/>
+      <line x1="60" y1="-63" x2="70" y2="-51"/>
+      <line x1="90" y1="-66" x2="100" y2="-54"/>
+      <line x1="120" y1="-70" x2="130" y2="-58"/>
+      <line x1="150" y1="-75" x2="160" y2="-63"/>
+    </g>
+    <g stroke="#1D2B3A" stroke-width="2">
+      <line x1="-150" y1="5" x2="-140" y2="15"/>
+      <line x1="-110" y1="8" x2="-100" y2="18"/>
+      <line x1="-70" y1="10" x2="-60" y2="20"/>
+      <line x1="-30" y1="12" x2="-20" y2="22"/>
+      <line x1="10" y1="14" x2="20" y2="24"/>
+      <line x1="50" y1="10" x2="60" y2="20"/>
+      <line x1="90" y1="5" x2="100" y2="15"/>
+      <line x1="130" y1="0" x2="140" y2="10"/>
+    </g>
+    <path fill="none" stroke="#A13D2B" stroke-width="3" d="M-170,-40 L-150,-52 L-60,-58 L40,-62 L120,-72 L190,-85"/>
+    <polygon points="-20,-62 -20,-102 55,-102 60,-62" fill="#EDE3CE" stroke="#1D2B3A" stroke-width="3"/>
+    <rect x="-11" y="-96" width="14" height="16" fill="#1D2B3A"/>
+    <rect x="8" y="-96" width="14" height="16" fill="#1D2B3A"/>
+    <rect x="27" y="-96" width="14" height="16" fill="#1D2B3A"/>
+    <circle cx="-55" cy="-32" r="7" fill="#EDE3CE" stroke="#1D2B3A" stroke-width="2.5"/>
+    <circle cx="-85" cy="-32" r="7" fill="#EDE3CE" stroke="#1D2B3A" stroke-width="2.5"/>
+    <circle cx="-115" cy="-32" r="7" fill="#EDE3CE" stroke="#1D2B3A" stroke-width="2.5"/>
+    <line x1="20" y1="-330" x2="-165" y2="-45" stroke="#1D2B3A" stroke-width="1.5"/>
+    <path d="M20,-330 Q -55,-205 -140,-58 L20,-64 Z" fill="#EDE3CE" stroke="#1D2B3A" stroke-width="3"/>
+    <path d="M20,-320 Q 110,-175 240,-78 L70,-95 Z" fill="#EDE3CE" stroke="#1D2B3A" stroke-width="3"/>
+    <path d="M20,-230 Q 75,-165 100,-72 L45,-90 Z" fill="#EDE3CE" stroke="#1D2B3A" stroke-width="3"/>
+    <g stroke="#1D2B3A" stroke-width="1.3" fill="none">
+      <path d="M20,-270 L-40,-230"/>
+      <path d="M20,-210 L-70,-160"/>
+      <path d="M20,-150 L-100,-110"/>
+      <path d="M20,-90 L-120,-70"/>
+      <path d="M60,-300 L110,-230"/>
+      <path d="M100,-270 L150,-190"/>
+      <path d="M150,-230 L190,-140"/>
+      <path d="M35,-200 L60,-150"/>
+      <path d="M50,-160 L75,-120"/>
+    </g>
+    <g stroke="#1D2B3A" stroke-width="1.3">
+      <line x1="-125" y1="-58" x2="-105" y2="-72"/>
+      <line x1="-115" y1="-52" x2="-95" y2="-66"/>
+      <line x1="-105" y1="-46" x2="-85" y2="-60"/>
+      <line x1="55" y1="-98" x2="80" y2="-84"/>
+      <line x1="62" y1="-108" x2="87" y2="-94"/>
+      <line x1="30" y1="-92" x2="50" y2="-80"/>
+    </g>
+    <line x1="20" y1="-64" x2="20" y2="-330" stroke="#1D2B3A" stroke-width="6"/>
+    <line x1="20" y1="-64" x2="-140" y2="-58" stroke="#1D2B3A" stroke-width="5"/>
+    <line x1="195" y1="-72" x2="245" y2="-80" stroke="#1D2B3A" stroke-width="4"/>
+    <polygon points="20,-330 46,-322 20,-315" fill="#A13D2B" stroke="#1D2B3A" stroke-width="1"/>
+  </g>
+</svg>
+      </div>
+      <figcaption>
+        <p class="style-name">Nautical Woodblock</p>
+        <p class="concept">Ink-carved linocut texture in the spirit of an antique whaling print &mdash; hatched sails, a Hokusai-claw wave, one rust-red accent.</p>
+        <div class="swatches">
+          <span style="background:#EDE3CE"></span>
+          <span style="background:#1D2B3A"></span>
+          <span style="background:#A13D2B"></span>
+        </div>
+      </figcaption>
+    </figure>
+
+    <figure>
+      <div class="plate">
+        <svg viewBox="0 0 900 620" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="900" height="620" fill="#FAF8F4"/>
+  <line x1="50" y1="478" x2="850" y2="478" stroke="#22201C" stroke-width="5" stroke-linecap="round" opacity="0.45"/>
+  <path d="M120,512 Q150,502 180,512 T240,512" fill="none" stroke="#22201C" stroke-width="5" stroke-linecap="round" opacity="0.4"/>
+  <path d="M660,522 Q690,512 720,522 T780,522" fill="none" stroke="#22201C" stroke-width="5" stroke-linecap="round" opacity="0.4"/>
+  <path d="M330,458 Q360,450 390,458" fill="none" stroke="#22201C" stroke-width="5" stroke-linecap="round" opacity="0.5"/>
+  <g transform="rotate(-5 470 380)">
+    <line x1="500" y1="95" x2="500" y2="323" stroke="#22201C" stroke-width="5" stroke-linecap="round"/>
+    <line x1="498" y1="298" x2="345" y2="312" stroke="#22201C" stroke-width="5" stroke-linecap="round"/>
+    <path d="M500,95 L680,378 L560,345 C545,270 520,170 500,95 Z" fill="#FAF8F4" stroke="#22201C" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M505,130 L505,295 L615,325 C575,255 535,185 505,130 Z" fill="#FAF8F4" stroke="#22201C" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M500,95 L500,300 L350,312 C400,230 460,150 500,95 Z" fill="#FAF8F4" stroke="#22201C" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M300,345 C400,325 560,320 665,330 C685,345 695,365 690,390 C650,430 550,448 460,445 C380,447 320,435 300,410 C295,395 296,365 300,345 Z" fill="#FAF8F4" stroke="#22201C" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M312,388 C400,378 520,372 652,358 C657,362 657,366 652,370 C520,384 400,392 312,402 C307,397 307,392 312,388 Z" fill="#1F3A5F" stroke="none"/>
+    <path d="M304,350 C400,332 558,327 660,337" fill="none" stroke="#22201C" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="400" cy="365" r="9" fill="#FAF8F4" stroke="#22201C" stroke-width="5"/>
+    <circle cx="368" cy="368" r="9" fill="#FAF8F4" stroke="#22201C" stroke-width="5"/>
+    <circle cx="336" cy="371" r="9" fill="#FAF8F4" stroke="#22201C" stroke-width="5"/>
+    <path d="M465,323 L465,288 C465,275 478,268 498,267 L552,267 C570,268 580,275 580,288 L580,323" fill="none" stroke="#22201C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="480" y="288" width="16" height="18" fill="#1F3A5F"/>
+    <rect x="508" y="288" width="16" height="18" fill="#1F3A5F"/>
+    <rect x="536" y="288" width="16" height="18" fill="#1F3A5F"/>
+  </g>
+</svg>
+      </div>
+      <figcaption>
+        <p class="style-name">Minimalist Line Art</p>
+        <p class="concept">Single-weight continuous outline, huge negative space, one accent color reserved for the boot stripe. Reads as a mark as much as a scene.</p>
+        <div class="swatches">
+          <span style="background:#FAF8F4"></span>
+          <span style="background:#22201C"></span>
+          <span style="background:#1F3A5F"></span>
+        </div>
+      </figcaption>
+    </figure>
+
+
+  </div>
+
+  <footer>
+    Drafted as exploratory directions, not final artwork &mdash; all five were produced independently from the same brief, which is why Chesapeake Watercolor and the four alternates below stay directly comparable.
+    Boat reference: &#8220;Oyster,&#8221; Hartge Quadrant sloop hull&nbsp;#9 (built 1956, Hartge Yacht Yard, Galesville, MD); photographed for a 2024 listing at
+    offcenterharbor.com. Illustrations set on the Chesapeake rather than the photo's actual Pacific Northwest backdrop.
+  </footer>
+</div>
