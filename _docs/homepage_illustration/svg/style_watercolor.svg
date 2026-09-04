@@ -73,14 +73,10 @@
   <!-- ================= BOAT ================= -->
   <g transform="rotate(-3 440 460)">
 
-    <!-- boom -->
-    <line x1="468" y1="408" x2="322" y2="415" stroke="#7C5A3A" stroke-width="4" stroke-linecap="round"/>
-    <!-- mast -->
-    <line x1="468" y1="150" x2="468" y2="408" stroke="#6E5236" stroke-width="4" stroke-linecap="round"/>
-
-    <!-- mainsail -->
-    <path d="M468,152 L468,406 L328,414 Q392,300 468,152 Z" fill="url(#sailShade)" fill-opacity="0.92"/>
-    <path d="M468,200 L468,406 L360,412 Q410,320 468,200 Z" fill="#FFFFFF" fill-opacity="0.35"/>
+    <!-- boom, now meeting the foot of the enlarged mainsail -->
+    <line x1="468" y1="456" x2="270" y2="480" stroke="#7C5A3A" stroke-width="4" stroke-linecap="round"/>
+    <!-- mast, base moved to the vertical midpoint of the hull at this x (sheer ~420, keel ~493) -->
+    <line x1="468" y1="138" x2="468" y2="456" stroke="#6E5236" stroke-width="4" stroke-linecap="round"/>
 
     <!-- staysail -->
     <path d="M468,205 L603,456 Q505,320 468,205 Z" fill="#FBF6EC" fill-opacity="0.88"/>
@@ -116,6 +112,10 @@
     <!-- the keel, below the boot stripe, dips into the water -->
     <path d="M262,466 C330,481 420,489 500,491 C552,490 592,483 618,470 C622,478 618,486 606,490 C540,500 430,503 340,498 C298,495 272,485 264,474 C262,472 261,469 262,466 Z" fill="#6E8EA0" fill-opacity="0.55"/>
     <path d="M275,477 C340,489 430,494 505,493 C550,492 588,486 612,477" fill="none" stroke="#3C5A72" stroke-width="2" stroke-opacity="0.4"/>
+
+    <!-- mainsail, on the near side: drawn last so it drapes in front of the pilothouse, portholes and hull -->
+    <path d="M468,140 L468,456 L270,480 Q375,290 468,140 Z" fill="url(#sailShade)" fill-opacity="0.94"/>
+    <path d="M468,205 L468,453 L305,475 Q390,310 468,205 Z" fill="#FFFFFF" fill-opacity="0.35"/>
 
   </g>
   <!-- ================= END BOAT ================= -->
