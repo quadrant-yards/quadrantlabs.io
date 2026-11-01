@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quadrant Type Pairings</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Archivo:wdth,wght@62..125,400..700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Source+Sans+3:wght@400;500;600&family=Source+Code+Pro:wght@400;500&display=swap">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* Clear Day (light) */
+  :root {
+    --paper:#F6F7F3; --surface:#FFFFFF; --ink:#10211F; --muted:#4E5E59; --border:#DCE2DC; --tint:#DDEEE9;
+    --primary:#0B5E5A; --fill:#0B5E5A; --on-fill:#FFFFFF; --accent:#B8410E; --signal:#EE6A2A; --on-signal:#10211F; --secondary:#6E8F2E;
+  }
+
+  /* Page chrome stays neutral so the pairings are judged on their own */
+  body { font-family: system-ui, sans-serif; background: #EEEFEB; color: #222; padding: 56px 24px; }
+  .page { max-width: 1160px; margin: 0 auto; }
+  .page-head { margin-bottom: 48px; }
+  .eyebrow-meta { font: 500 11px/1 system-ui; letter-spacing: .2em; text-transform: uppercase; color: #888; margin-bottom: 12px; }
+  .page-head h1 { font: 400 32px/1.2 'Jost'; letter-spacing: .04em; margin-bottom: 12px; }
+  .lede-meta { max-width: 720px; color: #555; line-height: 1.6; font-size: 15px; }
+  .lede-meta + .lede-meta { margin-top: 10px; }
+
+  /* ── Pairing variables ── */
+  .t1 { --f-head:'Jost', sans-serif; --head-w:500; --head-stretch:100%; --head-track:-0.005em;
+        --f-body:'IBM Plex Sans', sans-serif; --f-ui:'IBM Plex Sans', sans-serif; --f-mono:'IBM Plex Mono', monospace; --body-size:16px; }
+  .t2 { --f-head:'Archivo', sans-serif; --head-w:650; --head-stretch:115%; --head-track:-0.01em;
+        --f-body:'Archivo', sans-serif; --f-ui:'Archivo', sans-serif; --f-mono:'JetBrains Mono', monospace; --body-size:16px; }
+  .t3 { --f-head:'Jost', sans-serif; --head-w:500; --head-stretch:100%; --head-track:-0.005em;
+        --f-body:'Source Serif 4', serif; --f-ui:'Source Sans 3', sans-serif; --f-mono:'Source Code Pro', monospace; --body-size:17px; }
+
+  /* ── Section ── */
+  .pair { margin-bottom: 96px; }
+  .pair-head { display: flex; gap: 20px; align-items: baseline; flex-wrap: wrap; margin-bottom: 8px; }
+  .pair-letter { font: 300 40px/1 'Jost'; color: #999; }
+  .pair-name { font: 400 26px/1.2 'Jost'; letter-spacing: .03em; }
+  .pair-story { color: #555; line-height: 1.6; font-size: 14.5px; max-width: 760px; margin-bottom: 8px; }
+  .pair-feel { font-size: 12.5px; color: #888; margin-bottom: 20px; line-height: 1.6; max-width: 900px; }
+  .pair-feel b { color: #444; font-weight: 500; }
+
+  .specimens { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 16px; }
+  .spec { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 16px 18px; color: var(--ink); }
+  .spec .aa { font-size: 40px; line-height: 1; margin-bottom: 10px; }
+  .spec .role { font: 500 10px/1 system-ui; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+  .spec .fname { font: 13px/1.3 system-ui; color: var(--ink); }
+
+  .board { display: grid; grid-template-columns: 1.1fr 1fr; gap: 16px; }
+  @media (max-width: 900px) { .board { grid-template-columns: 1fr; } }
+  .col { display: grid; gap: 16px; align-content: start; }
+  .card { background: var(--paper); color: var(--ink); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+  .card-label { font: 500 10px/1 system-ui; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); padding: 14px 22px 0; }
+
+  /* hero */
+  .hero { padding: 24px 26px 30px; font-family: var(--f-ui); }
+  .nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 34px; }
+  .lockup { display: flex; align-items: center; gap: 10px; color: var(--ink); }
+  .lockup svg { width: 26px; height: 23px; }
+  .wordmark { font: 400 15px/1 'Jost'; letter-spacing: .16em; text-transform: uppercase; }  /* fixed for all pairings */
+  .nav-links { display: flex; gap: 16px; font-size: 13px; color: var(--muted); }
+  .kicker { font: 500 11px/1 var(--f-ui); letter-spacing: .14em; text-transform: uppercase; color: var(--primary); margin-bottom: 12px; }
+  .hero h2 { font-family: var(--f-head); font-weight: var(--head-w); font-stretch: var(--head-stretch); letter-spacing: var(--head-track);
+             font-size: 34px; line-height: 1.12; max-width: 440px; margin-bottom: 14px; }
+  .hero p { font-family: var(--f-body); font-size: var(--body-size); line-height: 1.6; color: var(--muted); max-width: 440px; margin-bottom: 22px; }
+  .btn-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn { font: 500 14px/1 var(--f-ui); padding: 11px 16px; border-radius: 4px; }
+  .btn.primary { background: var(--fill); color: var(--on-fill); border: 1px solid var(--fill); }
+  .btn.ghost { color: var(--primary); border: 1px solid var(--primary); }
+
+  /* article */
+  .article { padding: 22px 26px 28px; background: var(--surface); }
+  .article .meta { font: 13px/1 var(--f-ui); color: var(--muted); margin-bottom: 10px; }
+  .article h3 { font-family: var(--f-head); font-weight: var(--head-w); font-stretch: var(--head-stretch); letter-spacing: var(--head-track);
+                font-size: 24px; line-height: 1.2; margin-bottom: 14px; }
+  .article p { font-family: var(--f-body); font-size: var(--body-size); line-height: 1.65; margin-bottom: 14px; max-width: 62ch; }
+  .article p:last-child { margin-bottom: 0; }
+  .article code { font-family: var(--f-mono); font-size: .86em; background: var(--tint); padding: 1px 5px; border-radius: 3px; }
+  .article a { color: var(--primary); text-decoration: underline; text-underline-offset: 2px; }
+
+  /* app */
+  .app { background: var(--surface); font-family: var(--f-ui); }
+  .app-bar { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-bottom: 1px solid var(--border); }
+  .app-title { font-weight: 600; font-size: 14px; display: flex; align-items: center; gap: 8px; }
+  .app-title svg { width: 16px; height: 14px; color: var(--primary); }
+  .app-title .by { color: var(--muted); font-weight: 400; }
+  .pill { font-size: 11.5px; font-weight: 500; padding: 4px 9px; border-radius: 999px; background: var(--signal); color: var(--on-signal); }
+  .app-body { padding: 14px 16px 18px; }
+  .app h4 { font-family: var(--f-head); font-weight: var(--head-w); font-stretch: var(--head-stretch); font-size: 18px; margin-bottom: 10px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  th { text-align: left; font-weight: 500; font-size: 11.5px; color: var(--muted); padding: 6px 0; border-bottom: 1px solid var(--border); }
+  td { padding: 8px 0; border-bottom: 1px solid var(--border); }
+  th.n, td.n { text-align: right; font-variant-numeric: tabular-nums; }
+  td.warn { color: var(--accent); font-weight: 500; }
+  .hint { font-size: 12.5px; color: var(--muted); margin-top: 10px; }
+
+  /* code */
+  .code { background: #0B1615; color: #E8F0EC; font-family: var(--f-mono); font-size: 13px; line-height: 1.65; padding: 18px 20px; overflow-x: auto; white-space: pre; }
+  .code .c { color: #94A8A2; } .code .k { color: #5FCFC3; } .code .s { color: #FF8A4C; } .code .g { color: #9DBE5A; }
+  .chars { font-family: var(--f-mono); font-size: 15px; padding: 10px 22px 16px; color: var(--ink); background: var(--surface); letter-spacing: .04em; }
+
+  .notes { background: #fff; border: 1px solid #ddd; border-radius: 6px; padding: 24px 28px; max-width: 800px; line-height: 1.65; font-size: 14px; color: #444; }
+  .notes h3 { font: 400 18px/1.3 'Jost'; margin-bottom: 10px; color: #222; }
+  .notes p + p, .notes ul { margin-top: 10px; }
+  .notes ul { padding-left: 20px; } .notes li + li { margin-top: 6px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="page-head">
+    <div class="eyebrow-meta">Quadrant brand · type exploration · 2026-11-01</div>
+    <h1>Three type pairings in Clear Day</h1>
+    <p class="lede-meta">The "QUADRANT" wordmark stays in Jost in every pairing. What changes is the font for headings, body text, interface text and code.
+      Each pairing is shown on the website, a long article, an app screen with numbers, and code.</p>
+    <p class="lede-meta">All three avoid the AI-default pairing: a soft, high-contrast display serif (Fraunces, Instrument Serif, Playfair) over Inter in grey. Inter is also out, because it's on nearly every AI-generated page.</p>
+  </header>
+
+  <svg width="0" height="0" style="position:absolute">
+    <symbol id="mark" viewBox="5 5 90 78">
+      <path d="M 50,10 L 11,65.7 A 68,68 0 0,0 89,65.7 Z" stroke="currentColor" stroke-width="5" stroke-linejoin="miter" fill="none"/>
+      <line x1="50" y1="10" x2="50" y2="78" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+    </symbol>
+  </svg>
+
+  <!-- T1 -->
+  <section class="pair t1">
+    <div class="pair-head"><span class="pair-letter">T1</span><span class="pair-name">Engineered</span></div>
+    <p class="pair-story">Jost for headings, so headings and the wordmark come from the same family. IBM Plex Sans for everything else, with its matching Plex Mono for code.
+      Plex was designed for engineering work: it has slightly squared curves and reads as precise without being cold.</p>
+    <p class="pair-feel"><b>Feels:</b> precise, technical, calm, and unified with the logo · <b>Strength:</b> one font for all interface text keeps rules simple for agents; Plex's sans and mono were designed together · <b>Risk:</b> the safest of the three and the least memorable on its own</p>
+    <div class="specimens"></div>
+    <div class="board"></div>
+  </section>
+
+  <!-- T2 -->
+  <section class="pair t2">
+    <div class="pair-head"><span class="pair-letter">T2</span><span class="pair-name">Hull Lettering</span></div>
+    <p class="pair-story">Archivo, a sturdy grotesque, set wide and bold for headings, like a boat's name and hailing port lettered on the transom. The same family at normal width does body and interface text, with JetBrains Mono for code.
+      Jost appears only in the wordmark, which then stands apart from everything around it.</p>
+    <p class="pair-feel"><b>Feels:</b> sturdy, workmanlike, confident · <b>Strength:</b> the most distinctive headings; one family for nearly everything · <b>Risk:</b> wide bold headings are loud; they need short headlines, and long titles wrap awkwardly</p>
+    <div class="specimens"></div>
+    <div class="board"></div>
+  </section>
+
+  <!-- T3 -->
+  <section class="pair t3">
+    <div class="pair-head"><span class="pair-letter">T3</span><span class="pair-name">Logbook</span></div>
+    <p class="pair-story">Jost for headings, a sturdy reading serif (Source Serif 4) for long text such as essays and case studies, and Source Sans 3 for interface text. Source Code Pro for code.
+      It's like a ship's log: clean printed headings over handwritten-feeling entries. It suits writing-heavy work like guides and engineering memos.</p>
+    <p class="pair-feel"><b>Feels:</b> thoughtful, literary, considered · <b>Strength:</b> best for long reading, and the serif is a working text face, not a soft display serif · <b>Risk:</b> four fonts to manage; agents need a clear rule for when serif applies (long-form only, never in app UI)</p>
+    <div class="specimens"></div>
+    <div class="board"></div>
+  </section>
+
+  <div class="notes">
+    <h3>What to look for</h3>
+    <ul>
+      <li><b>The article block</b> shows whether you'd want to read a whole case study in it.</li>
+      <li><b>The app table</b> shows whether numbers line up and labels stay readable at small sizes.</li>
+      <li><b>The code block</b> shows whether <code>0O</code>, <code>1lI</code> and <code>{}</code> are easy to tell apart.</li>
+      <li><b>The wordmark next to the headings</b> shows whether they feel like one family (T1, T3) or a deliberate contrast (T2).</li>
+    </ul>
+    <p>Mixing is fine, e.g. T1 with T3's serif only for essays. All fonts are free on Google Fonts.</p>
+  </div>
+</div>
+
+<template id="spec-tpl">
+  <div class="spec"><div class="aa" style="font-family:'Jost';font-weight:400;letter-spacing:.16em;font-size:22px;padding:9px 0;">QUADRANT</div><div class="role">Wordmark (fixed)</div><div class="fname">Jost 400, tracked caps</div></div>
+  <div class="spec"><div class="aa h">Aa</div><div class="role">Headings</div><div class="fname n-head"></div></div>
+  <div class="spec"><div class="aa b">Aa</div><div class="role">Body / long-form</div><div class="fname n-body"></div></div>
+  <div class="spec"><div class="aa u">Aa</div><div class="role">Interface</div><div class="fname n-ui"></div></div>
+  <div class="spec"><div class="aa m">{0}</div><div class="role">Code</div><div class="fname n-mono"></div></div>
+</template>
+
+<template id="board-tpl">
+  <div class="col">
+    <div class="card">
+      <div class="card-label">Website</div>
+      <div class="hero">
+        <div class="nav">
+          <div class="lockup"><svg><use href="#mark"/></svg><span class="wordmark">Quadrant</span></div>
+          <div class="nav-links"><span>Work</span><span>Writing</span><span>Contact</span></div>
+        </div>
+        <div class="kicker">Fractional CTO</div>
+        <h2>Technical leadership, steady and part-time.</h2>
+        <p>For small teams that need architecture, hiring and a clear course, without a full-time executive.</p>
+        <div class="btn-row"><span class="btn primary">Start a conversation</span><span class="btn ghost">See past work</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">Long-form</div>
+      <div class="article">
+        <div class="meta">Writing · 6 min read</div>
+        <h3>Hire your first platform engineer later than you think</h3>
+        <p>Most teams of eight don't have a platform problem. They have three scripts nobody owns and a deploy that only works from one laptop. Fix those first; it takes a week, not a hire.</p>
+        <p>When <code>make deploy</code> works for everyone and the on-call rota has more than one name on it, you'll know what the job really is. Then <a href="#">write that job description</a>.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <div class="card-label">Product</div>
+      <div class="app">
+        <div class="app-bar">
+          <div class="app-title"><svg><use href="#mark"/></svg>Planner <span class="by">· Quadrant</span></div>
+          <span class="pill">Over capacity</span>
+        </div>
+        <div class="app-body">
+          <h4>Scenario B: three clients</h4>
+          <table>
+            <thead><tr><th>Client</th><th class="n">Hrs / wk</th><th class="n">Monthly</th></tr></thead>
+            <tbody>
+              <tr><td>Harbor Analytics</td><td class="n">12</td><td class="n">$9,600</td></tr>
+              <tr><td>Galesville Health</td><td class="n">8</td><td class="n">$6,400</td></tr>
+              <tr><td>Oyster Point Labs</td><td class="n">6</td><td class="n">$4,800</td></tr>
+              <tr><td><b>Total</b></td><td class="n warn">26</td><td class="n"><b>$20,800</b></td></tr>
+            </tbody>
+          </table>
+          <div class="hint">2 hours over your 24-hour weekly limit.</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">Code</div>
+<div class="code"><span class="c"># planner/config.toml</span>
+<span class="k">[capacity]</span>
+weekly_limit_hours = <span class="g">24</span>
+buffer           = <span class="g">0.10</span>   <span class="c"># keep 10% slack</span>
+
+<span class="k">[[client]]</span>
+name = <span class="s">"Oyster Point Labs"</span>
+rate = { hourly = <span class="g">200</span>, currency = <span class="s">"USD"</span> }</div>
+      <div class="chars">0O 1lI|  {}[]()  =&gt; != ===  rn m</div>
+    </div>
+  </div>
+</template>
+
+<script>
+  const names = {
+    t1: { head: 'Jost 500', body: 'IBM Plex Sans 400', ui: 'IBM Plex Sans 400/500/600', mono: 'IBM Plex Mono' },
+    t2: { head: 'Archivo 650, width 115%', body: 'Archivo 400', ui: 'Archivo 400/500/600', mono: 'JetBrains Mono' },
+    t3: { head: 'Jost 500', body: 'Source Serif 4', ui: 'Source Sans 3', mono: 'Source Code Pro' },
+  };
+  const specT = document.getElementById('spec-tpl'), boardT = document.getElementById('board-tpl');
+  document.querySelectorAll('.pair').forEach(sec => {
+    const key = [...sec.classList].find(c => names[c]);
+    const sp = sec.querySelector('.specimens'); sp.appendChild(specT.content.cloneNode(true));
+    sp.querySelector('.h').style.cssText = 'font-family:var(--f-head);font-weight:var(--head-w);font-stretch:var(--head-stretch)';
+    sp.querySelector('.b').style.fontFamily = 'var(--f-body)';
+    sp.querySelector('.u').style.fontFamily = 'var(--f-ui)';
+    sp.querySelector('.m').style.fontFamily = 'var(--f-mono)';
+    for (const k of ['head','body','ui','mono']) sp.querySelector('.n-'+k).textContent = names[key][k];
+    sec.querySelector('.board').appendChild(boardT.content.cloneNode(true));
+  });
+</script>
+</body>
+</html>

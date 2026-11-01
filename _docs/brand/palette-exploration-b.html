@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slack Water Variants</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Inter:wght@400;500;600&display=swap">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', system-ui, sans-serif; background: #F7F7F5; color: #222; padding: 56px 24px; }
+  .page { max-width: 1120px; margin: 0 auto; }
+  .page-head { margin-bottom: 48px; }
+  .eyebrow { font: 500 11px/1 'Inter'; letter-spacing: .2em; text-transform: uppercase; color: #888; margin-bottom: 12px; }
+  h1 { font: 400 32px/1.2 'Jost'; letter-spacing: .04em; margin-bottom: 12px; }
+  .lede { max-width: 700px; color: #555; line-height: 1.6; font-size: 15px; }
+  .lede + .lede { margin-top: 10px; }
+
+  /*
+    Token roles:
+      --fill / --on-fill       primary button, progress bar
+      --primary                brand color as text/outline (ghost button, focus ring, links)
+      --accent                 emphasis + warnings as text
+      --signal / --on-signal   loud solid highlight (status pill, B3's band); vivid, never used as text
+      --extra                  secondary data color
+  */
+  .orig    { --paper:#EDEFE9; --surface:#FAFBF7; --ink:#1E2A28; --muted:#56635E; --border:#D3D9D0;
+             --fill:#2B5552; --on-fill:#FAFBF7; --primary:#2B5552; --accent:#B4461A; --signal:#B4461A; --on-signal:#FFFFFF; --extra:#7E8C5A; --tint:#DCE7E2; }
+  .orig.dark { --paper:#121816; --surface:#1A2220; --ink:#E3E8E2; --muted:#93A19B; --border:#2C3833;
+             --fill:#86BDB5; --on-fill:#121816; --primary:#86BDB5; --accent:#F08A52; --signal:#F08A52; --on-signal:#121816; --extra:#AEBB86; --tint:#20302C; }
+
+  .b1      { --paper:#F6F7F3; --surface:#FFFFFF; --ink:#10211F; --muted:#4E5E59; --border:#DCE2DC;
+             --fill:#0B5E5A; --on-fill:#FFFFFF; --primary:#0B5E5A; --accent:#B8410E; --signal:#EE6A2A; --on-signal:#10211F; --extra:#6E8F2E; --tint:#DDEEE9; }
+  .b1.dark { --paper:#0B1615; --surface:#112120; --ink:#E8F0EC; --muted:#94A8A2; --border:#20332F;
+             --fill:#0F716C; --on-fill:#FFFFFF; --primary:#5FCFC3; --accent:#FF8A4C; --signal:#EE6A2A; --on-signal:#10211F; --extra:#9DBE5A; --tint:#173230; }
+
+  .b2      { --paper:#F4F5F0; --surface:#FFFFFF; --ink:#1A2420; --muted:#535F58; --border:#DADFD6;
+             --fill:#1A72B0; --on-fill:#FFFFFF; --primary:#1A72B0; --accent:#B93A26; --signal:#C2412D; --on-signal:#FFFFFF; --extra:#6B7A2E; --tint:#DCEBF5; }
+  .b2.dark { --paper:#10171A; --surface:#172126; --ink:#E9EEEC; --muted:#9AA8A6; --border:#26343A;
+             --fill:#1A72B0; --on-fill:#FFFFFF; --primary:#6CB8EE; --accent:#FF8A70; --signal:#C2412D; --on-signal:#FFFFFF; --extra:#A8B85C; --tint:#1A2D3A; }
+
+  .b3      { --paper:#EDEFE9; --surface:#FAFBF7; --ink:#1E2A28; --muted:#56635E; --border:#D3D9D0;
+             --fill:#EE6A2A; --on-fill:#1E2A28; --primary:#2B5552; --accent:#B4461A; --signal:#EE6A2A; --on-signal:#1E2A28; --extra:#2B5552; --tint:#DCE7E2; }
+  .b3.dark { --paper:#121816; --surface:#1A2220; --ink:#E3E8E2; --muted:#93A19B; --border:#2C3833;
+             --fill:#F07A3A; --on-fill:#121816; --primary:#86BDB5; --accent:#F08A52; --signal:#F07A3A; --on-signal:#121816; --extra:#86BDB5; --tint:#20302C; }
+
+  .ref { margin-bottom: 72px; }
+  .ref .cap { font-size: 13.5px; color: #555; margin-bottom: 12px; line-height: 1.55; max-width: 720px; }
+  .ref .cap b { color: #222; font-weight: 500; }
+
+  .dir { margin-bottom: 88px; }
+  .dir-head { display: flex; gap: 20px; align-items: baseline; flex-wrap: wrap; margin-bottom: 8px; }
+  .dir-letter { font: 300 40px/1 'Jost'; color: #999; }
+  .dir-name { font: 400 26px/1.2 'Jost'; letter-spacing: .03em; }
+  .dir-story { color: #555; line-height: 1.6; font-size: 14.5px; max-width: 740px; margin-bottom: 8px; }
+  .dir-feel { font-size: 12.5px; color: #888; margin-bottom: 24px; line-height: 1.6; }
+  .dir-feel b { color: #444; font-weight: 500; }
+
+  .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 12px; margin-bottom: 24px; }
+  .sw-block { height: 64px; border-radius: 4px; border: 1px solid rgba(0,0,0,.08); }
+  .sw-name { font-size: 12px; font-weight: 500; margin-top: 8px; }
+  .sw-hex { font: 11px/1.4 ui-monospace, Menlo, monospace; color: #888; }
+
+  .panels { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 860px) { .panels { grid-template-columns: 1fr; } }
+
+  .panel { background: var(--paper); color: var(--ink); border-radius: 6px; overflow: hidden; border: 1px solid var(--border); }
+  .panel-label { font: 500 10px/1 'Inter'; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); padding: 14px 20px 0; }
+  .hero { padding: 28px 28px 32px; position: relative; }
+  /* B3: a solid buoy-orange band down the left edge of the hero */
+  .b3 .hero { border-left: 10px solid var(--signal); }
+  .nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 36px; }
+  .lockup { display: flex; align-items: center; gap: 10px; }
+  .lockup svg { width: 26px; height: 23px; }
+  .wordmark { font: 400 15px/1 'Jost'; letter-spacing: .16em; text-transform: uppercase; }
+  .nav-links { display: flex; gap: 16px; font-size: 12.5px; color: var(--muted); }
+  .hero h2 { font: 400 28px/1.2 'Jost'; letter-spacing: .01em; max-width: 380px; margin-bottom: 12px; }
+  .hero h2 em { font-style: normal; color: var(--accent); }
+  .hero p { font-size: 14px; line-height: 1.6; color: var(--muted); max-width: 400px; margin-bottom: 22px; }
+  .btn-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn { font: 500 13px/1 'Inter'; padding: 11px 16px; border-radius: 4px; }
+  .btn.primary { background: var(--fill); color: var(--on-fill); border: 1px solid var(--fill); }
+  .btn.ghost { background: transparent; color: var(--primary); border: 1px solid var(--primary); }
+
+  .app { margin: 0 20px 22px; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; }
+  .app-bar { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-bottom: 1px solid var(--border); }
+  .app-title { font: 500 13px/1 'Inter'; display: flex; align-items: center; gap: 8px; }
+  .app-title svg { width: 16px; height: 14px; color: var(--primary); }
+  .app-title span.by { color: var(--muted); font-weight: 400; }
+  .pills { display: flex; gap: 6px; }
+  .tag { font-size: 11px; padding: 4px 8px; border-radius: 999px; background: var(--tint); color: var(--ink); }
+  .tag.signal { background: var(--signal); color: var(--on-signal); font-weight: 500; }
+  .app-body { padding: 16px; display: grid; gap: 12px; }
+  .field label { display: block; font-size: 11.5px; color: var(--muted); margin-bottom: 5px; }
+  .input { border: 1px solid var(--border); border-radius: 4px; padding: 9px 11px; font-size: 13px; background: var(--paper); }
+  .input.focus { border-color: var(--primary); box-shadow: 0 0 0 3px var(--tint); }
+  .row { display: flex; align-items: center; justify-content: space-between; font-size: 13px; padding: 8px 0; border-top: 1px solid var(--border); }
+  .row .num { font-variant-numeric: tabular-nums; font-weight: 500; }
+  .row .warn { color: var(--accent); font-weight: 500; }
+  .bar { height: 6px; border-radius: 3px; background: var(--tint); overflow: hidden; }
+  .bar i { display: block; height: 100%; width: 62%; background: var(--fill); }
+  .bar i.alt { width: 28%; background: var(--extra); }
+
+  .notes { background: #fff; border: 1px solid #e5e5e0; border-radius: 6px; padding: 24px 28px; max-width: 780px; line-height: 1.65; font-size: 14px; color: #444; }
+  .notes h3 { font: 400 18px/1.3 'Jost'; margin-bottom: 10px; color: #222; }
+  .notes p + p { margin-top: 10px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="page-head">
+    <div class="eyebrow">Quadrant brand · palette round 4 · 2026-11-01</div>
+    <h1>Slack Water, with more life in it</h1>
+    <p class="lede">Original B is muted for three reasons. Its main green is dark and greyed (33% saturation at 25% lightness, close to charcoal). The background is a grey-green instead of a clean light. And I darkened the orange to pass contrast checks, which also dulled it.</p>
+    <p class="lede">Each variant fixes this differently. All of them use the rule from the Livery round: vivid colors fill solid areas (buttons, pills, bands) with a text color chosen for contrast, and a deeper shade is used only when the color is text.</p>
+  </header>
+
+  <svg width="0" height="0" style="position:absolute">
+    <symbol id="mark" viewBox="5 5 90 78">
+      <path d="M 50,10 L 11,65.7 A 68,68 0 0,0 89,65.7 Z" stroke="currentColor" stroke-width="5" stroke-linejoin="miter" fill="none"/>
+      <line x1="50" y1="10" x2="50" y2="78" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+    </symbol>
+  </svg>
+
+  <section class="ref">
+    <p class="cap"><b>Original B, for reference.</b> Calm, but every color sits in the same narrow, greyed range.</p>
+    <div class="panels">
+      <div class="panel orig"></div>
+      <div class="panel orig dark"></div>
+    </div>
+  </section>
+
+  <!-- ═════════ B1 ═════════ -->
+  <section class="dir">
+    <div class="dir-head"><span class="dir-letter">B1</span><span class="dir-name">Clear Day</span></div>
+    <p class="dir-story">The same Bay on a bright, windy afternoon. The water is a clear, saturated green-teal instead of grey, the background is a clean light, the marsh is summer green, and the buoy is full signal orange.</p>
+    <p class="dir-feel"><b>Changes:</b> more saturation everywhere, same structure as B · <b>Feels:</b> fresh, confident, outdoors · <b>Risk:</b> teal plus orange is a familiar pairing; the marsh green and buoy-only use of orange keep it specific</p>
+    <div class="swatches">
+      <div><div class="sw-block" style="background:#F6F7F3"></div><div class="sw-name">Spray</div><div class="sw-hex">#F6F7F3 · paper</div></div>
+      <div><div class="sw-block" style="background:#10211F"></div><div class="sw-name">Deep Channel</div><div class="sw-hex">#10211F · ink</div></div>
+      <div><div class="sw-block" style="background:#0B5E5A"></div><div class="sw-name">Bay Water</div><div class="sw-hex">#0B5E5A · primary</div></div>
+      <div><div class="sw-block" style="background:#EE6A2A"></div><div class="sw-name">Channel Buoy</div><div class="sw-hex">#EE6A2A · signal fill</div></div>
+      <div><div class="sw-block" style="background:#B8410E"></div><div class="sw-name">Buoy (text)</div><div class="sw-hex">#B8410E · accent text</div></div>
+      <div><div class="sw-block" style="background:#6E8F2E"></div><div class="sw-name">Summer Marsh</div><div class="sw-hex">#6E8F2E · secondary</div></div>
+    </div>
+    <div class="panels">
+      <div class="panel b1"></div>
+      <div class="panel b1 dark"></div>
+    </div>
+  </section>
+
+  <!-- ═════════ B2 ═════════ -->
+  <section class="dir">
+    <div class="dir-head"><span class="dir-letter">B2</span><span class="dir-name">Blue Crab</span></div>
+    <p class="dir-story">The Chesapeake's best-known resident has an olive-green shell, vivid cerulean claws and red-orange claw tips.
+      The claw blue becomes the main color, the olive shell is the secondary, and the red tip is a small accent.</p>
+    <p class="dir-feel"><b>Changes:</b> swaps the teal for a vivid but natural blue and adds a warm red · <b>Feels:</b> lively, regional, a little playful · <b>Risk:</b> blue is the most common brand color in tech; this cerulean has more green than standard UI blue, and the olive and red keep it from looking generic</p>
+    <div class="swatches">
+      <div><div class="sw-block" style="background:#F4F5F0"></div><div class="sw-name">Oyster Shell</div><div class="sw-hex">#F4F5F0 · paper</div></div>
+      <div><div class="sw-block" style="background:#1A2420"></div><div class="sw-name">Mud Flat</div><div class="sw-hex">#1A2420 · ink</div></div>
+      <div><div class="sw-block" style="background:#1A72B0"></div><div class="sw-name">Claw Blue</div><div class="sw-hex">#1A72B0 · primary</div></div>
+      <div><div class="sw-block" style="background:#6B7A2E"></div><div class="sw-name">Shell Olive</div><div class="sw-hex">#6B7A2E · secondary</div></div>
+      <div><div class="sw-block" style="background:#C2412D"></div><div class="sw-name">Claw Tip</div><div class="sw-hex">#C2412D · accent</div></div>
+      <div><div class="sw-block" style="background:#DCEBF5"></div><div class="sw-name">Shallows</div><div class="sw-hex">#DCEBF5 · tint</div></div>
+    </div>
+    <div class="panels">
+      <div class="panel b2"></div>
+      <div class="panel b2 dark"></div>
+    </div>
+  </section>
+
+  <!-- ═════════ B3 ═════════ -->
+  <section class="dir">
+    <div class="dir-head"><span class="dir-letter">B3</span><span class="dir-name">Day Marker</span></div>
+    <p class="dir-story">Keeps the calm of the original but uses the buoy orange boldly and in quantity: primary buttons, a solid band, status pills.
+      The impact comes from one loud color against a quiet background, like a channel marker on a still grey morning.</p>
+    <p class="dir-feel"><b>Changes:</b> keeps B's neutrals; orange goes from a small accent to the main action color · <b>Feels:</b> calm with a strong signal · <b>Risk:</b> a lot of orange can feel like a warning; it works only if orange always means "act here"</p>
+    <div class="swatches">
+      <div><div class="sw-block" style="background:#EDEFE9"></div><div class="sw-name">Oyster Shell</div><div class="sw-hex">#EDEFE9 · paper</div></div>
+      <div><div class="sw-block" style="background:#1E2A28"></div><div class="sw-name">Deep Channel</div><div class="sw-hex">#1E2A28 · ink</div></div>
+      <div><div class="sw-block" style="background:#EE6A2A"></div><div class="sw-name">Day Marker</div><div class="sw-hex">#EE6A2A · action fill</div></div>
+      <div><div class="sw-block" style="background:#2B5552"></div><div class="sw-name">Bay Water</div><div class="sw-hex">#2B5552 · structure</div></div>
+      <div><div class="sw-block" style="background:#B4461A"></div><div class="sw-name">Marker (text)</div><div class="sw-hex">#B4461A · accent text</div></div>
+      <div><div class="sw-block" style="background:#56635E"></div><div class="sw-name">Heron</div><div class="sw-hex">#56635E · muted</div></div>
+    </div>
+    <div class="panels">
+      <div class="panel b3"></div>
+      <div class="panel b3 dark"></div>
+    </div>
+  </section>
+
+  <div class="notes">
+    <h3>How to compare</h3>
+    <p>B1 is the same palette with more energy. B2 adds a new color story. B3 keeps the calm and adds one loud signal. They can mix: B1's clearer water with B3's bold orange buttons, for example.</p>
+    <p>Every text pair meets WCAG AA (4.5:1 or better), including dark text on the orange fills.</p>
+  </div>
+</div>
+
+<template id="panel-tpl">
+  <div class="panel-label"></div>
+  <div class="hero">
+    <div class="nav">
+      <div class="lockup"><svg><use href="#mark"/></svg><span class="wordmark">Quadrant</span></div>
+      <div class="nav-links"><span>Work</span><span>About</span><span>Contact</span></div>
+    </div>
+    <h2>Technical leadership, <em>steady</em> and part-time.</h2>
+    <p>Fractional CTO work for small teams: architecture, hiring and a clear course through what comes next.</p>
+    <div class="btn-row"><span class="btn primary">Start a conversation</span><span class="btn ghost">See past work</span></div>
+  </div>
+  <div class="app">
+    <div class="app-bar">
+      <div class="app-title"><svg><use href="#mark"/></svg>Planner <span class="by">· Quadrant</span></div>
+      <div class="pills"><span class="tag signal">Over capacity</span><span class="tag">Scenario B</span></div>
+    </div>
+    <div class="app-body">
+      <div class="field"><label>Client hours / week</label><div class="input focus">18</div></div>
+      <div class="bar"><i></i></div>
+      <div class="bar"><i class="alt"></i></div>
+      <div>
+        <div class="row"><span>Projected monthly revenue</span><span class="num">$14,200</span></div>
+        <div class="row"><span>Capacity remaining</span><span class="warn">4 hrs</span></div>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+  const tpl = document.getElementById('panel-tpl');
+  document.querySelectorAll('.panel').forEach(p => {
+    p.appendChild(tpl.content.cloneNode(true));
+    p.querySelector('.panel-label').textContent = p.classList.contains('dark') ? 'Dark' : 'Light';
+  });
+</script>
+</body>
+</html>

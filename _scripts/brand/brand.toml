@@ -1,0 +1,425 @@
+# Quadrant brand guide: the single source of truth.
+#
+# Edit this file, then run:   python3 _scripts/brand/build.py
+# That regenerates everything in /brand/ (the human page, llms.txt, tokens, assets).
+# CI / pre-commit check:      python3 _scripts/brand/build.py --check
+#
+# Inline formatting allowed in text: `code`, **bold**, [label](url).
+
+[meta]
+name = "Quadrant"
+company = "Quadrant Labs"
+version = "1.0.0"
+updated = "2026-11-01"
+url = "https://quadrantlabs.io/brand/"
+summary = "Brand and style guide for Quadrant Labs and every Quadrant project. One system for people and agents: calm Chesapeake colors, a mark taken from a 1956 wooden sloop, plain precise writing."
+story = "Quadrant takes its name and mark from the Quadrant sloop, a 25-foot wooden boat designed by Laurence Hartge and built at Hartge Yacht Yard in Galesville, Maryland, in the 1950s. A quadrant is also an instrument for finding your position. That's the work: helping small teams find their bearings."
+
+# ─────────────────────────────────────────────────────────────
+# Color: B1 "Clear Day". The Bay on a bright, windy afternoon.
+# kind = "text" → must reach 4.5:1 on paper and surface
+# kind = "fill" → solid areas; checked against its `on` color
+# kind = "ui"   → non-text (borders, data); not used for text
+# ─────────────────────────────────────────────────────────────
+
+[colors.paper]
+name = "Spray"
+role = "Page background"
+light = "#F6F7F3"
+dark = "#0B1615"
+kind = "surface"
+
+[colors.surface]
+role = "Cards, panels, inputs, tables"
+light = "#FFFFFF"
+dark = "#112120"
+kind = "surface"
+
+[colors.ink]
+name = "Deep Channel"
+role = "Body text and headings"
+light = "#10211F"
+dark = "#E8F0EC"
+kind = "text"
+
+[colors.muted]
+name = "Heron"
+role = "Secondary text: captions, hints, metadata"
+light = "#4E5E59"
+dark = "#94A8A2"
+kind = "text"
+
+[colors.border]
+role = "Rules, outlines, table lines"
+light = "#DCE2DC"
+dark = "#20332F"
+kind = "ui"
+
+[colors.tint]
+role = "Subtle fills: chips, inline code, focus halo, selected rows"
+light = "#DDEEE9"
+dark = "#173230"
+kind = "surface"
+
+[colors.primary]
+name = "Bay Water"
+role = "Brand color as text or outline: links, secondary buttons, focus border"
+light = "#0B5E5A"
+dark = "#5FCFC3"
+kind = "text"
+
+[colors.fill]
+name = "Bay Water"
+role = "Brand color as a solid: primary buttons, progress bars, selected states"
+light = "#0B5E5A"
+dark = "#0F716C"
+kind = "fill"
+on = "on-fill"
+
+[colors.on-fill]
+role = "Text and icons on `fill`"
+light = "#FFFFFF"
+dark = "#FFFFFF"
+kind = "on"
+
+[colors.accent]
+name = "Buoy (text)"
+role = "Orange as text: emphasis, warnings, over-limit numbers"
+light = "#B8410E"
+dark = "#FF8A4C"
+kind = "text"
+
+[colors.signal]
+name = "Channel Buoy"
+role = "Vivid orange as a solid only: badges, alerts, one highlight per view"
+light = "#EE6A2A"
+dark = "#EE6A2A"
+kind = "fill"
+on = "on-signal"
+
+[colors.on-signal]
+role = "Text and icons on `signal`"
+light = "#10211F"
+dark = "#10211F"
+kind = "on"
+
+[colors.secondary]
+name = "Summer Marsh"
+role = "Second data series, small marsh-green details. Not for text."
+light = "#6E8F2E"
+dark = "#9DBE5A"
+kind = "ui"
+min_contrast = 3.0   # non-text graphics vs paper (WCAG 1.4.11)
+
+# ─────────────────────────────────────────────────────────────
+# Typography: T1 "Engineered"
+# ─────────────────────────────────────────────────────────────
+
+[fonts.head]
+family = "Jost"
+stack = "'Jost', 'Helvetica Neue', Arial, sans-serif"
+weights = [500]
+use = "Headings only. Sentence case, weight 500, letter-spacing -0.005em."
+
+[fonts.body]
+family = "IBM Plex Sans"
+stack = "'IBM Plex Sans', system-ui, sans-serif"
+weights = [400, 500, 600]
+use = "Body text and all interface text. 400 for text, 500 for labels and buttons, 600 for strong emphasis. Nothing heavier."
+
+[fonts.mono]
+family = "IBM Plex Mono"
+stack = "'IBM Plex Mono', ui-monospace, Menlo, monospace"
+weights = [400, 500]
+use = "Code, file names, keyboard keys, IDs."
+
+[fonts]
+google_url = "https://fonts.googleapis.com/css2?family=Jost:wght@500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+
+# size in rem (16px base, ~1.25 ratio)
+[[type]]
+token = "display"
+size = 3
+leading = 1.1
+font = "head"
+use = "Homepage hero only"
+
+[[type]]
+token = "h1"
+size = 2.375
+leading = 1.12
+font = "head"
+use = "Page titles"
+
+[[type]]
+token = "h2"
+size = 1.875
+leading = 1.2
+font = "head"
+use = "Section titles"
+
+[[type]]
+token = "h3"
+size = 1.5
+leading = 1.25
+font = "head"
+use = "Subsections, card titles on marketing pages"
+
+[[type]]
+token = "h4"
+size = 1.25
+leading = 1.3
+font = "head"
+use = "App panel titles"
+
+[[type]]
+token = "body"
+size = 1
+leading = 1.6
+font = "body"
+use = "Paragraphs; keep lines under ~68 characters"
+
+[[type]]
+token = "ui"
+size = 0.875
+leading = 1.4
+font = "body"
+use = "Buttons, inputs, tables, navigation"
+
+[[type]]
+token = "small"
+size = 0.8125
+leading = 1.45
+font = "body"
+use = "Captions, hints, metadata"
+
+[[type]]
+token = "kicker"
+size = 0.75
+leading = 1
+font = "body"
+use = "Eyebrow label above a heading: weight 500, uppercase, letter-spacing 0.14em, `primary` color"
+
+# ─────────────────────────────────────────────────────────────
+# Layout
+# ─────────────────────────────────────────────────────────────
+
+[layout]
+space = [4, 8, 12, 16, 24, 32, 48, 64, 96]   # px; tokens --q-space-1 … --q-space-9
+radius_sm = 4      # buttons, inputs, chips
+radius_md = 6      # cards, panels, code blocks
+radius_pill = 999  # status pills only
+measure = "68ch"
+page_max = "1120px"
+shadow_light = "0 4px 16px rgba(16, 33, 31, 0.12)"
+shadow_dark = "0 4px 16px rgba(0, 0, 0, 0.5)"
+motion = "160ms ease-out"
+
+# ─────────────────────────────────────────────────────────────
+# Logo geometry (shared by every generated asset)
+# ─────────────────────────────────────────────────────────────
+
+[logo]
+mark_viewbox = "5 5 90 78"
+mark_path = "M 50,10 L 11,65.7 A 68,68 0 0,0 89,65.7 Z"
+mark_line = [50, 10, 50, 78]
+stroke = 5
+# horizontal lockup: wordmark cap height and gap, relative to the mark's 78-unit height
+lockup_cap = 23
+lockup_gap = 22
+
+# ─────────────────────────────────────────────────────────────
+# Guide sections. Rendered in order into index.html and llms.txt.
+# Each may have: intro, rules, do, dont, words_use, words_avoid, examples.
+# Sections with visual blocks (logo, color, type, layout, products) get
+# extra generated content in the HTML version.
+# ─────────────────────────────────────────────────────────────
+
+[[section]]
+id = "principles"
+title = "Principles"
+intro = "When a rule below doesn't cover a case, decide with these."
+rules = [
+  "**Calm water, one buoy.** Surfaces are quiet: clean light backgrounds, deep Bay Water, plenty of space. Each view gets at most one loud signal, in buoy orange, on the thing that needs attention.",
+  "**Made, not generated.** Use details that belong to Quadrant: the fan-shaped mark, Chesapeake colors, plain specific words. Avoid generic effects that could belong to anyone, like gradients, glows and sparkle icons.",
+  "**Plain and precise.** Say exactly what is true in as few words as it takes. A number beats an adjective.",
+  "**Same yard, different boats.** Every Quadrant project uses the same colors, type and voice. Projects differ by name and content, not by restyling.",
+  "**Readable by everyone.** Every text color passes WCAG AA. Every product has a dark mode. Nothing is conveyed by color alone.",
+]
+
+[[section]]
+id = "logo"
+title = "Logo"
+intro = "The mark is the sail plan of the Quadrant sloop: a fan-shaped sector with a single bisecting line, tip up. The wordmark is QUADRANT in Jost 400, tracked +0.16em, converted to outlines. Always use the supplied SVG files and never retype the wordmark."
+rules = [
+  "**Assets.** `mark.svg` (ink, for light backgrounds), `mark-reversed.svg` (white, for dark backgrounds and photos), `mark-primary.svg` (Bay Water), `logo-horizontal.svg` and `logo-horizontal-reversed.svg` (mark + wordmark), `favicon.svg` (filled, for 32px and below), `app-icon.svg` (Bay Water tile).",
+  "**Colors.** The logo appears only in `ink`, white, or Bay Water (`primary` in light mode). Nothing else.",
+  "**Clear space.** Keep empty space around the horizontal logo at least equal to the wordmark's capital height. Around the mark alone, at least a quarter of its height.",
+  "**Minimum size.** Horizontal logo: mark at least 24px tall. Outline mark: at least 24px. Below 24px, use `favicon.svg`, the filled version.",
+  "**Orientation.** The tip always points up. Strokes are all the same weight.",
+  "**Name in text.** Write \"Quadrant Labs\" for the company on first mention and in legal or contact contexts, and \"Quadrant\" after that. The wordmark always reads QUADRANT.",
+]
+dont = [
+  "Rotate, stretch, skew, or outline the mark",
+  "Recolor it orange, marsh green, or a gradient, or add shadows or glows",
+  "Retype the wordmark in a live font, change its tracking, or set it in title case",
+  "Put the outline mark on a busy photo; use the reversed version on a dark, quiet area",
+  "Build a separate logo for a product (see Products)",
+]
+
+[[section]]
+id = "color"
+title = "Color"
+intro = "Clear Day: the Chesapeake on a bright, windy afternoon. The palette has clear bay water, summer marsh and one signal-orange channel buoy. Use the tokens and never type hex values into product code."
+rules = [
+  "**Fill vs. text.** Bay Water and buoy orange each have a fill shade and a text shade. Use `fill`/`signal` for solid areas, always with `on-fill`/`on-signal` on top. Use `primary`/`accent` when the color itself is text. Never set `signal` orange as text, and never use the light dark-mode text shades as fills.",
+  "**Orange is scarce.** Use orange for at most one signal per view: an alert, an over-limit number, or the one badge that matters. Bay Water carries the brand.",
+  "**Buttons are Bay Water.** Primary buttons use `fill`. Secondary buttons are outlined in `primary`. Orange is never a button.",
+  "**Dark mode is required.** Every product supports `prefers-color-scheme` and lets the user override it with `data-theme=\"light\"` or `data-theme=\"dark\"` on `<html>`. `tokens.css` handles both.",
+  "**Contrast.** Text passes 4.5:1 (WCAG AA), large text and UI boundaries pass 3:1. All text tokens are checked by the build, and the ratios are in the color table.",
+  "**Charts.** Use series in this order: `primary`, `secondary`, `muted`. Use `signal`/`accent` only for the one series or threshold the reader must notice. Label series directly and don't rely on color alone.",
+]
+dont = [
+  "Use cream, beige or parchment backgrounds; `paper` is a cool, clean light",
+  "Use decorative gradients, including on backgrounds, buttons and text",
+  "Set long text in `muted`; it is for short secondary text",
+  "Add colors outside this palette, including for one product or one chart",
+]
+
+[[section]]
+id = "type"
+title = "Typography"
+intro = "Jost for headings, so they match the wordmark. IBM Plex Sans for everything else. IBM Plex Mono for code. All are free on Google Fonts."
+rules = [
+  "**Load fonts once** with this URL: `{google_url}`.",
+  "**Headings** use Jost 500, sentence case, letter-spacing -0.005em. Never set headings in all caps. Tracked caps are only for the wordmark and kickers.",
+  "**Weights.** Plex 400 for text, 500 for labels and buttons, 600 for emphasis. Never heavier than 600, and no italics for emphasis in UI.",
+  "**Numbers** in tables, prices and metrics use `font-variant-numeric: tabular-nums` so columns line up.",
+  "**Line length.** Paragraphs max out at 68 characters (`--q-measure`). Left-align text; center only single short lines.",
+  "**Inline code** uses Plex Mono at 0.875em on a `tint` background.",
+]
+dont = [
+  "Use Inter, or soft display serifs (Fraunces, Instrument Serif, Playfair Display); they read as AI-default",
+  "Mix in other typefaces for variety",
+  "Use light weights (300 and below) for body text",
+]
+
+[[section]]
+id = "layout"
+title = "Layout & components"
+intro = "Spacing is a 4px scale. Borders separate surfaces, and shadows are only for things that float."
+rules = [
+  "**Spacing.** Use the scale only: 4, 8, 12, 16, 24, 32, 48, 64, 96px (`--q-space-1` to `--q-space-9`). Page gutters are 16px on phones and 24px or more on larger screens. Content maxes out at 1120px.",
+  "**Radius.** 4px for buttons, inputs and chips. 6px for cards, panels and code blocks. Pills (999px) only for status badges. Nothing rounder than 8px.",
+  "**Borders, not shadows.** Separate surfaces with a 1px `border` line. Use `--q-shadow` only on menus, popovers and dialogs.",
+  "**Buttons.** Primary: `fill` background, `on-fill` text, weight 500, 14px, padding 10px 16px. Secondary: transparent with a 1px `primary` border and `primary` text. Use one primary button per view.",
+  "**Inputs.** `surface` background, 1px `border`, 4px radius. On focus, use a 1px `primary` border plus a 3px `tint` halo.",
+  "**Focus.** Every interactive element shows a visible focus style. Never remove outlines without a replacement.",
+  "**Motion.** Use 160ms ease-out for state changes only. No bounce, parallax or decorative animation. Respect `prefers-reduced-motion`.",
+  "**Icons.** Use simple line icons with a 1.5px stroke (for example [Lucide](https://lucide.dev)) in `ink` or `muted`, at 16 or 20px. No filled, multicolor or 3D icons.",
+]
+dont = [
+  "Build a hero that's a centered headline over a gradient, followed by three icon-and-blurb feature cards",
+  "Use glassmorphism, blurred blobs or glowing borders",
+  "Stack cards inside cards",
+]
+
+[[section]]
+id = "imagery"
+title = "Illustration & imagery"
+intro = "Use real places and real things from the Chesapeake, wooden boats and navigation, drawn simply."
+rules = [
+  "**Illustration** is hand-built SVG or watercolor in the Clear Day palette. Good subjects are the Quadrant sloop, workboats, marsh, charts and tools.",
+  "**Known exception:** the current quadrantlabs.io homepage uses a warm sunset watercolor of the sloop in an earlier palette. It will be repainted in Clear Day, so don't copy its colors into new work.",
+  "**Photos** are real, in natural light, and credited. Only use photos we have permission to publish.",
+]
+dont = [
+  "Use stock photos of people pointing at screens, shaking hands or high-fiving",
+  "Use abstract 3D renders, gradient blobs or \"AI sparkle\" imagery",
+  "Use emoji as decoration in product UI or headings",
+]
+
+[[section]]
+id = "voice"
+title = "Voice & writing"
+intro = "Quiet craftsman. Write like a good boatyard talks: plain, precise and warm, with no hype. Trust comes from specifics, not adjectives."
+rules = [
+  "**Say the specific thing.** Name the number, the tool, the outcome. \"Deploys went from 40 minutes to 6\" beats \"dramatically faster deploys\".",
+  "**Short and active.** Use short sentences and active voice, and cut any word that isn't doing work.",
+  "**Warm, not chummy.** Be friendly and direct. Don't use exclamation marks, \"Oops\", or jokes in error messages.",
+  "**Nautical, lightly.** Use at most one nautical reference per page, and only if it helps the meaning. No puns.",
+  "**Sentence case everywhere:** headings, buttons, menus, tabs.",
+  "**Buttons say what happens:** \"Save scenario\", not \"Submit\" or \"OK\".",
+  "**Errors say what happened and what to do next,** without blaming the user.",
+  "**Empty states** use one sentence about what goes here and one action to start.",
+  "**Numbers and dates.** Use numerals (3 clients, $14,200). Write dates like Nov 1, 2026 in prose, and use ISO format (2026-11-01) in code, file names and data.",
+]
+words_use = ["help", "build", "decide", "fix", "plan", "steady", "clear", "small team", "part-time", "course", "bearings"]
+words_avoid = ["elevate", "seamless", "unlock", "empower", "leverage (as a verb)", "cutting-edge", "game-changer", "supercharge", "revolutionize", "delve", "journey", "solutions (meaning services)", "synergy", "world-class", "best-in-class", "\"in today's fast-paced world\""]
+
+[[section.examples]]
+context = "Marketing copy"
+before = "We leverage cutting-edge technology to empower your team's journey to success."
+after = "I help small teams decide what to build, who to hire, and what to leave alone."
+
+[[section.examples]]
+context = "Error message"
+before = "Oops! Something went wrong."
+after = "Couldn't save the scenario. Check your connection and try again."
+
+[[section.examples]]
+context = "Button"
+before = "Submit"
+after = "Save scenario"
+
+[[section.examples]]
+context = "Empty state"
+before = "Welcome to Planner! 🎉 Let's get started on your journey!"
+after = "No scenarios yet. Add your first client to start."
+
+[[section]]
+id = "products"
+title = "Products"
+intro = "Quadrant projects (Planner, Trip Split, Bookrec, Metronome and others) share the whole system. A product is identified by its name, not by its own colors or logo."
+rules = [
+  "**Naming.** Use the product's plain name followed by a small \"Quadrant\": **Planner · Quadrant**. Don't write \"Quadrant Planner\".",
+  "**App bar.** Show the outline mark at 16 to 20px in `primary`, then the product name in Plex 600, then \" · Quadrant\" in `muted` 400.",
+  "**Page title.** Use the form `<title>Planner · Quadrant</title>`, with the current view first when useful: `Scenario B · Planner · Quadrant`.",
+  "**Favicon and app icon.** Use the shared `favicon.svg` and `app-icon.svg`. Products don't get their own marks.",
+  "**Colors.** Products use Clear Day exactly. There are no per-product accent colors.",
+  "**README.** The H1 is the product name. The first line says what it does in one sentence. The footer reads \"Made by Quadrant Labs · quadrantlabs.io\".",
+]
+dont = [
+  "Design a product logo or wordmark",
+  "Add a tagline under the product name",
+  "Swap Bay Water for a \"product color\"",
+]
+
+[[section]]
+id = "agents"
+title = "For agents"
+intro = "This guide is written to be followed by AI agents as well as people. `llms.txt` contains every rule on this page as plain text."
+rules = [
+  "**Adopt in a repo** by adding the snippet below to the project's `CLAUDE.md` or `AGENTS.md`.",
+  "**Copy, don't hotlink.** Copy `tokens.css` (and optionally `base.css`) into the project and note the version from its header. Update deliberately.",
+  "**Use tokens, never hex.** Write `var(--q-primary)`, not `#0B5E5A`. If a needed color doesn't exist, use the closest token and flag it. Don't invent a new color.",
+  "**Use the SVG assets** for the logo. Never draw or retype it.",
+  "**When unsure, choose the quieter option** and apply the Principles.",
+]
+checklist = [
+  "Colors come only from `--q-*` tokens; no raw hex in components",
+  "Light and dark mode both work; `data-theme` override works",
+  "Headings are Jost 500 in sentence case; everything else is IBM Plex Sans/Mono",
+  "At most one orange (`signal`/`accent`) element per view",
+  "Primary buttons use `fill`, and there's one per view",
+  "All text passes 4.5:1 contrast; focus styles are visible",
+  "Copy has no words from the avoid list, no exclamation marks and no emoji",
+  "Product name reads \"Name · Quadrant\" in the app bar and the page title",
+  "Logo comes from the supplied SVG, at least 24px, in ink, white or Bay Water",
+]
+snippet = """## Brand
+
+This project follows the Quadrant brand guide.
+- Rules: https://quadrantlabs.io/brand/llms.txt (read it before any UI, copy, or asset work)
+- Tokens: copy https://quadrantlabs.io/brand/tokens.css into the project; use `var(--q-*)`, never raw hex
+- Logo: SVG files listed at https://quadrantlabs.io/brand/#logo (never redraw)"""

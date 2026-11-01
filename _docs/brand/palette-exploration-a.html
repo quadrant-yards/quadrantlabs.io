@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boatyard Palette Variants</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Inter:wght@400;500;600&display=swap">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', system-ui, sans-serif; background: #F7F7F5; color: #222; padding: 56px 24px; }
+  .page { max-width: 1120px; margin: 0 auto; }
+  .page-head { margin-bottom: 48px; }
+  .eyebrow { font: 500 11px/1 'Inter'; letter-spacing: .2em; text-transform: uppercase; color: #888; margin-bottom: 12px; }
+  h1 { font: 400 32px/1.2 'Jost'; letter-spacing: .04em; margin-bottom: 12px; }
+  .lede { max-width: 680px; color: #555; line-height: 1.6; font-size: 15px; }
+  .lede + .lede { margin-top: 10px; }
+
+  /* ── Variant tokens ── */
+  .v1 { --paper:#FBFAF7; --surface:#FFFFFF; --ink:#1C120D; --muted:#62554B; --border:#E6E1DA;
+        --primary:#5E2A14; --on-primary:#FFFFFF; --accent:#9A5A12; --extra:#C98A2E; --tint:#F4EBDD; }
+  .v1.dark { --paper:#1C120D; --surface:#2A1A12; --ink:#F2E6D2; --muted:#B49C80; --border:#3E2A1E;
+        --primary:#E3A048; --on-primary:#1C120D; --accent:#EE7A5C; --extra:#C98A2E; --tint:#3A2417; }
+
+  .v2 { --paper:#F8F8F6; --surface:#FFFFFF; --ink:#121417; --muted:#5B6068; --border:#E3E4E6;
+        --primary:#A3261C; --on-primary:#FFFFFF; --accent:#A3261C; --extra:#1E3348; --tint:#ECEEF1; }
+  .v2.dark { --paper:#0F1114; --surface:#171A1F; --ink:#EDEDEB; --muted:#9CA1A8; --border:#2A2E35;
+        --primary:#EE6A58; --on-primary:#0F1114; --accent:#EE6A58; --extra:#6E8CAB; --tint:#22262D; }
+
+  .v3 { --paper:#E9E8E4; --surface:#F7F6F3; --ink:#23201D; --muted:#5A554F; --border:#D3D0C9;
+        --primary:#5A2C17; --on-primary:#F7F6F3; --accent:#2A6584; --extra:#A9783A; --tint:#DCE5E9; }
+  .v3.dark { --paper:#161514; --surface:#201E1C; --ink:#ECE8E1; --muted:#A39C92; --border:#33302C;
+        --primary:#D59A72; --on-primary:#161514; --accent:#7FB7D4; --extra:#CFA265; --tint:#25302F; }
+
+  /* ── Reference strip ── */
+  .ref { background: #fff; border: 1px solid #e5e5e0; border-radius: 6px; padding: 20px 24px; margin-bottom: 72px; display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
+  .ref-chips { display: flex; gap: 6px; }
+  .ref-chips i { width: 36px; height: 36px; border-radius: 4px; border: 1px solid rgba(0,0,0,.08); display: block; }
+  .ref p { font-size: 13.5px; color: #555; line-height: 1.55; flex: 1; min-width: 260px; }
+  .ref b { color: #222; font-weight: 500; }
+
+  /* ── Variant section ── */
+  .dir { margin-bottom: 88px; }
+  .dir-head { display: flex; gap: 20px; align-items: baseline; flex-wrap: wrap; margin-bottom: 8px; }
+  .dir-letter { font: 300 40px/1 'Jost'; color: #999; }
+  .dir-name { font: 400 26px/1.2 'Jost'; letter-spacing: .03em; }
+  .dir-story { color: #555; line-height: 1.6; font-size: 14.5px; max-width: 740px; margin-bottom: 8px; }
+  .dir-feel { font-size: 12.5px; color: #888; margin-bottom: 24px; line-height: 1.6; }
+  .dir-feel b { color: #444; font-weight: 500; }
+
+  .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 12px; margin-bottom: 24px; }
+  .sw-block { height: 64px; border-radius: 4px; border: 1px solid rgba(0,0,0,.08); }
+  .sw-name { font-size: 12px; font-weight: 500; margin-top: 8px; }
+  .sw-hex { font: 11px/1.4 ui-monospace, Menlo, monospace; color: #888; }
+
+  .panels { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 860px) { .panels { grid-template-columns: 1fr; } }
+
+  .panel { background: var(--paper); color: var(--ink); border-radius: 6px; overflow: hidden; border: 1px solid var(--border); }
+  .panel-label { font: 500 10px/1 'Inter'; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); padding: 14px 20px 0; }
+
+  .hero { padding: 28px 28px 32px; }
+  .nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 36px; }
+  .lockup { display: flex; align-items: center; gap: 10px; }
+  .lockup svg { width: 26px; height: 23px; }
+  .wordmark { font: 400 15px/1 'Jost'; letter-spacing: .16em; text-transform: uppercase; }
+  .nav-links { display: flex; gap: 16px; font-size: 12.5px; color: var(--muted); }
+  .hero h2 { font: 400 28px/1.2 'Jost'; letter-spacing: .01em; max-width: 380px; margin-bottom: 12px; }
+  .hero h2 em { font-style: normal; color: var(--accent); }
+  .hero p { font-size: 14px; line-height: 1.6; color: var(--muted); max-width: 400px; margin-bottom: 22px; }
+  .btn-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn { font: 500 13px/1 'Inter'; padding: 11px 16px; border-radius: 4px; border: 1px solid var(--primary); }
+  .btn.primary { background: var(--primary); color: var(--on-primary); }
+  .btn.ghost { background: transparent; color: var(--primary); }
+
+  /* A2 livery stripe: the boot stripe at the waterline */
+  .v2 .hero { position: relative; }
+  .v2 .hero::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 6px;
+        background: linear-gradient(var(--extra) 0 33%, transparent 33% 50%, var(--primary) 50% 100%); }
+
+  .app { margin: 0 20px 22px; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; }
+  .v2 .app { margin-top: 22px; }
+  .app-bar { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-bottom: 1px solid var(--border); }
+  .app-title { font: 500 13px/1 'Inter'; display: flex; align-items: center; gap: 8px; }
+  .app-title svg { width: 16px; height: 14px; }
+  .app-title span.by { color: var(--muted); font-weight: 400; }
+  .tag { font-size: 11px; padding: 4px 8px; border-radius: 999px; background: var(--tint); color: var(--ink); }
+  .app-body { padding: 16px; display: grid; gap: 12px; }
+  .field label { display: block; font-size: 11.5px; color: var(--muted); margin-bottom: 5px; }
+  .input { border: 1px solid var(--border); border-radius: 4px; padding: 9px 11px; font-size: 13px; background: var(--paper); }
+  .input.focus { border-color: var(--primary); box-shadow: 0 0 0 3px var(--tint); }
+  .row { display: flex; align-items: center; justify-content: space-between; font-size: 13px; padding: 8px 0; border-top: 1px solid var(--border); }
+  .row .num { font-variant-numeric: tabular-nums; font-weight: 500; }
+  .row .warn { color: var(--accent); font-weight: 500; }
+  .bar { height: 6px; border-radius: 3px; background: var(--tint); overflow: hidden; }
+  .bar i { display: block; height: 100%; width: 62%; background: var(--primary); }
+  .bar i.alt { width: 28%; background: var(--extra); }
+
+  .notes { background: #fff; border: 1px solid #e5e5e0; border-radius: 6px; padding: 24px 28px; max-width: 780px; line-height: 1.65; font-size: 14px; color: #444; }
+  .notes h3 { font: 400 18px/1.3 'Jost'; margin-bottom: 10px; color: #222; }
+  .notes p + p, .notes ul { margin-top: 10px; }
+  .notes ul { padding-left: 20px; }
+  .notes li + li { margin-top: 6px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="page-head">
+    <div class="eyebrow">Quadrant brand · palette round 2 · 2026-11-01</div>
+    <h1>Boatyard, without the AI beige</h1>
+    <p class="lede">The usual AI look is a cream or parchment background, a terracotta or rust accent, soft warm greys, and every surface low in contrast.
+      The original A did all of that. Each variant below keeps the wooden boat and changes one of those defaults.</p>
+    <p class="lede">The mark, wordmark (Jost) and body type (Inter) don't change, so only color differs between them.</p>
+  </header>
+
+  <svg width="0" height="0" style="position:absolute">
+    <symbol id="mark" viewBox="5 5 90 78">
+      <path d="M 50,10 L 11,65.7 A 68,68 0 0,0 89,65.7 Z" stroke="currentColor" stroke-width="5" stroke-linejoin="miter" fill="none"/>
+      <line x1="50" y1="10" x2="50" y2="78" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+    </symbol>
+  </svg>
+
+  <div class="ref">
+    <div class="ref-chips">
+      <i style="background:#F3ECE0"></i><i style="background:#2A1E17"></i><i style="background:#6E3218"></i><i style="background:#B5462F"></i><i style="background:#A9783A"></i>
+    </div>
+    <p><b>Original A, for reference.</b> The colors are each fine, but together they're cream paper, rust accent and brown-grey text, which matches what AI tools generate by default.</p>
+  </div>
+
+  <!-- ═════════ A1 ═════════ -->
+  <section class="dir">
+    <div class="dir-head"><span class="dir-letter">A1</span><span class="dir-name">Brightwork</span></div>
+    <p class="dir-story">"Brightwork" is a boat's varnished wood. Here the dark mahogany is the main surface, with amber varnish as the highlight, like a cabin interior by lamplight.
+      Light mode switches to near-white instead of cream.</p>
+    <p class="dir-feel"><b>Breaks the default by:</b> designing dark-first and dropping cream entirely · <b>Feels:</b> rich, evening, premium · <b>Risk:</b> dark-first marketing sites are harder to make friendly; long text pages need the light mode</p>
+    <div class="swatches">
+      <div><div class="sw-block" style="background:#1C120D"></div><div class="sw-name">Mahogany Black</div><div class="sw-hex">#1C120D · dark paper / ink</div></div>
+      <div><div class="sw-block" style="background:#2A1A12"></div><div class="sw-name">Cabin Sole</div><div class="sw-hex">#2A1A12 · dark surface</div></div>
+      <div><div class="sw-block" style="background:#E3A048"></div><div class="sw-name">Varnish</div><div class="sw-hex">#E3A048 · dark primary</div></div>
+      <div><div class="sw-block" style="background:#5E2A14"></div><div class="sw-name">Mahogany</div><div class="sw-hex">#5E2A14 · light primary</div></div>
+      <div><div class="sw-block" style="background:#FBFAF7"></div><div class="sw-name">Holly</div><div class="sw-hex">#FBFAF7 · light paper</div></div>
+      <div><div class="sw-block" style="background:#C98A2E"></div><div class="sw-name">Oil Lamp</div><div class="sw-hex">#C98A2E · secondary</div></div>
+    </div>
+    <div class="panels">
+      <div class="panel v1 dark"></div>
+      <div class="panel v1"></div>
+    </div>
+  </section>
+
+  <!-- ═════════ A2 ═════════ -->
+  <section class="dir">
+    <div class="dir-head"><span class="dir-letter">A2</span><span class="dir-name">Livery</span></div>
+    <p class="dir-story">A boat's paint scheme seen from the dock: crisp white topsides, a thin navy boot stripe at the waterline, and deep red copper bottom paint below.
+      It's graphic, high-contrast and confident, closer to signal flags and racing numbers than to old wood.</p>
+    <p class="dir-feel"><b>Breaks the default by:</b> true white and near-black instead of cream and brown, with red used as a solid block rather than a tint · <b>Feels:</b> crisp, sporty, assured · <b>Risk:</b> red, white and navy can look like a flag or a bank if overdone; the boot-stripe motif keeps it nautical</p>
+    <div class="swatches">
+      <div><div class="sw-block" style="background:#F8F8F6"></div><div class="sw-name">Topsides</div><div class="sw-hex">#F8F8F6 · paper</div></div>
+      <div><div class="sw-block" style="background:#121417"></div><div class="sw-name">Waterline</div><div class="sw-hex">#121417 · ink</div></div>
+      <div><div class="sw-block" style="background:#A3261C"></div><div class="sw-name">Bottom Paint</div><div class="sw-hex">#A3261C · primary</div></div>
+      <div><div class="sw-block" style="background:#1E3348"></div><div class="sw-name">Boot Stripe</div><div class="sw-hex">#1E3348 · secondary</div></div>
+      <div><div class="sw-block" style="background:#ECEEF1"></div><div class="sw-name">Spray</div><div class="sw-hex">#ECEEF1 · tint</div></div>
+      <div><div class="sw-block" style="background:#5B6068"></div><div class="sw-name">Fender</div><div class="sw-hex">#5B6068 · muted</div></div>
+    </div>
+    <div class="panels">
+      <div class="panel v2"></div>
+      <div class="panel v2 dark"></div>
+    </div>
+  </section>
+
+  <!-- ═════════ A3 ═════════ -->
+  <section class="dir">
+    <div class="dir-head"><span class="dir-letter">A3</span><span class="dir-name">Workshop</span></div>
+    <p class="dir-story">Inside the yard shed: grey primer on new planks, mahogany offcuts, bronze screws, and the blue Bay visible through the open doors.
+      Warm wood paired with a cool blue accent.</p>
+    <p class="dir-feel"><b>Breaks the default by:</b> grey base instead of cream, and a cool accent instead of a warm one · <b>Feels:</b> practical, grounded, made by hand · <b>Risk:</b> grey can feel flat; it needs the mahogany and bronze to stay warm</p>
+    <div class="swatches">
+      <div><div class="sw-block" style="background:#E9E8E4"></div><div class="sw-name">Primer</div><div class="sw-hex">#E9E8E4 · paper</div></div>
+      <div><div class="sw-block" style="background:#23201D"></div><div class="sw-name">Pine Tar</div><div class="sw-hex">#23201D · ink</div></div>
+      <div><div class="sw-block" style="background:#5A2C17"></div><div class="sw-name">Mahogany</div><div class="sw-hex">#5A2C17 · primary</div></div>
+      <div><div class="sw-block" style="background:#2A6584"></div><div class="sw-name">Bay Through the Door</div><div class="sw-hex">#2A6584 · accent</div></div>
+      <div><div class="sw-block" style="background:#A9783A"></div><div class="sw-name">Bronze</div><div class="sw-hex">#A9783A · secondary</div></div>
+      <div><div class="sw-block" style="background:#5A554F"></div><div class="sw-name">Sawdust</div><div class="sw-hex">#5A554F · muted</div></div>
+    </div>
+    <div class="panels">
+      <div class="panel v3"></div>
+      <div class="panel v3 dark"></div>
+    </div>
+  </section>
+
+  <div class="notes">
+    <h3>Color alone won't fix "generic"</h3>
+    <p>AI-default design also comes from other choices. These go into the guide whichever palette wins:</p>
+    <ul>
+      <li><b>Type:</b> avoid the default pairing of a soft serif headline with grey sans body text. Jost's geometric tracked capitals already help.</li>
+      <li><b>Specific motifs:</b> the fan-sector mark, a boot stripe, planking lines and chart soundings belong to Quadrant. Generic gradients, glows and sparkles don't.</li>
+      <li><b>Copy:</b> no "elevate", "seamless", "unlock". The quiet-craftsman voice does a lot here.</li>
+      <li><b>Contrast:</b> committed darks and clean whites rather than everything at 80% opacity on beige.</li>
+    </ul>
+  </div>
+</div>
+
+<template id="panel-tpl">
+  <div class="panel-label"></div>
+  <div class="hero">
+    <div class="nav">
+      <div class="lockup"><svg><use href="#mark"/></svg><span class="wordmark">Quadrant</span></div>
+      <div class="nav-links"><span>Work</span><span>About</span><span>Contact</span></div>
+    </div>
+    <h2>Technical leadership, <em>steady</em> and part-time.</h2>
+    <p>Fractional CTO work for small teams: architecture, hiring and a clear course through what comes next.</p>
+    <div class="btn-row"><span class="btn primary">Start a conversation</span><span class="btn ghost">See past work</span></div>
+  </div>
+  <div class="app">
+    <div class="app-bar">
+      <div class="app-title"><svg><use href="#mark"/></svg>Planner <span class="by">· Quadrant</span></div>
+      <span class="tag">Scenario B</span>
+    </div>
+    <div class="app-body">
+      <div class="field"><label>Client hours / week</label><div class="input focus">18</div></div>
+      <div class="bar"><i></i></div>
+      <div class="bar"><i class="alt"></i></div>
+      <div>
+        <div class="row"><span>Projected monthly revenue</span><span class="num">$14,200</span></div>
+        <div class="row"><span>Capacity remaining</span><span class="warn">4 hrs</span></div>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+  const tpl = document.getElementById('panel-tpl');
+  document.querySelectorAll('.panel').forEach(p => {
+    p.appendChild(tpl.content.cloneNode(true));
+    p.querySelector('.panel-label').textContent = p.classList.contains('dark') ? 'Dark' : 'Light';
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quadrant Palette Exploration</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Inter:wght@400;500;600&display=swap">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', system-ui, sans-serif; background: #F7F7F5; color: #222; padding: 56px 24px; }
+  .page { max-width: 1120px; margin: 0 auto; }
+  .page-head { margin-bottom: 56px; }
+  .eyebrow { font: 500 11px/1 'Inter'; letter-spacing: .2em; text-transform: uppercase; color: #888; margin-bottom: 12px; }
+  h1 { font: 400 32px/1.2 'Jost'; letter-spacing: .04em; margin-bottom: 12px; }
+  .lede { max-width: 640px; color: #555; line-height: 1.6; font-size: 15px; }
+
+  /* ── Direction tokens ── */
+  .dir-a { --paper:#F3ECE0; --surface:#FFFDF8; --ink:#2A1E17; --muted:#6F5C4D; --border:#E2D6C3;
+           --primary:#6E3218; --on-primary:#FFFDF8; --accent:#B5462F; --extra:#A9783A; --tint:#F1E1CF; }
+  .dir-a.dark { --paper:#1A1411; --surface:#241C17; --ink:#EFE6D8; --muted:#A8977F; --border:#3A2E25;
+           --primary:#E0A27A; --on-primary:#1A1411; --accent:#E8806A; --extra:#D2A563; --tint:#33251C; }
+
+  .dir-b { --paper:#EDEFE9; --surface:#FAFBF7; --ink:#1E2A28; --muted:#56635E; --border:#D3D9D0;
+           --primary:#2B5552; --on-primary:#FAFBF7; --accent:#B4461A; --extra:#7E8C5A; --tint:#DCE7E2; }
+  .dir-b.dark { --paper:#121816; --surface:#1A2220; --ink:#E3E8E2; --muted:#93A19B; --border:#2C3833;
+           --primary:#86BDB5; --on-primary:#121816; --accent:#F08A52; --extra:#AEBB86; --tint:#20302C; }
+
+  .dir-c { --paper:#F6F1E3; --surface:#FFFFFF; --ink:#1B2230; --muted:#5A6070; --border:#DDD5C0;
+           --primary:#1F3A5F; --on-primary:#FFFFFF; --accent:#A3195B; --extra:#E6D29C; --tint:#D7E7EE; }
+  .dir-c.dark { --paper:#10141B; --surface:#171D27; --ink:#E8E4D8; --muted:#9AA0AC; --border:#283041;
+           --primary:#93B8DD; --on-primary:#10141B; --accent:#E874A8; --extra:#BFA76A; --tint:#1C2A38; }
+
+  /* ── Direction section ── */
+  .dir { margin-bottom: 88px; }
+  .dir-head { display: flex; gap: 24px; align-items: baseline; flex-wrap: wrap; margin-bottom: 8px; }
+  .dir-letter { font: 300 44px/1 'Jost'; color: #999; }
+  .dir-name { font: 400 26px/1.2 'Jost'; letter-spacing: .03em; }
+  .dir-story { color: #555; line-height: 1.6; font-size: 14.5px; max-width: 720px; margin-bottom: 8px; }
+  .dir-feel { font-size: 12.5px; color: #888; margin-bottom: 24px; }
+  .dir-feel b { color: #444; font-weight: 500; }
+
+  .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 12px; margin-bottom: 24px; }
+  .sw-block { height: 64px; border-radius: 4px; border: 1px solid rgba(0,0,0,.08); }
+  .sw-name { font-size: 12px; font-weight: 500; margin-top: 8px; }
+  .sw-hex { font: 11px/1.4 ui-monospace, Menlo, monospace; color: #888; }
+
+  .panels { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 860px) { .panels { grid-template-columns: 1fr; } }
+
+  .panel { background: var(--paper); color: var(--ink); border-radius: 6px; overflow: hidden; border: 1px solid var(--border); }
+  .panel-label { font: 500 10px/1 'Inter'; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); padding: 14px 20px 0; }
+
+  /* site hero mock */
+  .hero { padding: 28px 28px 32px; }
+  .nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 36px; }
+  .lockup { display: flex; align-items: center; gap: 10px; }
+  .lockup svg { width: 26px; height: 23px; }
+  .wordmark { font: 400 15px/1 'Jost'; letter-spacing: .16em; text-transform: uppercase; }
+  .nav-links { display: flex; gap: 16px; font-size: 12.5px; color: var(--muted); }
+  .hero h2 { font: 400 28px/1.2 'Jost'; letter-spacing: .01em; max-width: 380px; margin-bottom: 12px; }
+  .hero h2 em { font-style: normal; color: var(--accent); }
+  .hero p { font-size: 14px; line-height: 1.6; color: var(--muted); max-width: 400px; margin-bottom: 22px; }
+  .btn-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn { font: 500 13px/1 'Inter'; padding: 11px 16px; border-radius: 4px; border: 1px solid var(--primary); }
+  .btn.primary { background: var(--primary); color: var(--on-primary); }
+  .btn.ghost { background: transparent; color: var(--primary); }
+
+  /* product card mock */
+  .app { margin: 0 20px 22px; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; }
+  .app-bar { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-bottom: 1px solid var(--border); }
+  .app-title { font: 500 13px/1 'Inter'; display: flex; align-items: center; gap: 8px; }
+  .app-title svg { width: 16px; height: 14px; }
+  .app-title span.by { color: var(--muted); font-weight: 400; }
+  .tag { font-size: 11px; padding: 4px 8px; border-radius: 999px; background: var(--tint); color: var(--ink); }
+  .app-body { padding: 16px; display: grid; gap: 12px; }
+  .field label { display: block; font-size: 11.5px; color: var(--muted); margin-bottom: 5px; }
+  .input { border: 1px solid var(--border); border-radius: 4px; padding: 9px 11px; font-size: 13px; background: var(--paper); }
+  .input.focus { border-color: var(--primary); box-shadow: 0 0 0 3px var(--tint); }
+  .row { display: flex; align-items: center; justify-content: space-between; font-size: 13px; padding: 8px 0; border-top: 1px solid var(--border); }
+  .row .num { font-variant-numeric: tabular-nums; font-weight: 500; }
+  .row .warn { color: var(--accent); font-weight: 500; }
+  .bar { height: 6px; border-radius: 3px; background: var(--tint); overflow: hidden; }
+  .bar i { display: block; height: 100%; width: 62%; background: var(--primary); }
+  .bar i.alt { width: 28%; background: var(--extra); }
+
+  .contrast { margin-top: 14px; font-size: 12px; color: #777; }
+
+  .notes { background: #fff; border: 1px solid #e5e5e0; border-radius: 6px; padding: 24px 28px; max-width: 760px; line-height: 1.65; font-size: 14px; color: #444; }
+  .notes h3 { font: 400 18px/1.3 'Jost'; margin-bottom: 10px; color: #222; }
+  .notes p + p { margin-top: 10px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="page-head">
+    <div class="eyebrow">Quadrant brand · palette exploration · 2026-11-01</div>
+    <h1>Three directions from the Chesapeake</h1>
+    <p class="lede">Each palette starts from something real about the brand's origins: the Hartge yard, the Bay itself, and the quadrant as a navigation instrument.
+      The mark, wordmark (Jost) and body type (Inter) stay the same, so only color changes between them.
+      Each one is shown on the marketing site and in a product UI, in light and dark.</p>
+  </header>
+
+  <!-- reusable mark -->
+  <svg width="0" height="0" style="position:absolute">
+    <symbol id="mark" viewBox="5 5 90 78">
+      <path d="M 50,10 L 11,65.7 A 68,68 0 0,0 89,65.7 Z" stroke="currentColor" stroke-width="5" stroke-linejoin="miter" fill="none"/>
+      <line x1="50" y1="10" x2="50" y2="78" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+    </symbol>
+  </svg>
+
+  <!-- ═════════ A ═════════ -->
+  <section class="dir">
+    <div class="dir-head"><span class="dir-letter">A</span><span class="dir-name">Boatyard</span></div>
+    <p class="dir-story">Hartge Yacht Yard, 1956. Varnished mahogany, sailcloth, copper bottom paint, bronze fittings and pine tar. A wooden boat made by hand.</p>
+    <p class="dir-feel"><b>Feels:</b> warm, handmade, heritage · <b>Risk:</b> can read "rustic" or old-fashioned for a tech consultancy</p>
+    <div class="swatches">
+      <div><div class="sw-block" style="background:#F3ECE0"></div><div class="sw-name">Sailcloth</div><div class="sw-hex">#F3ECE0 · paper</div></div>
+      <div><div class="sw-block" style="background:#2A1E17"></div><div class="sw-name">Pine Tar</div><div class="sw-hex">#2A1E17 · ink</div></div>
+      <div><div class="sw-block" style="background:#6E3218"></div><div class="sw-name">Mahogany</div><div class="sw-hex">#6E3218 · primary</div></div>
+      <div><div class="sw-block" style="background:#B5462F"></div><div class="sw-name">Bottom Paint</div><div class="sw-hex">#B5462F · accent</div></div>
+      <div><div class="sw-block" style="background:#A9783A"></div><div class="sw-name">Bronze</div><div class="sw-hex">#A9783A · secondary</div></div>
+      <div><div class="sw-block" style="background:#6F5C4D"></div><div class="sw-name">Weathered Teak</div><div class="sw-hex">#6F5C4D · muted</div></div>
+    </div>
+    <div class="panels">
+      <div class="panel dir-a"></div>
+      <div class="panel dir-a dark"></div>
+    </div>
+  </section>
+
+  <!-- ═════════ B ═════════ -->
+  <section class="dir">
+    <div class="dir-head"><span class="dir-letter">B</span><span class="dir-name">Slack Water</span></div>
+    <p class="dir-story">The Bay at slack tide: grey-green water, marsh grass and oyster shell, with one orange channel buoy. Calm, with a single strong signal.</p>
+    <p class="dir-feel"><b>Feels:</b> calm, natural, modern · <b>Risk:</b> green-teal is common in SaaS, so it may look less distinctive</p>
+    <div class="swatches">
+      <div><div class="sw-block" style="background:#EDEFE9"></div><div class="sw-name">Oyster Shell</div><div class="sw-hex">#EDEFE9 · paper</div></div>
+      <div><div class="sw-block" style="background:#1E2A28"></div><div class="sw-name">Deep Channel</div><div class="sw-hex">#1E2A28 · ink</div></div>
+      <div><div class="sw-block" style="background:#2B5552"></div><div class="sw-name">Bay Water</div><div class="sw-hex">#2B5552 · primary</div></div>
+      <div><div class="sw-block" style="background:#B4461A"></div><div class="sw-name">Channel Buoy</div><div class="sw-hex">#B4461A · accent</div></div>
+      <div><div class="sw-block" style="background:#7E8C5A"></div><div class="sw-name">Marsh Grass</div><div class="sw-hex">#7E8C5A · secondary</div></div>
+      <div><div class="sw-block" style="background:#56635E"></div><div class="sw-name">Heron</div><div class="sw-hex">#56635E · muted</div></div>
+    </div>
+    <div class="panels">
+      <div class="panel dir-b"></div>
+      <div class="panel dir-b dark"></div>
+    </div>
+  </section>
+
+  <!-- ═════════ C ═════════ -->
+  <section class="dir">
+    <div class="dir-head"><span class="dir-letter">C</span><span class="dir-name">Chart Room</span></div>
+    <p class="dir-story">A nautical chart of the Bay: buff paper, pale-blue shallows, deep-navy soundings, and the magenta that NOAA charts use for aids to navigation.
+      A quadrant is a navigation tool and a fractional CTO helps a team find its bearings, so the chart metaphor fits the work.</p>
+    <p class="dir-feel"><b>Feels:</b> precise, distinctive, quietly clever · <b>Risk:</b> magenta needs discipline: used sparingly it's a signature, used too much it's loud</p>
+    <div class="swatches">
+      <div><div class="sw-block" style="background:#F6F1E3"></div><div class="sw-name">Chart Paper</div><div class="sw-hex">#F6F1E3 · paper</div></div>
+      <div><div class="sw-block" style="background:#1B2230"></div><div class="sw-name">Chart Ink</div><div class="sw-hex">#1B2230 · ink</div></div>
+      <div><div class="sw-block" style="background:#1F3A5F"></div><div class="sw-name">Sounding Navy</div><div class="sw-hex">#1F3A5F · primary</div></div>
+      <div><div class="sw-block" style="background:#A3195B"></div><div class="sw-name">Nav-Aid Magenta</div><div class="sw-hex">#A3195B · accent</div></div>
+      <div><div class="sw-block" style="background:#D7E7EE"></div><div class="sw-name">Shallows</div><div class="sw-hex">#D7E7EE · tint</div></div>
+      <div><div class="sw-block" style="background:#E6D29C"></div><div class="sw-name">Land Buff</div><div class="sw-hex">#E6D29C · secondary</div></div>
+    </div>
+    <div class="panels">
+      <div class="panel dir-c"></div>
+      <div class="panel dir-c dark"></div>
+    </div>
+  </section>
+
+  <div class="notes">
+    <h3>What to look for</h3>
+    <p>Choose the one you'd still like after seeing it every day for five years, not the one that's most striking here. Pay attention to the product card, because the apps will show the palette far more often than the marketing site will.</p>
+    <p>Mixing is fine, e.g. "C's neutrals with A's accent." Once a direction is chosen, I'll lock the exact values, check every text/background pair for contrast (WCAG AA), and add product accent colors.</p>
+  </div>
+</div>
+
+<template id="panel-tpl">
+  <div class="panel-label"></div>
+  <div class="hero">
+    <div class="nav">
+      <div class="lockup"><svg><use href="#mark"/></svg><span class="wordmark">Quadrant</span></div>
+      <div class="nav-links"><span>Work</span><span>About</span><span>Contact</span></div>
+    </div>
+    <h2>Technical leadership, <em>steady</em> and part-time.</h2>
+    <p>Fractional CTO work for small teams: architecture, hiring and a clear course through what comes next.</p>
+    <div class="btn-row"><span class="btn primary">Start a conversation</span><span class="btn ghost">See past work</span></div>
+  </div>
+  <div class="app">
+    <div class="app-bar">
+      <div class="app-title"><svg><use href="#mark"/></svg>Planner <span class="by">· Quadrant</span></div>
+      <span class="tag">Scenario B</span>
+    </div>
+    <div class="app-body">
+      <div class="field"><label>Client hours / week</label><div class="input focus">18</div></div>
+      <div class="bar"><i></i></div>
+      <div class="bar"><i class="alt"></i></div>
+      <div>
+        <div class="row"><span>Projected monthly revenue</span><span class="num">$14,200</span></div>
+        <div class="row"><span>Capacity remaining</span><span class="warn">4 hrs</span></div>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+  const tpl = document.getElementById('panel-tpl');
+  document.querySelectorAll('.panel').forEach(p => {
+    p.appendChild(tpl.content.cloneNode(true));
+    p.querySelector('.panel-label').textContent = p.classList.contains('dark') ? 'Dark' : 'Light';
+  });
+</script>
+</body>
+</html>

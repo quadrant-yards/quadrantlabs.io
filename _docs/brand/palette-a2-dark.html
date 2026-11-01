@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Livery Dark Mode</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Inter:wght@400;500;600&display=swap">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', system-ui, sans-serif; background: #F7F7F5; color: #222; padding: 56px 24px; }
+  .page { max-width: 1120px; margin: 0 auto; }
+  .page-head { margin-bottom: 40px; }
+  .eyebrow { font: 500 11px/1 'Inter'; letter-spacing: .2em; text-transform: uppercase; color: #888; margin-bottom: 12px; }
+  h1 { font: 400 32px/1.2 'Jost'; letter-spacing: .04em; margin-bottom: 12px; }
+  .lede { max-width: 700px; color: #555; line-height: 1.6; font-size: 15px; }
+  .lede + .lede { margin-top: 10px; }
+
+  /*
+    Token roles (new split):
+      --fill / --on-fill   solid red areas: primary buttons, bars, lower stripe band
+      --primary            red used as text or outline: ghost button, links
+      --accent             emphasis + warnings in text
+      --stripe             upper band of the waterline (boot) stripe
+  */
+  .light   { --paper:#F8F8F6; --surface:#FFFFFF; --ink:#121417; --muted:#5B6068; --border:#E3E4E6;
+             --fill:#A3261C; --on-fill:#FFFFFF; --primary:#A3261C; --accent:#A3261C; --stripe:#1E3348; --tint:#ECEEF1; }
+  .current { --paper:#0F1114; --surface:#171A1F; --ink:#EDEDEB; --muted:#9CA1A8; --border:#2A2E35;
+             --fill:#EE6A58; --on-fill:#0F1114; --primary:#EE6A58; --accent:#EE6A58; --stripe:#6E8CAB; --tint:#22262D; }
+  .d1      { --paper:#0F1114; --surface:#171A1F; --ink:#EDEDEB; --muted:#9CA1A8; --border:#2A2E35;
+             --fill:#B3291E; --on-fill:#FFFFFF; --primary:#F08070; --accent:#F08070; --stripe:#6E8CAB; --tint:#22262D; }
+  .d2      { --paper:#0D1520; --surface:#14202E; --ink:#EEF0F2; --muted:#9DA9B7; --border:#24344A;
+             --fill:#B3291E; --on-fill:#FFFFFF; --primary:#F2836F; --accent:#F2836F; --stripe:#EEF0F2; --tint:#1B2A3C; }
+  .d3      { --paper:#141312; --surface:#1D1B1A; --ink:#EFEDEA; --muted:#A6A19B; --border:#302D2A;
+             --fill:#B3291E; --on-fill:#FFFFFF; --primary:#F2836F; --accent:#F2836F; --stripe:#E9E6DF; --tint:#262321; }
+
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 16px; }
+  @media (max-width: 860px) { .grid { grid-template-columns: 1fr; } }
+  .cap { margin-bottom: 10px; }
+  .cap h3 { font: 400 19px/1.3 'Jost'; letter-spacing: .02em; }
+  .cap p { font-size: 13px; color: #666; line-height: 1.55; margin-top: 4px; }
+  .cap .chips { display: flex; gap: 5px; margin-top: 8px; }
+  .cap .chips i { width: 22px; height: 22px; border-radius: 3px; border: 1px solid rgba(0,0,0,.1); display: block; }
+
+  .panel { background: var(--paper); color: var(--ink); border-radius: 6px; overflow: hidden; border: 1px solid var(--border); }
+  .hero { padding: 28px 28px 32px; position: relative; }
+  .hero::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 6px;
+        background: linear-gradient(var(--stripe) 0 33%, transparent 33% 50%, var(--fill) 50% 100%); }
+  .nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 36px; }
+  .lockup { display: flex; align-items: center; gap: 10px; }
+  .lockup svg { width: 26px; height: 23px; }
+  .wordmark { font: 400 15px/1 'Jost'; letter-spacing: .16em; text-transform: uppercase; }
+  .nav-links { display: flex; gap: 16px; font-size: 12.5px; color: var(--muted); }
+  .hero h2 { font: 400 28px/1.2 'Jost'; letter-spacing: .01em; max-width: 380px; margin-bottom: 12px; }
+  .hero h2 em { font-style: normal; color: var(--accent); }
+  .hero p { font-size: 14px; line-height: 1.6; color: var(--muted); max-width: 400px; margin-bottom: 22px; }
+  .btn-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn { font: 500 13px/1 'Inter'; padding: 11px 16px; border-radius: 4px; }
+  .btn.primary { background: var(--fill); color: var(--on-fill); border: 1px solid var(--fill); }
+  .btn.ghost { background: transparent; color: var(--primary); border: 1px solid var(--primary); }
+
+  .app { margin: 22px 20px; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; }
+  .app-bar { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-bottom: 1px solid var(--border); }
+  .app-title { font: 500 13px/1 'Inter'; display: flex; align-items: center; gap: 8px; }
+  .app-title svg { width: 16px; height: 14px; }
+  .app-title span.by { color: var(--muted); font-weight: 400; }
+  .tag { font-size: 11px; padding: 4px 8px; border-radius: 999px; background: var(--tint); color: var(--ink); }
+  .app-body { padding: 16px; display: grid; gap: 12px; }
+  .field label { display: block; font-size: 11.5px; color: var(--muted); margin-bottom: 5px; }
+  .input { border: 1px solid var(--border); border-radius: 4px; padding: 9px 11px; font-size: 13px; background: var(--paper); }
+  .input.focus { border-color: var(--primary); box-shadow: 0 0 0 3px var(--tint); }
+  .row { display: flex; align-items: center; justify-content: space-between; font-size: 13px; padding: 8px 0; border-top: 1px solid var(--border); }
+  .row .num { font-variant-numeric: tabular-nums; font-weight: 500; }
+  .row .warn { color: var(--accent); font-weight: 500; }
+  .bar { height: 6px; border-radius: 3px; background: var(--tint); overflow: hidden; }
+  .bar i { display: block; height: 100%; width: 62%; background: var(--fill); }
+  .bar i.alt { width: 28%; background: var(--stripe); }
+
+  .notes { background: #fff; border: 1px solid #e5e5e0; border-radius: 6px; padding: 24px 28px; max-width: 780px; line-height: 1.65; font-size: 14px; color: #444; margin-top: 56px; }
+  .notes h3 { font: 400 18px/1.3 'Jost'; margin-bottom: 10px; color: #222; }
+  .notes p + p { margin-top: 10px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="page-head">
+    <div class="eyebrow">Quadrant brand · A2 Livery · dark mode · 2026-11-01</div>
+    <h1>Fixing Livery's dark mode</h1>
+    <p class="lede">In the original dark mode the boat changed. The deep bottom-paint red turned into a light coral, the navy waterline stripe faded to pale denim, and the background went cool blue while light mode is neutral.</p>
+    <p class="lede">All three fixes keep the red deep for solid areas (buttons, bars, stripe) with white text on it, and use a lighter red only for small text. They differ in the background color, which is the "hull color" of the boat.</p>
+  </header>
+
+  <svg width="0" height="0" style="position:absolute">
+    <symbol id="mark" viewBox="5 5 90 78">
+      <path d="M 50,10 L 11,65.7 A 68,68 0 0,0 89,65.7 Z" stroke="currentColor" stroke-width="5" stroke-linejoin="miter" fill="none"/>
+      <line x1="50" y1="10" x2="50" y2="78" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+    </symbol>
+  </svg>
+
+  <div class="grid">
+    <div>
+      <div class="cap"><h3>Light (reference)</h3><p>White topsides, navy boot stripe, deep red bottom paint.</p></div>
+      <div class="panel light"></div>
+    </div>
+    <div>
+      <div class="cap"><h3>Current dark</h3><p>Coral buttons with dark text, pale stripe, cool background. This is the version that felt off.</p></div>
+      <div class="panel current"></div>
+    </div>
+    <div>
+      <div class="cap"><h3>D1 · Split red</h3><p>Smallest change: same background, but the red is fixed (deep fills, light red text only). Shows how much of the problem was the red alone.</p>
+        <div class="chips"><i style="background:#0F1114"></i><i style="background:#B3291E"></i><i style="background:#F08070"></i><i style="background:#6E8CAB"></i></div></div>
+      <div class="panel d1"></div>
+    </div>
+    <div>
+      <div class="cap"><h3>D2 · Navy hull</h3><p>Many boats have dark navy hulls. Here the background becomes the navy and the waterline stripe flips to white. Light and dark mode read as two boats from the same yard.</p>
+        <div class="chips"><i style="background:#0D1520"></i><i style="background:#B3291E"></i><i style="background:#F2836F"></i><i style="background:#EEF0F2"></i></div></div>
+      <div class="panel d2"></div>
+    </div>
+    <div>
+      <div class="cap"><h3>D3 · Black hull</h3><p>A neutral black with a slight warmth, matching the neutral white of light mode. Off-white stripe. Closest to a direct inversion of light mode.</p>
+        <div class="chips"><i style="background:#141312"></i><i style="background:#B3291E"></i><i style="background:#F2836F"></i><i style="background:#E9E6DF"></i></div></div>
+      <div class="panel d3"></div>
+    </div>
+  </div>
+
+  <div class="notes">
+    <h3>The rule this adds to the guide</h3>
+    <p>Brand red has two roles. <b>Fill red</b> (#A3261C light, #B3291E dark) covers solid areas and always has white text on it. <b>Text red</b> is a lighter version used only for red words on a dark background. Never use the lighter red as a fill.</p>
+    <p>Every text pair here meets WCAG AA (4.5:1 or better). White on the dark-mode fill red is 6.5:1.</p>
+  </div>
+</div>
+
+<template id="panel-tpl">
+  <div class="hero">
+    <div class="nav">
+      <div class="lockup"><svg><use href="#mark"/></svg><span class="wordmark">Quadrant</span></div>
+      <div class="nav-links"><span>Work</span><span>About</span><span>Contact</span></div>
+    </div>
+    <h2>Technical leadership, <em>steady</em> and part-time.</h2>
+    <p>Fractional CTO work for small teams: architecture, hiring and a clear course through what comes next.</p>
+    <div class="btn-row"><span class="btn primary">Start a conversation</span><span class="btn ghost">See past work</span></div>
+  </div>
+  <div class="app">
+    <div class="app-bar">
+      <div class="app-title"><svg><use href="#mark"/></svg>Planner <span class="by">· Quadrant</span></div>
+      <span class="tag">Scenario B</span>
+    </div>
+    <div class="app-body">
+      <div class="field"><label>Client hours / week</label><div class="input focus">18</div></div>
+      <div class="bar"><i></i></div>
+      <div class="bar"><i class="alt"></i></div>
+      <div>
+        <div class="row"><span>Projected monthly revenue</span><span class="num">$14,200</span></div>
+        <div class="row"><span>Capacity remaining</span><span class="warn">4 hrs</span></div>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+  const tpl = document.getElementById('panel-tpl');
+  document.querySelectorAll('.panel').forEach(p => p.appendChild(tpl.content.cloneNode(true)));
+</script>
+</body>
+</html>
