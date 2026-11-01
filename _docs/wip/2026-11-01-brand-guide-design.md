@@ -1,6 +1,6 @@
 # Quadrant brand / style guide — design doc
 
-Status: **v1.0.0 built** on branch `brand-guide`, not yet merged · Started 2026-11-01
+Status: **v1.0.0 live** at https://www.quadrantlabs.io/brand/ (merged 2026-11-01) · Started 2026-11-01
 
 ## Goal
 
@@ -165,7 +165,8 @@ brand/
 - [ ] Repaint the homepage watercolor in Clear Day; then update `public/mark.svg` (still v1 navy)
       to the new assets and remove the "known exception" from the guide.
 - [ ] Social card / OG image template in Clear Day.
-- [ ] After deploy: confirm `curl -I https://quadrantlabs.io/brand/llms.txt` returns `text/plain`.
+- [x] After deploy: `llms.txt` is served as `text/plain` (checked 2026-11-01). Guide URLs use
+      `www.quadrantlabs.io`, the canonical host; the bare domain 301-redirects there.
 - [ ] Optional: CI or pre-commit hook running `build.py --check`.
 - [x] Product accent set → none (decision #7)
 - [x] Product naming → decision #6

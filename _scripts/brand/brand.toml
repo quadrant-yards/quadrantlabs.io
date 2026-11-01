@@ -11,7 +11,7 @@ name = "Quadrant"
 company = "Quadrant Labs"
 version = "1.0.0"
 updated = "2026-11-01"
-url = "https://quadrantlabs.io/brand/"
+url = "https://www.quadrantlabs.io/brand/"
 summary = "Brand and style guide for Quadrant Labs and every Quadrant project. One system for people and agents: calm Chesapeake colors, a mark taken from a 1956 wooden sloop, plain precise writing."
 story = "Quadrant takes its name and mark from the Quadrant sloop, a 25-foot wooden boat designed by Laurence Hartge and built at Hartge Yacht Yard in Galesville, Maryland, in the 1950s. A quadrant is also an instrument for finding your position. That's the work: helping small teams find their bearings."
 
@@ -420,6 +420,6 @@ checklist = [
 snippet = """## Brand
 
 This project follows the Quadrant brand guide.
-- Rules: https://quadrantlabs.io/brand/llms.txt (read it before any UI, copy, or asset work)
-- Tokens: copy https://quadrantlabs.io/brand/tokens.css into the project; use `var(--q-*)`, never raw hex
-- Logo: SVG files listed at https://quadrantlabs.io/brand/#logo (never redraw)"""
+- Rules: https://www.quadrantlabs.io/brand/llms.txt (read it before any UI, copy, or asset work)
+- Tokens: copy https://www.quadrantlabs.io/brand/tokens.css into the project; use `var(--q-*)`, never raw hex
+- Logo: SVG files listed at https://www.quadrantlabs.io/brand/#logo (never redraw)"""
