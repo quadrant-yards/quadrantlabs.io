@@ -330,7 +330,7 @@ title = "Illustration & imagery"
 intro = "Use real places and real things from the Chesapeake, wooden boats and navigation, drawn simply."
 rules = [
   "**Illustration** is hand-built SVG or watercolor in the Clear Day palette. Good subjects are the Quadrant sloop, workboats, marsh, charts and tools.",
-  "**Known exception:** the current quadrantlabs.io homepage uses a warm sunset watercolor of the sloop in an earlier palette. It will be repainted in Clear Day, so don't copy its colors into new work.",
+  "**Reference:** the quadrantlabs.io homepage sloop (`/public/quadrant-sloop.svg`) is the model: Bay Water carries the scene, marsh greens and white sails support it, and the channel buoy is the one orange.",
   "**Photos** are real, in natural light, and credited. Only use photos we have permission to publish.",
 ]
 dont = [

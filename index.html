@@ -1,9 +1,17 @@
-<html>
+<!doctype html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
-        <link rel="icon" type="image/svg+xml" href="public/mark.svg">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/svg+xml" href="brand/assets/favicon.svg">
         <title>Quadrant Labs</title>
         <style>
+            /* Clear Day paper + border, light and dark (see brand/tokens.css) */
+            :root { --paper: #F6F7F3; --border: #DCE2DC; }
+            @media (prefers-color-scheme: dark) {
+                :root { --paper: #0B1615; --border: #20332F; }
+            }
+
             html, body {
                 height: 100%;
                 margin: 0;
@@ -13,18 +21,19 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                background: linear-gradient(160deg, #6B4557 0%, #C9784F 55%, #E8C98A 100%);
+                background: var(--paper);
             }
 
             img.hero {
                 width: min(90vw, 900px);
                 height: auto;
                 display: block;
-                filter: drop-shadow(0 18px 40px rgba(30, 15, 20, 0.35));
+                border-radius: 6px;
+                outline: 1px solid var(--border);
             }
         </style>
     </head>
     <body>
-        <img src="public/quadrant-sloop.svg" class="hero" alt="Illustration of the Hartge Quadrant sloop under sail at sunset on the Chesapeake Bay">
+        <img src="public/quadrant-sloop.svg" class="hero" alt="Illustration of the Hartge Quadrant sloop under sail on the Chesapeake Bay on a clear afternoon, with an orange channel buoy nearby">
     </body>
 </html>

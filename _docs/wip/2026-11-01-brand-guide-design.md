@@ -23,7 +23,7 @@ able to fetch one URL and produce on-brand UI, copy, and assets without asking.
 
 ### Carried forward (not reopened)
 
-- **Mark:** the fan-sector mark from the Hartge Quadrant sloop (`public/mark.svg`).
+- **Mark:** the fan-sector mark from the Hartge Quadrant sloop (now `brand/assets/`; the old `public/mark.svg` was removed 2026-11-01).
   Outline as primary; filled variant for favicon/avatar only.
 - **Wordmark:** Jost 400, uppercase, tracked +0.16em.
 - **Origin story:** Hartge Yacht Yard, Galesville MD; Quadrant sloop, 1956.
@@ -151,7 +151,7 @@ brand/
     headings + Archivo + JetBrains Mono), T3 Logbook (Jost headings + Source Serif 4 long-form
     + Source Sans 3 UI + Source Code Pro).
   - Ruled out: soft display serifs (Fraunces, Instrument Serif, Playfair) and Inter, as AI-default.
-- [x] Homepage watercolor → keep for now. **TODO (later): repaint the sloop illustration in Clear Day** (teal water, marsh, orange buoy). Until then it's a known exception.
+- [x] Homepage watercolor → repainted in Clear Day on 2026-11-01 (see Still open).
 - [x] Sync strategy → **generated.** `_scripts/brand/brand.toml` is the single source;
   `_scripts/brand/build.py` (stdlib only) writes `brand/index.html`, `llms.txt`, `tokens.css`,
   `base.css`, `tokens.json` and `assets/*.svg`, and fails the build if any text color drops
@@ -162,8 +162,11 @@ brand/
 
 - [ ] Pronoun on the consulting site: "I" (sole practitioner) or "we"? The voice example uses "I".
 - [ ] Policy on AI-generated imagery (guide currently says nothing either way).
-- [ ] Repaint the homepage watercolor in Clear Day; then update `public/mark.svg` (still v1 navy)
-      to the new assets and remove the "known exception" from the guide.
+- [x] Repaint the homepage watercolor in Clear Day (done 2026-11-01): `public/quadrant-sloop.svg`
+      recolored (teal sky and water, marsh shore, white sails, Deep Channel boot stripe, one orange
+      channel buoy, whitecaps for wind). Page is flat `paper` with dark mode, no gradient or shadow.
+      Favicon now `brand/assets/favicon.svg`; `public/mark.svg` (v1 navy) deleted. Guide's "known
+      exception" replaced with a pointer to the homepage as the illustration reference.
 - [ ] Social card / OG image template in Clear Day.
 - [x] After deploy: `llms.txt` is served as `text/plain` (checked 2026-11-01). Guide URLs use
       `www.quadrantlabs.io`, the canonical host; the bare domain 301-redirects there.
