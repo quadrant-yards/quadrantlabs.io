@@ -179,9 +179,9 @@ Words to avoid: elevate, seamless, unlock, empower, leverage (as a verb), cuttin
 
 Quadrant projects (Planner, Trip Split, Bookrec, Metronome and others) share the whole system. A product is identified by its name, not by its own colors or logo.
 
-- **Naming.** Use the product's plain name followed by a small "Quadrant": **Planner · Quadrant**. Don't write "Quadrant Planner".
-- **App bar.** Show the outline mark at 16 to 20px in `primary`, then the product name in Plex 600, then " · Quadrant" in `muted` 400.
-- **Page title.** Use the form `<title>Planner · Quadrant</title>`, with the current view first when useful: `Scenario B · Planner · Quadrant`.
+- **Naming.** Name products however fits them. A good default is the plain name with a small "Quadrant" after it, like **Planner · Quadrant**, but it's a suggestion, not a rule.
+- **App bar.** Show the outline mark at 16 to 20px in `primary`, then the product name in Plex 600. If you use the " · Quadrant" suffix, set it in `muted` 400.
+- **Page title.** Put the product name in the `<title>`, with the current view first when useful: `Scenario B · Planner`.
 - **Favicon and app icon.** Use the shared `favicon.svg` and `app-icon.svg`. Products don't get their own marks.
 - **Colors.** Products use Clear Day exactly. There are no per-product accent colors.
 - **README.** The H1 is the product name. The first line says what it does in one sentence. The footer reads "Made by Quadrant Labs · quadrantlabs.io".
@@ -220,5 +220,4 @@ Checklist before shipping UI, copy, or assets:
 - [ ] Primary buttons use `fill`, and there's one per view
 - [ ] All text passes 4.5:1 contrast; focus styles are visible
 - [ ] Copy has no words from the avoid list, no exclamation marks and no emoji
-- [ ] Product name reads "Name · Quadrant" in the app bar and the page title
 - [ ] Logo comes from the supplied SVG, at least 24px, in ink, white or Bay Water
