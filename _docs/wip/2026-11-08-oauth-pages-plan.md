@@ -89,3 +89,22 @@ Not on any page: the old internal app name, personal email addresses, server hos
 ## Open questions for Sam
 
 None. All answered on Nov 21, 2026 (see Decisions).
+
+## Done (Nov 21, 2026)
+
+Merged in PR #1. Live pages:
+
+- Home: https://www.quadrantlabs.io/apps/agents/
+- Privacy policy: https://www.quadrantlabs.io/apps/agents/privacy/
+- Terms of service: https://www.quadrantlabs.io/apps/agents/terms/
+
+All three return 200 over HTTPS, and the apex domain redirects to `www`.
+
+In Google Cloud, Sam renamed the app to Quadrant Agents, entered the three URLs, added `quadrantlabs.io` as an authorized domain, and published the app to Production. The assistant's access was approved again.
+
+**Verification skipped on purpose.** The app has one user, well under Google's 100-user limit for unverified apps. Verifying the Gmail restricted scope would mean a yearly third-party security assessment (CASA). Branding verification is optional: it needs `quadrantlabs.io` verified in Google Search Console with a DNS TXT record.
+
+**Follow-ups:**
+- Around Nov 28, 2026, check that access did not expire after 7 days. If it did, Production status did not take effect.
+- Handle deletion requests sent to apps@quadrantlabs.io by deleting conversation history, assistant memory and indexes, and duplicate transcripts.
+- Update the privacy policy if storage changes, such as backups being added or the credentials file moving.
