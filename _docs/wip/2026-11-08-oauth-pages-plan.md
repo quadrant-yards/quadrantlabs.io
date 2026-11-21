@@ -7,7 +7,9 @@ Brief: [2026-11-08-oauth-reqs.md](2026-11-08-oauth-reqs.md)
 - **Generic name only.** The public pages, paths, titles, and copy use the generic name **Agents** ("Quadrant Agents" where a full name is needed). The assistant's old internal name does not appear on the site or in this repo.
   - The consent screen app name has to match the home page, so **Sam renames the OAuth app** on the Google Cloud Branding page from its old internal name to `Quadrant Agents`. Do this in the same edit that adds the URLs.
 - **Retention (corrected Nov 21, 2026 after PR #1 review):** conversation history can include Gmail and Calendar content and is kept until the operator deletes it, along with related assistant memory and indexes. Users can ask for deletion at apps@quadrantlabs.io, with no deletion deadline promised. Operational logs are kept up to 7 days, and security and audit metadata up to 30 days. Do not claim encryption at rest for history or tokens; neither is verified.
-- **OAuth credentials:** refresh tokens are stored on a private server with access restricted to the service account, and access tokens are held in memory. **Gate:** the policy's credentials paragraph must be checked against the Quadrant Agents OAuth implementation once it is configured, before merging.
+- **OAuth credentials:** the refresh token is in the Google CLI's encrypted credentials file in the operator's home directory on the server, not under a service account. Access tokens are held in memory. The policy says "encrypted credentials file in the operator's account" and gives no path or hostname.
+- **Backups:** none are kept, so the policy needs no snapshot disclosure.
+- **Deletion:** Sam has a way to delete conversation history, assistant memory and indexes, and duplicate transcripts.
 - **Contact:** apps@quadrantlabs.io on every page.
 - **Model providers:** yes. Content is sent to an AI model provider only to answer the user's request. The Sharing section says so.
 - **Terms of service:** include them.
