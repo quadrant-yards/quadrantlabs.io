@@ -20,11 +20,11 @@ Report back with the final URLs.
 
 ## Page content
 
-**Home page.** A few sentences: Quadrant Agents is a private assistant tool run by Quadrant Labs for one household user. It is not offered to the public. Link to the privacy policy. Contact: sam@quadrantlabs.io.
+**Home page.** A few sentences: Quadrant Agents is a private assistant tool run by Quadrant Labs for one household user. It is not offered to the public. Link to the privacy policy. Contact: apps@quadrantlabs.io.
 
 **Privacy policy.** It must cover these points:
 
-- **Who:** operated by Quadrant Labs. Contact: sam@quadrantlabs.io.
+- **Who:** operated by Quadrant Labs. Contact: apps@quadrantlabs.io.
 - **What Google data it accesses:**
   - Gmail, read-only
   - Google Calendar events, view and edit

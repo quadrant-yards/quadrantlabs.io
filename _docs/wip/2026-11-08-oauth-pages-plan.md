@@ -6,7 +6,9 @@ Brief: [2026-11-08-oauth-reqs.md](2026-11-08-oauth-reqs.md)
 
 - **Generic name only.** The public pages, paths, titles, and copy use the generic name **Agents** ("Quadrant Agents" where a full name is needed). The assistant's old internal name does not appear on the site or in this repo.
   - The consent screen app name has to match the home page, so **Sam renames the OAuth app** on the Google Cloud Branding page from its old internal name to `Quadrant Agents`. Do this in the same edit that adds the URLs.
-- **Retention:** Google user data (email and calendar content) is not kept after the assistant uses it. It is processed to answer the request and then discarded. Only the OAuth tokens are stored.
+- **Retention (corrected Nov 21, 2026 after PR #1 review):** conversation history can include Gmail and Calendar content and is kept until the operator deletes it, along with related assistant memory and indexes. Users can ask for deletion at apps@quadrantlabs.io, with no deletion deadline promised. Operational logs are kept up to 7 days, and security and audit metadata up to 30 days. Do not claim encryption at rest for history or tokens; neither is verified.
+- **OAuth credentials:** refresh tokens are stored on a private server with access restricted to the service account, and access tokens are held in memory. **Gate:** the policy's credentials paragraph must be checked against the Quadrant Agents OAuth implementation once it is configured, before merging.
+- **Contact:** apps@quadrantlabs.io on every page.
 - **Model providers:** yes. Content is sent to an AI model provider only to answer the user's request. The Sharing section says so.
 - **Terms of service:** include them.
 - **Effective date:** Nov 1, 2026, on all three pages.
@@ -47,15 +49,15 @@ All three pages share the same minimal shell:
 - Quadrant Agents is a private assistant tool run by Quadrant Labs for one household user. It is not offered to the public.
 - What it does, in one line: it lets the user's assistant read their Gmail and manage their Google Calendar when they ask.
 - Links to the privacy policy and terms.
-- Contact: sam@quadrantlabs.io.
+- Contact: apps@quadrantlabs.io.
 
 **Privacy policy** sections, in this order:
-1. Who operates it: Quadrant Labs, sam@quadrantlabs.io
+1. Who operates it: Quadrant Labs, apps@quadrantlabs.io
 2. Google data it accesses: Gmail (read-only), Calendar events (view and edit), calendar list (read-only), basic account info (email address)
 3. Why: so the user's assistant can read email and manage calendar events when the user asks
 4. Sharing: not sold, not used for ads, not shared with third parties except as needed to provide the feature. Content is sent to an AI model provider only to answer the user's request.
 5. Storage: OAuth tokens stored encrypted on a private server
-6. Retention: email and calendar content is not kept after the assistant uses it. Only OAuth tokens are stored, until access is revoked.
+6. Storage and retention: conversation history, logs, and OAuth credentials as described in Decisions
 7. Revoking access: link to https://myaccount.google.com/permissions
 8. Limited Use statement, verbatim from the brief, with the link
 9. Effective date: Nov 1, 2026
@@ -66,7 +68,7 @@ All three pages share the same minimal shell:
 3. The user's use of Google services stays subject to Google's own terms
 4. Access can be revoked at any time (link to https://myaccount.google.com/permissions)
 5. Changes to these terms will be posted on this page
-6. Contact: sam@quadrantlabs.io
+6. Contact: apps@quadrantlabs.io
 7. Effective date: Nov 1, 2026
 
 Not on any page: the old internal app name, personal email addresses, server hostnames, the GCP project ID, client IDs, or secrets.
@@ -76,7 +78,7 @@ Not on any page: the old internal app name, personal email addresses, server hos
 1. Branch from `main`: `agents-oauth-pages`.
 2. Add `apps/agents/index.html`, `apps/agents/privacy/index.html`, and `apps/agents/terms/index.html`.
 3. Check them locally (`python3 -m http.server`): light mode, dark mode, phone width, links work.
-4. Grep the new files for leaked identifiers (the old internal app name case-insensitive, the GCP project ID, `googleusercontent`, hostnames, any address other than sam@quadrantlabs.io).
+4. Grep the new files for leaked identifiers (the old internal app name case-insensitive, the GCP project ID, `googleusercontent`, hostnames, any address other than apps@quadrantlabs.io).
 5. Confirm `python3 _scripts/brand/build.py --check` still passes, which shows `brand/` was not touched.
 6. Commit and open a PR to `main`. Merging deploys.
 7. After the merge, `curl` all three URLs to confirm 200 over HTTPS, and confirm the apex URLs redirect to them.
