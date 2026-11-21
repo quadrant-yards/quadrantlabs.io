@@ -1,0 +1,12 @@
+/* Shared shell for the Quadrant Agents pages. Requires /brand/tokens.css and /brand/base.css. */
+.a-bar { border-bottom: 1px solid var(--q-border); background: var(--q-surface); }
+.a-bar-in { max-width: var(--q-measure); margin: 0 auto; padding: 14px 16px; display: flex; align-items: center; gap: var(--q-space-2); }
+.a-bar a { display: flex; align-items: center; gap: var(--q-space-2); color: var(--q-ink); text-decoration: none; font-weight: 600; font-size: var(--q-text-ui); }
+.a-mark { width: 20px; height: 20px; color: var(--q-primary); flex: none; }
+main { max-width: var(--q-measure); margin: 0 auto; padding: var(--q-space-7) 16px var(--q-space-8); }
+main h1 { margin-bottom: var(--q-space-4); }
+main h2 { margin-top: var(--q-space-6); }
+main ul { padding-left: 1.25em; max-width: var(--q-measure); }
+main li { margin-bottom: var(--q-space-2); }
+.a-meta { color: var(--q-muted); font-size: var(--q-text-small); }
+.a-foot { color: var(--q-muted); font-size: var(--q-text-small); border-top: 1px solid var(--q-border); margin-top: var(--q-space-7); padding-top: var(--q-space-4); }
